@@ -190,7 +190,7 @@ importers:
       get-port: 5.1.1
       global-dirs: 3.0.0
       is-installed-globally: 0.4.0
-      jest: 27.5.1_ts-node@10.4.0
+      jest: 27.5.1
       jest-junit: 13.0.0
       line-replace: 2.0.1
       log-update: 4.0.0
@@ -583,6 +583,7 @@ importers:
       '@swc/core': 1.2.141
       '@swc/jest': 0.2.17
       '@timsuchanek/copy': 1.4.5
+      '@types/didyoumean': ^1.2.0
       '@types/jest': 27.4.1
       '@types/node': 12.20.47
       '@types/resolve': 1.20.1
@@ -593,6 +594,7 @@ importers:
       chalk: 4.1.2
       checkpoint-client: 1.1.21
       cli-truncate: 2.1.0
+      didyoumean: ^1.2.2
       dotenv: 16.0.0
       esbuild: 0.13.14
       escape-string-regexp: 4.0.0
@@ -642,6 +644,7 @@ importers:
       chalk: 4.1.2
       checkpoint-client: 1.1.21
       cli-truncate: 2.1.0
+      didyoumean: 1.2.2
       dotenv: 16.0.0
       escape-string-regexp: 4.0.0
       execa: 5.1.1
@@ -675,6 +678,7 @@ importers:
     devDependencies:
       '@swc/core': 1.2.141
       '@swc/jest': 0.2.17_@swc+core@1.2.141
+      '@types/didyoumean': 1.2.0
       '@types/jest': 27.4.1
       '@types/node': 12.20.47
       '@types/resolve': 1.20.1
@@ -1940,6 +1944,10 @@ packages:
     resolution: {integrity: sha512-9AonUzyTjXXhEOa0DnqpzZi6VHlqKMswga9EXjpXnnqxwLtdvPPtlO8evrI5D9S6asFRCQ6v+wpiUKbw+vKqyg==}
     dependencies:
       '@types/ms': 0.7.31
+
+  /@types/didyoumean/1.2.0:
+    resolution: {integrity: sha512-3QMjBOgPEXaOkhfQxiGgzn6JpofPSi8Z0RmQq65FIpZv4kCPT/jvYiYrwqaUrfiHZmwwRvyYJjJmoKopbvLPQw==}
+    dev: true
 
   /@types/eslint/7.29.0:
     resolution: {integrity: sha512-VNcvioYDH8/FxaeTKkM4/TiTwt6pBV9E3OfGmvaw8tPl0rrHCJ4Ll15HRT+pMiFAf/MLQvAzC+6RzUMEL9Ceng==}
@@ -3318,6 +3326,10 @@ packages:
     resolution: {integrity: sha512-TLz+x/vEXm/Y7P7wn1EJFNLxYpUD4TgMosxY6fAVJUnJMbupHBOncxyWUG9OpTaH9EBD7uFI5LfEgmMOc54DsA==}
     engines: {node: '>=8'}
     dev: true
+
+  /didyoumean/1.2.2:
+    resolution: {integrity: sha512-gxtyfqMg7GKyhQmb056K7M3xszy/myH8w+B4RT+QXBQsvAOdc3XymqDDPHx1BgPgsdAA5SIifona89YtRATDzw==}
+    dev: false
 
   /diff-sequences/27.5.1:
     resolution: {integrity: sha512-k1gCAXAsNgLwEL+Y8Wvl+M6oEFj5bgazfZULpS5CneoPPXRaCCW7dm+q21Ky2VEE5X+VeRDBVg1Pcvvsr4TtNQ==}
@@ -5258,7 +5270,7 @@ packages:
       pretty-format: 27.5.1
       slash: 3.0.0
       strip-json-comments: 3.1.1
-      ts-node: 10.4.0_b575a4ed8d8a14db25cb9540c04f64f6
+      ts-node: 10.4.0_82274b92ec7bae91027ffd577a5efb53
     transitivePeerDependencies:
       - bufferutil
       - canvas
