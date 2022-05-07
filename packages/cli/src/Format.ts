@@ -54,15 +54,13 @@ Or specify a Prisma schema path
 
     const schemaPath = await getSchemaPathAndPrint(args['--schema'])
 
-    let output = await formatSchema({
+    const output = await formatSchema({
       schemaPath,
     })
 
     await getDMMF({
       datamodel: output,
     })
-
-    output = output.trimEnd() + os.EOL
 
     fs.writeFileSync(schemaPath, output)
     const after = Date.now()

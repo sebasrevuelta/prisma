@@ -5,7 +5,7 @@ import { Format } from '../../Format'
 
 const ctx = jestContext.new().assemble()
 
-it('format should add a trailing EOL', async () => {
+it('format should have consistent EOL for all lines', async () => {
   ctx.fixture('example-project/prisma')
   await Format.new().parse([])
   expect(fs.read('schema.prisma')).toMatchSnapshot()
@@ -13,7 +13,7 @@ it('format should add a trailing EOL', async () => {
 
 it('format should add missing backrelation', async () => {
   ctx.fixture('example-project/prisma')
-  await Format.new().parse(['--schema=missing-backrelation.prisma'])
+  await Format.new().parse(['--schema=' + ctx.tmpDir + '/missing-backrelation.prisma'])
   expect(fs.read('missing-backrelation.prisma')).toMatchSnapshot()
 })
 
