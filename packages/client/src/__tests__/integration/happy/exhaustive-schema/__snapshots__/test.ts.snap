@@ -579,8 +579,8 @@ export type ABeautifulEnum = (typeof ABeautifulEnum)[keyof typeof ABeautifulEnum
  * @example
  * \`\`\`
  * const prisma = new PrismaClient()
- * // Fetch zero or more Posts
- * const posts = await prisma.post.findMany()
+ * // Fetch zero or more 'Post'
+ * const results = await prisma.post.findMany()
  * \`\`\`
  *
  * 
@@ -625,8 +625,8 @@ export class PrismaClient<
    * @example
    * \`\`\`
    * const prisma = new PrismaClient()
-   * // Fetch zero or more Posts
-   * const posts = await prisma.post.findMany()
+   * // Fetch zero or more 'Post'
+   * const results = await prisma.post.findMany()
    * \`\`\`
    *
    * 
@@ -716,8 +716,8 @@ export class PrismaClient<
    * \`prisma.post\`: Exposes CRUD operations for the **Post** model.
     * Example usage:
     * \`\`\`ts
-    * // Fetch zero or more Posts
-    * const posts = await prisma.post.findMany()
+    * // Fetch zero or more 'Post'
+    * const results = await prisma.post.findMany()
     * \`\`\`
     */
   get post(): Prisma.PostDelegate<GlobalReject>;
@@ -726,8 +726,8 @@ export class PrismaClient<
    * \`prisma.user\`: Exposes CRUD operations for the **User** model.
     * Example usage:
     * \`\`\`ts
-    * // Fetch zero or more Users
-    * const users = await prisma.user.findMany()
+    * // Fetch zero or more 'User'
+    * const results = await prisma.user.findMany()
     * \`\`\`
     */
   get user(): Prisma.UserDelegate<GlobalReject>;
@@ -736,8 +736,8 @@ export class PrismaClient<
    * \`prisma.m\`: Exposes CRUD operations for the **M** model.
     * Example usage:
     * \`\`\`ts
-    * // Fetch zero or more Ms
-    * const ms = await prisma.m.findMany()
+    * // Fetch zero or more 'M'
+    * const results = await prisma.m.findMany()
     * \`\`\`
     */
   get m(): Prisma.MDelegate<GlobalReject>;
@@ -746,8 +746,8 @@ export class PrismaClient<
    * \`prisma.n\`: Exposes CRUD operations for the **N** model.
     * Example usage:
     * \`\`\`ts
-    * // Fetch zero or more Ns
-    * const ns = await prisma.n.findMany()
+    * // Fetch zero or more 'N'
+    * const results = await prisma.n.findMany()
     * \`\`\`
     */
   get n(): Prisma.NDelegate<GlobalReject>;
@@ -756,8 +756,8 @@ export class PrismaClient<
    * \`prisma.oneOptional\`: Exposes CRUD operations for the **OneOptional** model.
     * Example usage:
     * \`\`\`ts
-    * // Fetch zero or more OneOptionals
-    * const oneOptionals = await prisma.oneOptional.findMany()
+    * // Fetch zero or more 'OneOptional'
+    * const results = await prisma.oneOptional.findMany()
     * \`\`\`
     */
   get oneOptional(): Prisma.OneOptionalDelegate<GlobalReject>;
@@ -766,8 +766,8 @@ export class PrismaClient<
    * \`prisma.manyRequired\`: Exposes CRUD operations for the **ManyRequired** model.
     * Example usage:
     * \`\`\`ts
-    * // Fetch zero or more ManyRequireds
-    * const manyRequireds = await prisma.manyRequired.findMany()
+    * // Fetch zero or more 'ManyRequired'
+    * const results = await prisma.manyRequired.findMany()
     * \`\`\`
     */
   get manyRequired(): Prisma.ManyRequiredDelegate<GlobalReject>;
@@ -776,8 +776,8 @@ export class PrismaClient<
    * \`prisma.optionalSide1\`: Exposes CRUD operations for the **OptionalSide1** model.
     * Example usage:
     * \`\`\`ts
-    * // Fetch zero or more OptionalSide1s
-    * const optionalSide1s = await prisma.optionalSide1.findMany()
+    * // Fetch zero or more 'OptionalSide1'
+    * const results = await prisma.optionalSide1.findMany()
     * \`\`\`
     */
   get optionalSide1(): Prisma.OptionalSide1Delegate<GlobalReject>;
@@ -786,8 +786,8 @@ export class PrismaClient<
    * \`prisma.optionalSide2\`: Exposes CRUD operations for the **OptionalSide2** model.
     * Example usage:
     * \`\`\`ts
-    * // Fetch zero or more OptionalSide2s
-    * const optionalSide2s = await prisma.optionalSide2.findMany()
+    * // Fetch zero or more 'OptionalSide2'
+    * const results = await prisma.optionalSide2.findMany()
     * \`\`\`
     */
   get optionalSide2(): Prisma.OptionalSide2Delegate<GlobalReject>;
@@ -796,8 +796,8 @@ export class PrismaClient<
    * \`prisma.a\`: Exposes CRUD operations for the **A** model.
     * Example usage:
     * \`\`\`ts
-    * // Fetch zero or more As
-    * const as = await prisma.a.findMany()
+    * // Fetch zero or more 'A'
+    * const results = await prisma.a.findMany()
     * \`\`\`
     */
   get a(): Prisma.ADelegate<GlobalReject>;
@@ -806,8 +806,8 @@ export class PrismaClient<
    * \`prisma.b\`: Exposes CRUD operations for the **B** model.
     * Example usage:
     * \`\`\`ts
-    * // Fetch zero or more Bs
-    * const bs = await prisma.b.findMany()
+    * // Fetch zero or more 'B'
+    * const results = await prisma.b.findMany()
     * \`\`\`
     */
   get b(): Prisma.BDelegate<GlobalReject>;
@@ -816,8 +816,8 @@ export class PrismaClient<
    * \`prisma.c\`: Exposes CRUD operations for the **C** model.
     * Example usage:
     * \`\`\`ts
-    * // Fetch zero or more Cs
-    * const cs = await prisma.c.findMany()
+    * // Fetch zero or more 'C'
+    * const results = await prisma.c.findMany()
     * \`\`\`
     */
   get c(): Prisma.CDelegate<GlobalReject>;
@@ -826,8 +826,8 @@ export class PrismaClient<
    * \`prisma.d\`: Exposes CRUD operations for the **D** model.
     * Example usage:
     * \`\`\`ts
-    * // Fetch zero or more Ds
-    * const ds = await prisma.d.findMany()
+    * // Fetch zero or more 'D'
+    * const results = await prisma.d.findMany()
     * \`\`\`
     */
   get d(): Prisma.DDelegate<GlobalReject>;
@@ -836,8 +836,8 @@ export class PrismaClient<
    * \`prisma.e\`: Exposes CRUD operations for the **E** model.
     * Example usage:
     * \`\`\`ts
-    * // Fetch zero or more Es
-    * const es = await prisma.e.findMany()
+    * // Fetch zero or more 'E'
+    * const results = await prisma.e.findMany()
     * \`\`\`
     */
   get e(): Prisma.EDelegate<GlobalReject>;
@@ -1719,14 +1719,14 @@ export namespace Prisma {
 
   export type PostAggregateArgs = {
     /**
-     * Filter which Post to aggregate.
+     * Filter what 'Post' to aggregate.
      * 
     **/
     where?: PostWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Posts to fetch.
+     * Determine the order of 'Post' to fetch.
      * 
     **/
     orderBy?: Enumerable<PostOrderByWithRelationInput>
@@ -1740,21 +1740,21 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` Posts from the position of the cursor.
+     * Take \`±n\` 'Post' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` Posts.
+     * Skip the first \`n\` 'Post'.
      * 
     **/
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Posts
+     * Count returned 'Post'
     **/
     _count?: true | PostCountAggregateInputType
     /**
@@ -1881,8 +1881,8 @@ export namespace Prisma {
 
   export interface PostDelegate<GlobalRejectSettings> {
     /**
-     * Find zero or one Post that matches the filter.
-     * @param {PostFindUniqueArgs} args - Arguments to find a Post
+     * Returns Post that matches the filter or null if nothing is found
+     * @param {PostFindUniqueArgs} args - Arguments to find 'Post'
      * @example
      * // Get one Post
      * const post = await prisma.post.findUnique({
@@ -1899,7 +1899,7 @@ export namespace Prisma {
      * Find the first Post that matches the filter.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PostFindFirstArgs} args - Arguments to find a Post
+     * @param {PostFindFirstArgs} args - Arguments to find 'Post'
      * @example
      * // Get one Post
      * const post = await prisma.post.findFirst({
@@ -1913,68 +1913,64 @@ export namespace Prisma {
     ): HasReject<GlobalRejectSettings, LocalRejectSettings, 'findFirst', 'Post'> extends True ? CheckSelect<T, Prisma__PostClient<Post>, Prisma__PostClient<PostGetPayload<T>>> : CheckSelect<T, Prisma__PostClient<Post | null >, Prisma__PostClient<PostGetPayload<T> | null >>
 
     /**
-     * Find zero or more Posts that matches the filter.
+     * Find zero or more 'Post' that match the filter.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {PostFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Posts
-     * const posts = await prisma.post.findMany()
-     * 
-     * // Get first 10 Posts
-     * const posts = await prisma.post.findMany({ take: 10 })
+     * // Get all 'Post'
+     * const results = await prisma.post.findMany()
+     *         
+     * // Get first 10 'Post'
+     * const results = await prisma.post.findMany({ take: 10 })
      * 
      * // Only select the \`id\`
-     * const postWithIdOnly = await prisma.post.findMany({ select: { id: true } })
-     * 
+     * const resultsWithIdOnly = await prisma.post.findMany({ select: { id: true } })
     **/
     findMany<T extends PostFindManyArgs>(
       args?: SelectSubset<T, PostFindManyArgs>
     ): CheckSelect<T, PrismaPromise<Array<Post>>, PrismaPromise<Array<PostGetPayload<T>>>>
 
     /**
-     * Create a Post.
-     * @param {PostCreateArgs} args - Arguments to create a Post.
+     * Create 'Post'.
+     * @param {PostCreateArgs} args - Arguments to create 'Post'.
      * @example
      * // Create one Post
      * const Post = await prisma.post.create({
      *   data: {
-     *     // ... data to create a Post
+     *     // ... data to create 'Post'
      *   }
      * })
-     * 
     **/
     create<T extends PostCreateArgs>(
       args: SelectSubset<T, PostCreateArgs>
     ): CheckSelect<T, Prisma__PostClient<Post>, Prisma__PostClient<PostGetPayload<T>>>
 
     /**
-     * Create many Posts.
-     *     @param {PostCreateManyArgs} args - Arguments to create many Posts.
-     *     @example
-     *     // Create many Posts
-     *     const post = await prisma.post.createMany({
-     *       data: {
-     *         // ... provide data here
-     *       }
-     *     })
-     *     
+     * Create many 'Post'.
+     * @param {PostCreateManyArgs} args - Arguments to create many 'Post'.
+     * @example
+     * // Create many 'Post'
+     * const results = await prisma.post.createMany({
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
     **/
     createMany<T extends PostCreateManyArgs>(
       args?: SelectSubset<T, PostCreateManyArgs>
     ): PrismaPromise<BatchPayload>
 
     /**
-     * Delete a Post.
+     * Delete 'Post'.
      * @param {PostDeleteArgs} args - Arguments to delete one Post.
      * @example
      * // Delete one Post
-     * const Post = await prisma.post.delete({
+     * await prisma.post.delete({
      *   where: {
      *     // ... filter to delete one Post
      *   }
      * })
-     * 
     **/
     delete<T extends PostDeleteArgs>(
       args: SelectSubset<T, PostDeleteArgs>
@@ -1993,36 +1989,34 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     * 
     **/
     update<T extends PostUpdateArgs>(
       args: SelectSubset<T, PostUpdateArgs>
     ): CheckSelect<T, Prisma__PostClient<Post>, Prisma__PostClient<PostGetPayload<T>>>
 
     /**
-     * Delete zero or more Posts.
-     * @param {PostDeleteManyArgs} args - Arguments to filter Posts to delete.
+     * Delete zero or more 'Post'.
+     * @param {PostDeleteManyArgs} args - Arguments to filter 'Post' to delete.
      * @example
-     * // Delete a few Posts
+     * // Delete a few 'Post'
      * const { count } = await prisma.post.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
-     * 
     **/
     deleteMany<T extends PostDeleteManyArgs>(
       args?: SelectSubset<T, PostDeleteManyArgs>
     ): PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Posts.
+     * Update zero or more 'Post'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {PostUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Posts
-     * const post = await prisma.post.updateMany({
+     * // Update many 'Post'
+     * const results = await prisma.post.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2030,7 +2024,6 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     * 
     **/
     updateMany<T extends PostUpdateManyArgs>(
       args: SelectSubset<T, PostUpdateManyArgs>
@@ -2038,12 +2031,12 @@ export namespace Prisma {
 
     /**
      * Create or update one Post.
-     * @param {PostUpsertArgs} args - Arguments to update or create a Post.
+     * @param {PostUpsertArgs} args - Arguments to update or create 'Post'.
      * @example
-     * // Update or create a Post
+     * // Update or create 'Post'
      * const post = await prisma.post.upsert({
      *   create: {
-     *     // ... data to create a Post
+     *     // ... data to create 'Post'
      *   },
      *   update: {
      *     // ... in case it already exists, update
@@ -2058,15 +2051,15 @@ export namespace Prisma {
     ): CheckSelect<T, Prisma__PostClient<Post>, Prisma__PostClient<PostGetPayload<T>>>
 
     /**
-     * Count the number of Posts.
+     * Count the number of 'Post'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PostCountArgs} args - Arguments to filter Posts to count.
+     * @param {PostCountArgs} args - Arguments to filter 'Post' to count.
      * @example
-     * // Count the number of Posts
+     * // Count the number of 'Post'
      * const count = await prisma.post.count({
      *   where: {
-     *     // ... the filter for the Posts we want to count
+     *     // ... the filter for the 'Post' we want to count
      *   }
      * })
     **/
@@ -2081,7 +2074,7 @@ export namespace Prisma {
     >
 
     /**
-     * Allows you to perform aggregations operations on a Post.
+     * Allows you to perform aggregations operations on 'Post'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {PostAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
@@ -2107,7 +2100,7 @@ export namespace Prisma {
     aggregate<T extends PostAggregateArgs>(args: Subset<T, PostAggregateArgs>): PrismaPromise<GetPostAggregateType<T>>
 
     /**
-     * Group by Post.
+     * Group by 'Post'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {PostGroupByArgs} args - Group by arguments.
@@ -2122,7 +2115,6 @@ export namespace Prisma {
      *     _all: true
      *   },
      * })
-     * 
     **/
     groupBy<
       T extends PostGroupByArgs,
@@ -2288,35 +2280,35 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Posts to fetch.
+     * Determine the order of 'Post' to fetch.
      * 
     **/
     orderBy?: Enumerable<PostOrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Posts.
+     * Sets the position for searching for 'Post'.
      * 
     **/
     cursor?: PostWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` Posts from the position of the cursor.
+     * Take \`±n\` 'Post' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` Posts.
+     * Skip the first \`n\` 'Post'.
      * 
     **/
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Posts.
+     * Filter by unique combinations of 'Post'.
      * 
     **/
     distinct?: Enumerable<PostScalarFieldEnum>
@@ -2338,35 +2330,35 @@ export namespace Prisma {
     **/
     include?: PostInclude | null
     /**
-     * Filter, which Posts to fetch.
+     * Filter on 'Post'.
      * 
     **/
     where?: PostWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Posts to fetch.
+     * Determine the order of 'Post' to fetch.
      * 
     **/
     orderBy?: Enumerable<PostOrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Posts.
+     * Sets the position for listing 'Post'.
      * 
     **/
     cursor?: PostWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` Posts from the position of the cursor.
+     * Take \`±n\` 'Post' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` Posts.
+     * Skip the first \`n\` 'Post'.
      * 
     **/
     skip?: number
@@ -2389,7 +2381,7 @@ export namespace Prisma {
     **/
     include?: PostInclude | null
     /**
-     * The data needed to create a Post.
+     * The data needed to create 'Post'.
      * 
     **/
     data: XOR<PostCreateInput, PostUncheckedCreateInput>
@@ -2401,7 +2393,7 @@ export namespace Prisma {
    */
   export type PostCreateManyArgs = {
     /**
-     * The data used to create many Posts.
+     * The data used to create many 'Post'.
      * 
     **/
     data: Enumerable<PostCreateManyInput>
@@ -2424,7 +2416,7 @@ export namespace Prisma {
     **/
     include?: PostInclude | null
     /**
-     * The data needed to update a Post.
+     * The data needed to update 'Post'.
      * 
     **/
     data: XOR<PostUpdateInput, PostUncheckedUpdateInput>
@@ -2441,12 +2433,12 @@ export namespace Prisma {
    */
   export type PostUpdateManyArgs = {
     /**
-     * The data used to update Posts.
+     * The data used to update 'Post'.
      * 
     **/
     data: XOR<PostUpdateManyMutationInput, PostUncheckedUpdateManyInput>
     /**
-     * Filter which Posts to update
+     * Filter which 'Post' to update
      * 
     **/
     where?: PostWhereInput
@@ -2512,7 +2504,7 @@ export namespace Prisma {
    */
   export type PostDeleteManyArgs = {
     /**
-     * Filter which Posts to delete
+     * Filter which 'Post' to delete
      * 
     **/
     where?: PostWhereInput
@@ -2681,14 +2673,14 @@ export namespace Prisma {
 
   export type UserAggregateArgs = {
     /**
-     * Filter which User to aggregate.
+     * Filter what 'User' to aggregate.
      * 
     **/
     where?: UserWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Users to fetch.
+     * Determine the order of 'User' to fetch.
      * 
     **/
     orderBy?: Enumerable<UserOrderByWithRelationInput>
@@ -2702,21 +2694,21 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` Users from the position of the cursor.
+     * Take \`±n\` 'User' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` Users.
+     * Skip the first \`n\` 'User'.
      * 
     **/
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Users
+     * Count returned 'User'
     **/
     _count?: true | UserCountAggregateInputType
     /**
@@ -2863,8 +2855,8 @@ export namespace Prisma {
 
   export interface UserDelegate<GlobalRejectSettings> {
     /**
-     * Find zero or one User that matches the filter.
-     * @param {UserFindUniqueArgs} args - Arguments to find a User
+     * Returns User that matches the filter or null if nothing is found
+     * @param {UserFindUniqueArgs} args - Arguments to find 'User'
      * @example
      * // Get one User
      * const user = await prisma.user.findUnique({
@@ -2881,7 +2873,7 @@ export namespace Prisma {
      * Find the first User that matches the filter.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserFindFirstArgs} args - Arguments to find a User
+     * @param {UserFindFirstArgs} args - Arguments to find 'User'
      * @example
      * // Get one User
      * const user = await prisma.user.findFirst({
@@ -2895,68 +2887,64 @@ export namespace Prisma {
     ): HasReject<GlobalRejectSettings, LocalRejectSettings, 'findFirst', 'User'> extends True ? CheckSelect<T, Prisma__UserClient<User>, Prisma__UserClient<UserGetPayload<T>>> : CheckSelect<T, Prisma__UserClient<User | null >, Prisma__UserClient<UserGetPayload<T> | null >>
 
     /**
-     * Find zero or more Users that matches the filter.
+     * Find zero or more 'User' that match the filter.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {UserFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Users
-     * const users = await prisma.user.findMany()
-     * 
-     * // Get first 10 Users
-     * const users = await prisma.user.findMany({ take: 10 })
+     * // Get all 'User'
+     * const results = await prisma.user.findMany()
+     *         
+     * // Get first 10 'User'
+     * const results = await prisma.user.findMany({ take: 10 })
      * 
      * // Only select the \`id\`
-     * const userWithIdOnly = await prisma.user.findMany({ select: { id: true } })
-     * 
+     * const resultsWithIdOnly = await prisma.user.findMany({ select: { id: true } })
     **/
     findMany<T extends UserFindManyArgs>(
       args?: SelectSubset<T, UserFindManyArgs>
     ): CheckSelect<T, PrismaPromise<Array<User>>, PrismaPromise<Array<UserGetPayload<T>>>>
 
     /**
-     * Create a User.
-     * @param {UserCreateArgs} args - Arguments to create a User.
+     * Create 'User'.
+     * @param {UserCreateArgs} args - Arguments to create 'User'.
      * @example
      * // Create one User
      * const User = await prisma.user.create({
      *   data: {
-     *     // ... data to create a User
+     *     // ... data to create 'User'
      *   }
      * })
-     * 
     **/
     create<T extends UserCreateArgs>(
       args: SelectSubset<T, UserCreateArgs>
     ): CheckSelect<T, Prisma__UserClient<User>, Prisma__UserClient<UserGetPayload<T>>>
 
     /**
-     * Create many Users.
-     *     @param {UserCreateManyArgs} args - Arguments to create many Users.
-     *     @example
-     *     // Create many Users
-     *     const user = await prisma.user.createMany({
-     *       data: {
-     *         // ... provide data here
-     *       }
-     *     })
-     *     
+     * Create many 'User'.
+     * @param {UserCreateManyArgs} args - Arguments to create many 'User'.
+     * @example
+     * // Create many 'User'
+     * const results = await prisma.user.createMany({
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
     **/
     createMany<T extends UserCreateManyArgs>(
       args?: SelectSubset<T, UserCreateManyArgs>
     ): PrismaPromise<BatchPayload>
 
     /**
-     * Delete a User.
+     * Delete 'User'.
      * @param {UserDeleteArgs} args - Arguments to delete one User.
      * @example
      * // Delete one User
-     * const User = await prisma.user.delete({
+     * await prisma.user.delete({
      *   where: {
      *     // ... filter to delete one User
      *   }
      * })
-     * 
     **/
     delete<T extends UserDeleteArgs>(
       args: SelectSubset<T, UserDeleteArgs>
@@ -2975,36 +2963,34 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     * 
     **/
     update<T extends UserUpdateArgs>(
       args: SelectSubset<T, UserUpdateArgs>
     ): CheckSelect<T, Prisma__UserClient<User>, Prisma__UserClient<UserGetPayload<T>>>
 
     /**
-     * Delete zero or more Users.
-     * @param {UserDeleteManyArgs} args - Arguments to filter Users to delete.
+     * Delete zero or more 'User'.
+     * @param {UserDeleteManyArgs} args - Arguments to filter 'User' to delete.
      * @example
-     * // Delete a few Users
+     * // Delete a few 'User'
      * const { count } = await prisma.user.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
-     * 
     **/
     deleteMany<T extends UserDeleteManyArgs>(
       args?: SelectSubset<T, UserDeleteManyArgs>
     ): PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Users.
+     * Update zero or more 'User'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {UserUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Users
-     * const user = await prisma.user.updateMany({
+     * // Update many 'User'
+     * const results = await prisma.user.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3012,7 +2998,6 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     * 
     **/
     updateMany<T extends UserUpdateManyArgs>(
       args: SelectSubset<T, UserUpdateManyArgs>
@@ -3020,12 +3005,12 @@ export namespace Prisma {
 
     /**
      * Create or update one User.
-     * @param {UserUpsertArgs} args - Arguments to update or create a User.
+     * @param {UserUpsertArgs} args - Arguments to update or create 'User'.
      * @example
-     * // Update or create a User
+     * // Update or create 'User'
      * const user = await prisma.user.upsert({
      *   create: {
-     *     // ... data to create a User
+     *     // ... data to create 'User'
      *   },
      *   update: {
      *     // ... in case it already exists, update
@@ -3040,15 +3025,15 @@ export namespace Prisma {
     ): CheckSelect<T, Prisma__UserClient<User>, Prisma__UserClient<UserGetPayload<T>>>
 
     /**
-     * Count the number of Users.
+     * Count the number of 'User'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserCountArgs} args - Arguments to filter Users to count.
+     * @param {UserCountArgs} args - Arguments to filter 'User' to count.
      * @example
-     * // Count the number of Users
+     * // Count the number of 'User'
      * const count = await prisma.user.count({
      *   where: {
-     *     // ... the filter for the Users we want to count
+     *     // ... the filter for the 'User' we want to count
      *   }
      * })
     **/
@@ -3063,7 +3048,7 @@ export namespace Prisma {
     >
 
     /**
-     * Allows you to perform aggregations operations on a User.
+     * Allows you to perform aggregations operations on 'User'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {UserAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
@@ -3089,7 +3074,7 @@ export namespace Prisma {
     aggregate<T extends UserAggregateArgs>(args: Subset<T, UserAggregateArgs>): PrismaPromise<GetUserAggregateType<T>>
 
     /**
-     * Group by User.
+     * Group by 'User'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {UserGroupByArgs} args - Group by arguments.
@@ -3104,7 +3089,6 @@ export namespace Prisma {
      *     _all: true
      *   },
      * })
-     * 
     **/
     groupBy<
       T extends UserGroupByArgs,
@@ -3270,35 +3254,35 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Users to fetch.
+     * Determine the order of 'User' to fetch.
      * 
     **/
     orderBy?: Enumerable<UserOrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Users.
+     * Sets the position for searching for 'User'.
      * 
     **/
     cursor?: UserWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` Users from the position of the cursor.
+     * Take \`±n\` 'User' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` Users.
+     * Skip the first \`n\` 'User'.
      * 
     **/
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Users.
+     * Filter by unique combinations of 'User'.
      * 
     **/
     distinct?: Enumerable<UserScalarFieldEnum>
@@ -3320,35 +3304,35 @@ export namespace Prisma {
     **/
     include?: UserInclude | null
     /**
-     * Filter, which Users to fetch.
+     * Filter on 'User'.
      * 
     **/
     where?: UserWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Users to fetch.
+     * Determine the order of 'User' to fetch.
      * 
     **/
     orderBy?: Enumerable<UserOrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Users.
+     * Sets the position for listing 'User'.
      * 
     **/
     cursor?: UserWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` Users from the position of the cursor.
+     * Take \`±n\` 'User' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` Users.
+     * Skip the first \`n\` 'User'.
      * 
     **/
     skip?: number
@@ -3371,7 +3355,7 @@ export namespace Prisma {
     **/
     include?: UserInclude | null
     /**
-     * The data needed to create a User.
+     * The data needed to create 'User'.
      * 
     **/
     data: XOR<UserCreateInput, UserUncheckedCreateInput>
@@ -3383,7 +3367,7 @@ export namespace Prisma {
    */
   export type UserCreateManyArgs = {
     /**
-     * The data used to create many Users.
+     * The data used to create many 'User'.
      * 
     **/
     data: Enumerable<UserCreateManyInput>
@@ -3406,7 +3390,7 @@ export namespace Prisma {
     **/
     include?: UserInclude | null
     /**
-     * The data needed to update a User.
+     * The data needed to update 'User'.
      * 
     **/
     data: XOR<UserUpdateInput, UserUncheckedUpdateInput>
@@ -3423,12 +3407,12 @@ export namespace Prisma {
    */
   export type UserUpdateManyArgs = {
     /**
-     * The data used to update Users.
+     * The data used to update 'User'.
      * 
     **/
     data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyInput>
     /**
-     * Filter which Users to update
+     * Filter which 'User' to update
      * 
     **/
     where?: UserWhereInput
@@ -3494,7 +3478,7 @@ export namespace Prisma {
    */
   export type UserDeleteManyArgs = {
     /**
-     * Filter which Users to delete
+     * Filter which 'User' to delete
      * 
     **/
     where?: UserWhereInput
@@ -3657,14 +3641,14 @@ export namespace Prisma {
 
   export type MAggregateArgs = {
     /**
-     * Filter which M to aggregate.
+     * Filter what 'M' to aggregate.
      * 
     **/
     where?: MWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of MS to fetch.
+     * Determine the order of 'M' to fetch.
      * 
     **/
     orderBy?: Enumerable<MOrderByWithRelationInput>
@@ -3678,21 +3662,21 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` MS from the position of the cursor.
+     * Take \`±n\` 'M' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` MS.
+     * Skip the first \`n\` 'M'.
      * 
     **/
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned MS
+     * Count returned 'M'
     **/
     _count?: true | MCountAggregateInputType
     /**
@@ -3837,8 +3821,8 @@ export namespace Prisma {
 
   export interface MDelegate<GlobalRejectSettings> {
     /**
-     * Find zero or one M that matches the filter.
-     * @param {MFindUniqueArgs} args - Arguments to find a M
+     * Returns M that matches the filter or null if nothing is found
+     * @param {MFindUniqueArgs} args - Arguments to find 'M'
      * @example
      * // Get one M
      * const m = await prisma.m.findUnique({
@@ -3855,7 +3839,7 @@ export namespace Prisma {
      * Find the first M that matches the filter.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MFindFirstArgs} args - Arguments to find a M
+     * @param {MFindFirstArgs} args - Arguments to find 'M'
      * @example
      * // Get one M
      * const m = await prisma.m.findFirst({
@@ -3869,68 +3853,64 @@ export namespace Prisma {
     ): HasReject<GlobalRejectSettings, LocalRejectSettings, 'findFirst', 'M'> extends True ? CheckSelect<T, Prisma__MClient<M>, Prisma__MClient<MGetPayload<T>>> : CheckSelect<T, Prisma__MClient<M | null >, Prisma__MClient<MGetPayload<T> | null >>
 
     /**
-     * Find zero or more Ms that matches the filter.
+     * Find zero or more 'M' that match the filter.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {MFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Ms
-     * const ms = await prisma.m.findMany()
-     * 
-     * // Get first 10 Ms
-     * const ms = await prisma.m.findMany({ take: 10 })
+     * // Get all 'M'
+     * const results = await prisma.m.findMany()
+     *         
+     * // Get first 10 'M'
+     * const results = await prisma.m.findMany({ take: 10 })
      * 
      * // Only select the \`id\`
-     * const mWithIdOnly = await prisma.m.findMany({ select: { id: true } })
-     * 
+     * const resultsWithIdOnly = await prisma.m.findMany({ select: { id: true } })
     **/
     findMany<T extends MFindManyArgs>(
       args?: SelectSubset<T, MFindManyArgs>
     ): CheckSelect<T, PrismaPromise<Array<M>>, PrismaPromise<Array<MGetPayload<T>>>>
 
     /**
-     * Create a M.
-     * @param {MCreateArgs} args - Arguments to create a M.
+     * Create 'M'.
+     * @param {MCreateArgs} args - Arguments to create 'M'.
      * @example
      * // Create one M
      * const M = await prisma.m.create({
      *   data: {
-     *     // ... data to create a M
+     *     // ... data to create 'M'
      *   }
      * })
-     * 
     **/
     create<T extends MCreateArgs>(
       args: SelectSubset<T, MCreateArgs>
     ): CheckSelect<T, Prisma__MClient<M>, Prisma__MClient<MGetPayload<T>>>
 
     /**
-     * Create many Ms.
-     *     @param {MCreateManyArgs} args - Arguments to create many Ms.
-     *     @example
-     *     // Create many Ms
-     *     const m = await prisma.m.createMany({
-     *       data: {
-     *         // ... provide data here
-     *       }
-     *     })
-     *     
+     * Create many 'M'.
+     * @param {MCreateManyArgs} args - Arguments to create many 'M'.
+     * @example
+     * // Create many 'M'
+     * const results = await prisma.m.createMany({
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
     **/
     createMany<T extends MCreateManyArgs>(
       args?: SelectSubset<T, MCreateManyArgs>
     ): PrismaPromise<BatchPayload>
 
     /**
-     * Delete a M.
+     * Delete 'M'.
      * @param {MDeleteArgs} args - Arguments to delete one M.
      * @example
      * // Delete one M
-     * const M = await prisma.m.delete({
+     * await prisma.m.delete({
      *   where: {
      *     // ... filter to delete one M
      *   }
      * })
-     * 
     **/
     delete<T extends MDeleteArgs>(
       args: SelectSubset<T, MDeleteArgs>
@@ -3949,36 +3929,34 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     * 
     **/
     update<T extends MUpdateArgs>(
       args: SelectSubset<T, MUpdateArgs>
     ): CheckSelect<T, Prisma__MClient<M>, Prisma__MClient<MGetPayload<T>>>
 
     /**
-     * Delete zero or more Ms.
-     * @param {MDeleteManyArgs} args - Arguments to filter Ms to delete.
+     * Delete zero or more 'M'.
+     * @param {MDeleteManyArgs} args - Arguments to filter 'M' to delete.
      * @example
-     * // Delete a few Ms
+     * // Delete a few 'M'
      * const { count } = await prisma.m.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
-     * 
     **/
     deleteMany<T extends MDeleteManyArgs>(
       args?: SelectSubset<T, MDeleteManyArgs>
     ): PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Ms.
+     * Update zero or more 'M'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {MUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Ms
-     * const m = await prisma.m.updateMany({
+     * // Update many 'M'
+     * const results = await prisma.m.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3986,7 +3964,6 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     * 
     **/
     updateMany<T extends MUpdateManyArgs>(
       args: SelectSubset<T, MUpdateManyArgs>
@@ -3994,12 +3971,12 @@ export namespace Prisma {
 
     /**
      * Create or update one M.
-     * @param {MUpsertArgs} args - Arguments to update or create a M.
+     * @param {MUpsertArgs} args - Arguments to update or create 'M'.
      * @example
-     * // Update or create a M
+     * // Update or create 'M'
      * const m = await prisma.m.upsert({
      *   create: {
-     *     // ... data to create a M
+     *     // ... data to create 'M'
      *   },
      *   update: {
      *     // ... in case it already exists, update
@@ -4014,15 +3991,15 @@ export namespace Prisma {
     ): CheckSelect<T, Prisma__MClient<M>, Prisma__MClient<MGetPayload<T>>>
 
     /**
-     * Count the number of Ms.
+     * Count the number of 'M'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MCountArgs} args - Arguments to filter Ms to count.
+     * @param {MCountArgs} args - Arguments to filter 'M' to count.
      * @example
-     * // Count the number of Ms
+     * // Count the number of 'M'
      * const count = await prisma.m.count({
      *   where: {
-     *     // ... the filter for the Ms we want to count
+     *     // ... the filter for the 'M' we want to count
      *   }
      * })
     **/
@@ -4037,7 +4014,7 @@ export namespace Prisma {
     >
 
     /**
-     * Allows you to perform aggregations operations on a M.
+     * Allows you to perform aggregations operations on 'M'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {MAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
@@ -4063,7 +4040,7 @@ export namespace Prisma {
     aggregate<T extends MAggregateArgs>(args: Subset<T, MAggregateArgs>): PrismaPromise<GetMAggregateType<T>>
 
     /**
-     * Group by M.
+     * Group by 'M'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {MGroupByArgs} args - Group by arguments.
@@ -4078,7 +4055,6 @@ export namespace Prisma {
      *     _all: true
      *   },
      * })
-     * 
     **/
     groupBy<
       T extends MGroupByArgs,
@@ -4244,35 +4220,35 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of MS to fetch.
+     * Determine the order of 'M' to fetch.
      * 
     **/
     orderBy?: Enumerable<MOrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for MS.
+     * Sets the position for searching for 'M'.
      * 
     **/
     cursor?: MWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` MS from the position of the cursor.
+     * Take \`±n\` 'M' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` MS.
+     * Skip the first \`n\` 'M'.
      * 
     **/
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of MS.
+     * Filter by unique combinations of 'M'.
      * 
     **/
     distinct?: Enumerable<MScalarFieldEnum>
@@ -4294,35 +4270,35 @@ export namespace Prisma {
     **/
     include?: MInclude | null
     /**
-     * Filter, which MS to fetch.
+     * Filter on 'M'.
      * 
     **/
     where?: MWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of MS to fetch.
+     * Determine the order of 'M' to fetch.
      * 
     **/
     orderBy?: Enumerable<MOrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing MS.
+     * Sets the position for listing 'M'.
      * 
     **/
     cursor?: MWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` MS from the position of the cursor.
+     * Take \`±n\` 'M' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` MS.
+     * Skip the first \`n\` 'M'.
      * 
     **/
     skip?: number
@@ -4345,7 +4321,7 @@ export namespace Prisma {
     **/
     include?: MInclude | null
     /**
-     * The data needed to create a M.
+     * The data needed to create 'M'.
      * 
     **/
     data: XOR<MCreateInput, MUncheckedCreateInput>
@@ -4357,7 +4333,7 @@ export namespace Prisma {
    */
   export type MCreateManyArgs = {
     /**
-     * The data used to create many MS.
+     * The data used to create many 'M'.
      * 
     **/
     data: Enumerable<MCreateManyInput>
@@ -4380,7 +4356,7 @@ export namespace Prisma {
     **/
     include?: MInclude | null
     /**
-     * The data needed to update a M.
+     * The data needed to update 'M'.
      * 
     **/
     data: XOR<MUpdateInput, MUncheckedUpdateInput>
@@ -4397,12 +4373,12 @@ export namespace Prisma {
    */
   export type MUpdateManyArgs = {
     /**
-     * The data used to update MS.
+     * The data used to update 'M'.
      * 
     **/
     data: XOR<MUpdateManyMutationInput, MUncheckedUpdateManyInput>
     /**
-     * Filter which MS to update
+     * Filter which 'M' to update
      * 
     **/
     where?: MWhereInput
@@ -4468,7 +4444,7 @@ export namespace Prisma {
    */
   export type MDeleteManyArgs = {
     /**
-     * Filter which MS to delete
+     * Filter which 'M' to delete
      * 
     **/
     where?: MWhereInput
@@ -4631,14 +4607,14 @@ export namespace Prisma {
 
   export type NAggregateArgs = {
     /**
-     * Filter which N to aggregate.
+     * Filter what 'N' to aggregate.
      * 
     **/
     where?: NWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of NS to fetch.
+     * Determine the order of 'N' to fetch.
      * 
     **/
     orderBy?: Enumerable<NOrderByWithRelationInput>
@@ -4652,21 +4628,21 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` NS from the position of the cursor.
+     * Take \`±n\` 'N' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` NS.
+     * Skip the first \`n\` 'N'.
      * 
     **/
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned NS
+     * Count returned 'N'
     **/
     _count?: true | NCountAggregateInputType
     /**
@@ -4811,8 +4787,8 @@ export namespace Prisma {
 
   export interface NDelegate<GlobalRejectSettings> {
     /**
-     * Find zero or one N that matches the filter.
-     * @param {NFindUniqueArgs} args - Arguments to find a N
+     * Returns N that matches the filter or null if nothing is found
+     * @param {NFindUniqueArgs} args - Arguments to find 'N'
      * @example
      * // Get one N
      * const n = await prisma.n.findUnique({
@@ -4829,7 +4805,7 @@ export namespace Prisma {
      * Find the first N that matches the filter.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {NFindFirstArgs} args - Arguments to find a N
+     * @param {NFindFirstArgs} args - Arguments to find 'N'
      * @example
      * // Get one N
      * const n = await prisma.n.findFirst({
@@ -4843,68 +4819,64 @@ export namespace Prisma {
     ): HasReject<GlobalRejectSettings, LocalRejectSettings, 'findFirst', 'N'> extends True ? CheckSelect<T, Prisma__NClient<N>, Prisma__NClient<NGetPayload<T>>> : CheckSelect<T, Prisma__NClient<N | null >, Prisma__NClient<NGetPayload<T> | null >>
 
     /**
-     * Find zero or more Ns that matches the filter.
+     * Find zero or more 'N' that match the filter.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {NFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Ns
-     * const ns = await prisma.n.findMany()
-     * 
-     * // Get first 10 Ns
-     * const ns = await prisma.n.findMany({ take: 10 })
+     * // Get all 'N'
+     * const results = await prisma.n.findMany()
+     *         
+     * // Get first 10 'N'
+     * const results = await prisma.n.findMany({ take: 10 })
      * 
      * // Only select the \`id\`
-     * const nWithIdOnly = await prisma.n.findMany({ select: { id: true } })
-     * 
+     * const resultsWithIdOnly = await prisma.n.findMany({ select: { id: true } })
     **/
     findMany<T extends NFindManyArgs>(
       args?: SelectSubset<T, NFindManyArgs>
     ): CheckSelect<T, PrismaPromise<Array<N>>, PrismaPromise<Array<NGetPayload<T>>>>
 
     /**
-     * Create a N.
-     * @param {NCreateArgs} args - Arguments to create a N.
+     * Create 'N'.
+     * @param {NCreateArgs} args - Arguments to create 'N'.
      * @example
      * // Create one N
      * const N = await prisma.n.create({
      *   data: {
-     *     // ... data to create a N
+     *     // ... data to create 'N'
      *   }
      * })
-     * 
     **/
     create<T extends NCreateArgs>(
       args: SelectSubset<T, NCreateArgs>
     ): CheckSelect<T, Prisma__NClient<N>, Prisma__NClient<NGetPayload<T>>>
 
     /**
-     * Create many Ns.
-     *     @param {NCreateManyArgs} args - Arguments to create many Ns.
-     *     @example
-     *     // Create many Ns
-     *     const n = await prisma.n.createMany({
-     *       data: {
-     *         // ... provide data here
-     *       }
-     *     })
-     *     
+     * Create many 'N'.
+     * @param {NCreateManyArgs} args - Arguments to create many 'N'.
+     * @example
+     * // Create many 'N'
+     * const results = await prisma.n.createMany({
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
     **/
     createMany<T extends NCreateManyArgs>(
       args?: SelectSubset<T, NCreateManyArgs>
     ): PrismaPromise<BatchPayload>
 
     /**
-     * Delete a N.
+     * Delete 'N'.
      * @param {NDeleteArgs} args - Arguments to delete one N.
      * @example
      * // Delete one N
-     * const N = await prisma.n.delete({
+     * await prisma.n.delete({
      *   where: {
      *     // ... filter to delete one N
      *   }
      * })
-     * 
     **/
     delete<T extends NDeleteArgs>(
       args: SelectSubset<T, NDeleteArgs>
@@ -4923,36 +4895,34 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     * 
     **/
     update<T extends NUpdateArgs>(
       args: SelectSubset<T, NUpdateArgs>
     ): CheckSelect<T, Prisma__NClient<N>, Prisma__NClient<NGetPayload<T>>>
 
     /**
-     * Delete zero or more Ns.
-     * @param {NDeleteManyArgs} args - Arguments to filter Ns to delete.
+     * Delete zero or more 'N'.
+     * @param {NDeleteManyArgs} args - Arguments to filter 'N' to delete.
      * @example
-     * // Delete a few Ns
+     * // Delete a few 'N'
      * const { count } = await prisma.n.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
-     * 
     **/
     deleteMany<T extends NDeleteManyArgs>(
       args?: SelectSubset<T, NDeleteManyArgs>
     ): PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Ns.
+     * Update zero or more 'N'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {NUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Ns
-     * const n = await prisma.n.updateMany({
+     * // Update many 'N'
+     * const results = await prisma.n.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -4960,7 +4930,6 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     * 
     **/
     updateMany<T extends NUpdateManyArgs>(
       args: SelectSubset<T, NUpdateManyArgs>
@@ -4968,12 +4937,12 @@ export namespace Prisma {
 
     /**
      * Create or update one N.
-     * @param {NUpsertArgs} args - Arguments to update or create a N.
+     * @param {NUpsertArgs} args - Arguments to update or create 'N'.
      * @example
-     * // Update or create a N
+     * // Update or create 'N'
      * const n = await prisma.n.upsert({
      *   create: {
-     *     // ... data to create a N
+     *     // ... data to create 'N'
      *   },
      *   update: {
      *     // ... in case it already exists, update
@@ -4988,15 +4957,15 @@ export namespace Prisma {
     ): CheckSelect<T, Prisma__NClient<N>, Prisma__NClient<NGetPayload<T>>>
 
     /**
-     * Count the number of Ns.
+     * Count the number of 'N'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {NCountArgs} args - Arguments to filter Ns to count.
+     * @param {NCountArgs} args - Arguments to filter 'N' to count.
      * @example
-     * // Count the number of Ns
+     * // Count the number of 'N'
      * const count = await prisma.n.count({
      *   where: {
-     *     // ... the filter for the Ns we want to count
+     *     // ... the filter for the 'N' we want to count
      *   }
      * })
     **/
@@ -5011,7 +4980,7 @@ export namespace Prisma {
     >
 
     /**
-     * Allows you to perform aggregations operations on a N.
+     * Allows you to perform aggregations operations on 'N'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {NAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
@@ -5037,7 +5006,7 @@ export namespace Prisma {
     aggregate<T extends NAggregateArgs>(args: Subset<T, NAggregateArgs>): PrismaPromise<GetNAggregateType<T>>
 
     /**
-     * Group by N.
+     * Group by 'N'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {NGroupByArgs} args - Group by arguments.
@@ -5052,7 +5021,6 @@ export namespace Prisma {
      *     _all: true
      *   },
      * })
-     * 
     **/
     groupBy<
       T extends NGroupByArgs,
@@ -5218,35 +5186,35 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of NS to fetch.
+     * Determine the order of 'N' to fetch.
      * 
     **/
     orderBy?: Enumerable<NOrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for NS.
+     * Sets the position for searching for 'N'.
      * 
     **/
     cursor?: NWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` NS from the position of the cursor.
+     * Take \`±n\` 'N' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` NS.
+     * Skip the first \`n\` 'N'.
      * 
     **/
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of NS.
+     * Filter by unique combinations of 'N'.
      * 
     **/
     distinct?: Enumerable<NScalarFieldEnum>
@@ -5268,35 +5236,35 @@ export namespace Prisma {
     **/
     include?: NInclude | null
     /**
-     * Filter, which NS to fetch.
+     * Filter on 'N'.
      * 
     **/
     where?: NWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of NS to fetch.
+     * Determine the order of 'N' to fetch.
      * 
     **/
     orderBy?: Enumerable<NOrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing NS.
+     * Sets the position for listing 'N'.
      * 
     **/
     cursor?: NWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` NS from the position of the cursor.
+     * Take \`±n\` 'N' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` NS.
+     * Skip the first \`n\` 'N'.
      * 
     **/
     skip?: number
@@ -5319,7 +5287,7 @@ export namespace Prisma {
     **/
     include?: NInclude | null
     /**
-     * The data needed to create a N.
+     * The data needed to create 'N'.
      * 
     **/
     data: XOR<NCreateInput, NUncheckedCreateInput>
@@ -5331,7 +5299,7 @@ export namespace Prisma {
    */
   export type NCreateManyArgs = {
     /**
-     * The data used to create many NS.
+     * The data used to create many 'N'.
      * 
     **/
     data: Enumerable<NCreateManyInput>
@@ -5354,7 +5322,7 @@ export namespace Prisma {
     **/
     include?: NInclude | null
     /**
-     * The data needed to update a N.
+     * The data needed to update 'N'.
      * 
     **/
     data: XOR<NUpdateInput, NUncheckedUpdateInput>
@@ -5371,12 +5339,12 @@ export namespace Prisma {
    */
   export type NUpdateManyArgs = {
     /**
-     * The data used to update NS.
+     * The data used to update 'N'.
      * 
     **/
     data: XOR<NUpdateManyMutationInput, NUncheckedUpdateManyInput>
     /**
-     * Filter which NS to update
+     * Filter which 'N' to update
      * 
     **/
     where?: NWhereInput
@@ -5442,7 +5410,7 @@ export namespace Prisma {
    */
   export type NDeleteManyArgs = {
     /**
-     * Filter which NS to delete
+     * Filter which 'N' to delete
      * 
     **/
     where?: NWhereInput
@@ -5605,14 +5573,14 @@ export namespace Prisma {
 
   export type OneOptionalAggregateArgs = {
     /**
-     * Filter which OneOptional to aggregate.
+     * Filter what 'OneOptional' to aggregate.
      * 
     **/
     where?: OneOptionalWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of OneOptionals to fetch.
+     * Determine the order of 'OneOptional' to fetch.
      * 
     **/
     orderBy?: Enumerable<OneOptionalOrderByWithRelationInput>
@@ -5626,21 +5594,21 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` OneOptionals from the position of the cursor.
+     * Take \`±n\` 'OneOptional' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` OneOptionals.
+     * Skip the first \`n\` 'OneOptional'.
      * 
     **/
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned OneOptionals
+     * Count returned 'OneOptional'
     **/
     _count?: true | OneOptionalCountAggregateInputType
     /**
@@ -5785,8 +5753,8 @@ export namespace Prisma {
 
   export interface OneOptionalDelegate<GlobalRejectSettings> {
     /**
-     * Find zero or one OneOptional that matches the filter.
-     * @param {OneOptionalFindUniqueArgs} args - Arguments to find a OneOptional
+     * Returns OneOptional that matches the filter or null if nothing is found
+     * @param {OneOptionalFindUniqueArgs} args - Arguments to find 'OneOptional'
      * @example
      * // Get one OneOptional
      * const oneOptional = await prisma.oneOptional.findUnique({
@@ -5803,7 +5771,7 @@ export namespace Prisma {
      * Find the first OneOptional that matches the filter.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {OneOptionalFindFirstArgs} args - Arguments to find a OneOptional
+     * @param {OneOptionalFindFirstArgs} args - Arguments to find 'OneOptional'
      * @example
      * // Get one OneOptional
      * const oneOptional = await prisma.oneOptional.findFirst({
@@ -5817,68 +5785,64 @@ export namespace Prisma {
     ): HasReject<GlobalRejectSettings, LocalRejectSettings, 'findFirst', 'OneOptional'> extends True ? CheckSelect<T, Prisma__OneOptionalClient<OneOptional>, Prisma__OneOptionalClient<OneOptionalGetPayload<T>>> : CheckSelect<T, Prisma__OneOptionalClient<OneOptional | null >, Prisma__OneOptionalClient<OneOptionalGetPayload<T> | null >>
 
     /**
-     * Find zero or more OneOptionals that matches the filter.
+     * Find zero or more 'OneOptional' that match the filter.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {OneOptionalFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all OneOptionals
-     * const oneOptionals = await prisma.oneOptional.findMany()
-     * 
-     * // Get first 10 OneOptionals
-     * const oneOptionals = await prisma.oneOptional.findMany({ take: 10 })
+     * // Get all 'OneOptional'
+     * const results = await prisma.oneOptional.findMany()
+     *         
+     * // Get first 10 'OneOptional'
+     * const results = await prisma.oneOptional.findMany({ take: 10 })
      * 
      * // Only select the \`id\`
-     * const oneOptionalWithIdOnly = await prisma.oneOptional.findMany({ select: { id: true } })
-     * 
+     * const resultsWithIdOnly = await prisma.oneOptional.findMany({ select: { id: true } })
     **/
     findMany<T extends OneOptionalFindManyArgs>(
       args?: SelectSubset<T, OneOptionalFindManyArgs>
     ): CheckSelect<T, PrismaPromise<Array<OneOptional>>, PrismaPromise<Array<OneOptionalGetPayload<T>>>>
 
     /**
-     * Create a OneOptional.
-     * @param {OneOptionalCreateArgs} args - Arguments to create a OneOptional.
+     * Create 'OneOptional'.
+     * @param {OneOptionalCreateArgs} args - Arguments to create 'OneOptional'.
      * @example
      * // Create one OneOptional
      * const OneOptional = await prisma.oneOptional.create({
      *   data: {
-     *     // ... data to create a OneOptional
+     *     // ... data to create 'OneOptional'
      *   }
      * })
-     * 
     **/
     create<T extends OneOptionalCreateArgs>(
       args: SelectSubset<T, OneOptionalCreateArgs>
     ): CheckSelect<T, Prisma__OneOptionalClient<OneOptional>, Prisma__OneOptionalClient<OneOptionalGetPayload<T>>>
 
     /**
-     * Create many OneOptionals.
-     *     @param {OneOptionalCreateManyArgs} args - Arguments to create many OneOptionals.
-     *     @example
-     *     // Create many OneOptionals
-     *     const oneOptional = await prisma.oneOptional.createMany({
-     *       data: {
-     *         // ... provide data here
-     *       }
-     *     })
-     *     
+     * Create many 'OneOptional'.
+     * @param {OneOptionalCreateManyArgs} args - Arguments to create many 'OneOptional'.
+     * @example
+     * // Create many 'OneOptional'
+     * const results = await prisma.oneOptional.createMany({
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
     **/
     createMany<T extends OneOptionalCreateManyArgs>(
       args?: SelectSubset<T, OneOptionalCreateManyArgs>
     ): PrismaPromise<BatchPayload>
 
     /**
-     * Delete a OneOptional.
+     * Delete 'OneOptional'.
      * @param {OneOptionalDeleteArgs} args - Arguments to delete one OneOptional.
      * @example
      * // Delete one OneOptional
-     * const OneOptional = await prisma.oneOptional.delete({
+     * await prisma.oneOptional.delete({
      *   where: {
      *     // ... filter to delete one OneOptional
      *   }
      * })
-     * 
     **/
     delete<T extends OneOptionalDeleteArgs>(
       args: SelectSubset<T, OneOptionalDeleteArgs>
@@ -5897,36 +5861,34 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     * 
     **/
     update<T extends OneOptionalUpdateArgs>(
       args: SelectSubset<T, OneOptionalUpdateArgs>
     ): CheckSelect<T, Prisma__OneOptionalClient<OneOptional>, Prisma__OneOptionalClient<OneOptionalGetPayload<T>>>
 
     /**
-     * Delete zero or more OneOptionals.
-     * @param {OneOptionalDeleteManyArgs} args - Arguments to filter OneOptionals to delete.
+     * Delete zero or more 'OneOptional'.
+     * @param {OneOptionalDeleteManyArgs} args - Arguments to filter 'OneOptional' to delete.
      * @example
-     * // Delete a few OneOptionals
+     * // Delete a few 'OneOptional'
      * const { count } = await prisma.oneOptional.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
-     * 
     **/
     deleteMany<T extends OneOptionalDeleteManyArgs>(
       args?: SelectSubset<T, OneOptionalDeleteManyArgs>
     ): PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more OneOptionals.
+     * Update zero or more 'OneOptional'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {OneOptionalUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many OneOptionals
-     * const oneOptional = await prisma.oneOptional.updateMany({
+     * // Update many 'OneOptional'
+     * const results = await prisma.oneOptional.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -5934,7 +5896,6 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     * 
     **/
     updateMany<T extends OneOptionalUpdateManyArgs>(
       args: SelectSubset<T, OneOptionalUpdateManyArgs>
@@ -5942,12 +5903,12 @@ export namespace Prisma {
 
     /**
      * Create or update one OneOptional.
-     * @param {OneOptionalUpsertArgs} args - Arguments to update or create a OneOptional.
+     * @param {OneOptionalUpsertArgs} args - Arguments to update or create 'OneOptional'.
      * @example
-     * // Update or create a OneOptional
+     * // Update or create 'OneOptional'
      * const oneOptional = await prisma.oneOptional.upsert({
      *   create: {
-     *     // ... data to create a OneOptional
+     *     // ... data to create 'OneOptional'
      *   },
      *   update: {
      *     // ... in case it already exists, update
@@ -5962,15 +5923,15 @@ export namespace Prisma {
     ): CheckSelect<T, Prisma__OneOptionalClient<OneOptional>, Prisma__OneOptionalClient<OneOptionalGetPayload<T>>>
 
     /**
-     * Count the number of OneOptionals.
+     * Count the number of 'OneOptional'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {OneOptionalCountArgs} args - Arguments to filter OneOptionals to count.
+     * @param {OneOptionalCountArgs} args - Arguments to filter 'OneOptional' to count.
      * @example
-     * // Count the number of OneOptionals
+     * // Count the number of 'OneOptional'
      * const count = await prisma.oneOptional.count({
      *   where: {
-     *     // ... the filter for the OneOptionals we want to count
+     *     // ... the filter for the 'OneOptional' we want to count
      *   }
      * })
     **/
@@ -5985,7 +5946,7 @@ export namespace Prisma {
     >
 
     /**
-     * Allows you to perform aggregations operations on a OneOptional.
+     * Allows you to perform aggregations operations on 'OneOptional'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {OneOptionalAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
@@ -6011,7 +5972,7 @@ export namespace Prisma {
     aggregate<T extends OneOptionalAggregateArgs>(args: Subset<T, OneOptionalAggregateArgs>): PrismaPromise<GetOneOptionalAggregateType<T>>
 
     /**
-     * Group by OneOptional.
+     * Group by 'OneOptional'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {OneOptionalGroupByArgs} args - Group by arguments.
@@ -6026,7 +5987,6 @@ export namespace Prisma {
      *     _all: true
      *   },
      * })
-     * 
     **/
     groupBy<
       T extends OneOptionalGroupByArgs,
@@ -6192,35 +6152,35 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of OneOptionals to fetch.
+     * Determine the order of 'OneOptional' to fetch.
      * 
     **/
     orderBy?: Enumerable<OneOptionalOrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for OneOptionals.
+     * Sets the position for searching for 'OneOptional'.
      * 
     **/
     cursor?: OneOptionalWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` OneOptionals from the position of the cursor.
+     * Take \`±n\` 'OneOptional' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` OneOptionals.
+     * Skip the first \`n\` 'OneOptional'.
      * 
     **/
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of OneOptionals.
+     * Filter by unique combinations of 'OneOptional'.
      * 
     **/
     distinct?: Enumerable<OneOptionalScalarFieldEnum>
@@ -6242,35 +6202,35 @@ export namespace Prisma {
     **/
     include?: OneOptionalInclude | null
     /**
-     * Filter, which OneOptionals to fetch.
+     * Filter on 'OneOptional'.
      * 
     **/
     where?: OneOptionalWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of OneOptionals to fetch.
+     * Determine the order of 'OneOptional' to fetch.
      * 
     **/
     orderBy?: Enumerable<OneOptionalOrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing OneOptionals.
+     * Sets the position for listing 'OneOptional'.
      * 
     **/
     cursor?: OneOptionalWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` OneOptionals from the position of the cursor.
+     * Take \`±n\` 'OneOptional' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` OneOptionals.
+     * Skip the first \`n\` 'OneOptional'.
      * 
     **/
     skip?: number
@@ -6293,7 +6253,7 @@ export namespace Prisma {
     **/
     include?: OneOptionalInclude | null
     /**
-     * The data needed to create a OneOptional.
+     * The data needed to create 'OneOptional'.
      * 
     **/
     data: XOR<OneOptionalCreateInput, OneOptionalUncheckedCreateInput>
@@ -6305,7 +6265,7 @@ export namespace Prisma {
    */
   export type OneOptionalCreateManyArgs = {
     /**
-     * The data used to create many OneOptionals.
+     * The data used to create many 'OneOptional'.
      * 
     **/
     data: Enumerable<OneOptionalCreateManyInput>
@@ -6328,7 +6288,7 @@ export namespace Prisma {
     **/
     include?: OneOptionalInclude | null
     /**
-     * The data needed to update a OneOptional.
+     * The data needed to update 'OneOptional'.
      * 
     **/
     data: XOR<OneOptionalUpdateInput, OneOptionalUncheckedUpdateInput>
@@ -6345,12 +6305,12 @@ export namespace Prisma {
    */
   export type OneOptionalUpdateManyArgs = {
     /**
-     * The data used to update OneOptionals.
+     * The data used to update 'OneOptional'.
      * 
     **/
     data: XOR<OneOptionalUpdateManyMutationInput, OneOptionalUncheckedUpdateManyInput>
     /**
-     * Filter which OneOptionals to update
+     * Filter which 'OneOptional' to update
      * 
     **/
     where?: OneOptionalWhereInput
@@ -6416,7 +6376,7 @@ export namespace Prisma {
    */
   export type OneOptionalDeleteManyArgs = {
     /**
-     * Filter which OneOptionals to delete
+     * Filter which 'OneOptional' to delete
      * 
     **/
     where?: OneOptionalWhereInput
@@ -6589,14 +6549,14 @@ export namespace Prisma {
 
   export type ManyRequiredAggregateArgs = {
     /**
-     * Filter which ManyRequired to aggregate.
+     * Filter what 'ManyRequired' to aggregate.
      * 
     **/
     where?: ManyRequiredWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ManyRequireds to fetch.
+     * Determine the order of 'ManyRequired' to fetch.
      * 
     **/
     orderBy?: Enumerable<ManyRequiredOrderByWithRelationInput>
@@ -6610,21 +6570,21 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` ManyRequireds from the position of the cursor.
+     * Take \`±n\` 'ManyRequired' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` ManyRequireds.
+     * Skip the first \`n\` 'ManyRequired'.
      * 
     **/
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned ManyRequireds
+     * Count returned 'ManyRequired'
     **/
     _count?: true | ManyRequiredCountAggregateInputType
     /**
@@ -6767,8 +6727,8 @@ export namespace Prisma {
 
   export interface ManyRequiredDelegate<GlobalRejectSettings> {
     /**
-     * Find zero or one ManyRequired that matches the filter.
-     * @param {ManyRequiredFindUniqueArgs} args - Arguments to find a ManyRequired
+     * Returns ManyRequired that matches the filter or null if nothing is found
+     * @param {ManyRequiredFindUniqueArgs} args - Arguments to find 'ManyRequired'
      * @example
      * // Get one ManyRequired
      * const manyRequired = await prisma.manyRequired.findUnique({
@@ -6785,7 +6745,7 @@ export namespace Prisma {
      * Find the first ManyRequired that matches the filter.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ManyRequiredFindFirstArgs} args - Arguments to find a ManyRequired
+     * @param {ManyRequiredFindFirstArgs} args - Arguments to find 'ManyRequired'
      * @example
      * // Get one ManyRequired
      * const manyRequired = await prisma.manyRequired.findFirst({
@@ -6799,68 +6759,64 @@ export namespace Prisma {
     ): HasReject<GlobalRejectSettings, LocalRejectSettings, 'findFirst', 'ManyRequired'> extends True ? CheckSelect<T, Prisma__ManyRequiredClient<ManyRequired>, Prisma__ManyRequiredClient<ManyRequiredGetPayload<T>>> : CheckSelect<T, Prisma__ManyRequiredClient<ManyRequired | null >, Prisma__ManyRequiredClient<ManyRequiredGetPayload<T> | null >>
 
     /**
-     * Find zero or more ManyRequireds that matches the filter.
+     * Find zero or more 'ManyRequired' that match the filter.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {ManyRequiredFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all ManyRequireds
-     * const manyRequireds = await prisma.manyRequired.findMany()
-     * 
-     * // Get first 10 ManyRequireds
-     * const manyRequireds = await prisma.manyRequired.findMany({ take: 10 })
+     * // Get all 'ManyRequired'
+     * const results = await prisma.manyRequired.findMany()
+     *         
+     * // Get first 10 'ManyRequired'
+     * const results = await prisma.manyRequired.findMany({ take: 10 })
      * 
      * // Only select the \`id\`
-     * const manyRequiredWithIdOnly = await prisma.manyRequired.findMany({ select: { id: true } })
-     * 
+     * const resultsWithIdOnly = await prisma.manyRequired.findMany({ select: { id: true } })
     **/
     findMany<T extends ManyRequiredFindManyArgs>(
       args?: SelectSubset<T, ManyRequiredFindManyArgs>
     ): CheckSelect<T, PrismaPromise<Array<ManyRequired>>, PrismaPromise<Array<ManyRequiredGetPayload<T>>>>
 
     /**
-     * Create a ManyRequired.
-     * @param {ManyRequiredCreateArgs} args - Arguments to create a ManyRequired.
+     * Create 'ManyRequired'.
+     * @param {ManyRequiredCreateArgs} args - Arguments to create 'ManyRequired'.
      * @example
      * // Create one ManyRequired
      * const ManyRequired = await prisma.manyRequired.create({
      *   data: {
-     *     // ... data to create a ManyRequired
+     *     // ... data to create 'ManyRequired'
      *   }
      * })
-     * 
     **/
     create<T extends ManyRequiredCreateArgs>(
       args: SelectSubset<T, ManyRequiredCreateArgs>
     ): CheckSelect<T, Prisma__ManyRequiredClient<ManyRequired>, Prisma__ManyRequiredClient<ManyRequiredGetPayload<T>>>
 
     /**
-     * Create many ManyRequireds.
-     *     @param {ManyRequiredCreateManyArgs} args - Arguments to create many ManyRequireds.
-     *     @example
-     *     // Create many ManyRequireds
-     *     const manyRequired = await prisma.manyRequired.createMany({
-     *       data: {
-     *         // ... provide data here
-     *       }
-     *     })
-     *     
+     * Create many 'ManyRequired'.
+     * @param {ManyRequiredCreateManyArgs} args - Arguments to create many 'ManyRequired'.
+     * @example
+     * // Create many 'ManyRequired'
+     * const results = await prisma.manyRequired.createMany({
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
     **/
     createMany<T extends ManyRequiredCreateManyArgs>(
       args?: SelectSubset<T, ManyRequiredCreateManyArgs>
     ): PrismaPromise<BatchPayload>
 
     /**
-     * Delete a ManyRequired.
+     * Delete 'ManyRequired'.
      * @param {ManyRequiredDeleteArgs} args - Arguments to delete one ManyRequired.
      * @example
      * // Delete one ManyRequired
-     * const ManyRequired = await prisma.manyRequired.delete({
+     * await prisma.manyRequired.delete({
      *   where: {
      *     // ... filter to delete one ManyRequired
      *   }
      * })
-     * 
     **/
     delete<T extends ManyRequiredDeleteArgs>(
       args: SelectSubset<T, ManyRequiredDeleteArgs>
@@ -6879,36 +6835,34 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     * 
     **/
     update<T extends ManyRequiredUpdateArgs>(
       args: SelectSubset<T, ManyRequiredUpdateArgs>
     ): CheckSelect<T, Prisma__ManyRequiredClient<ManyRequired>, Prisma__ManyRequiredClient<ManyRequiredGetPayload<T>>>
 
     /**
-     * Delete zero or more ManyRequireds.
-     * @param {ManyRequiredDeleteManyArgs} args - Arguments to filter ManyRequireds to delete.
+     * Delete zero or more 'ManyRequired'.
+     * @param {ManyRequiredDeleteManyArgs} args - Arguments to filter 'ManyRequired' to delete.
      * @example
-     * // Delete a few ManyRequireds
+     * // Delete a few 'ManyRequired'
      * const { count } = await prisma.manyRequired.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
-     * 
     **/
     deleteMany<T extends ManyRequiredDeleteManyArgs>(
       args?: SelectSubset<T, ManyRequiredDeleteManyArgs>
     ): PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more ManyRequireds.
+     * Update zero or more 'ManyRequired'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {ManyRequiredUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many ManyRequireds
-     * const manyRequired = await prisma.manyRequired.updateMany({
+     * // Update many 'ManyRequired'
+     * const results = await prisma.manyRequired.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -6916,7 +6870,6 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     * 
     **/
     updateMany<T extends ManyRequiredUpdateManyArgs>(
       args: SelectSubset<T, ManyRequiredUpdateManyArgs>
@@ -6924,12 +6877,12 @@ export namespace Prisma {
 
     /**
      * Create or update one ManyRequired.
-     * @param {ManyRequiredUpsertArgs} args - Arguments to update or create a ManyRequired.
+     * @param {ManyRequiredUpsertArgs} args - Arguments to update or create 'ManyRequired'.
      * @example
-     * // Update or create a ManyRequired
+     * // Update or create 'ManyRequired'
      * const manyRequired = await prisma.manyRequired.upsert({
      *   create: {
-     *     // ... data to create a ManyRequired
+     *     // ... data to create 'ManyRequired'
      *   },
      *   update: {
      *     // ... in case it already exists, update
@@ -6944,15 +6897,15 @@ export namespace Prisma {
     ): CheckSelect<T, Prisma__ManyRequiredClient<ManyRequired>, Prisma__ManyRequiredClient<ManyRequiredGetPayload<T>>>
 
     /**
-     * Count the number of ManyRequireds.
+     * Count the number of 'ManyRequired'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ManyRequiredCountArgs} args - Arguments to filter ManyRequireds to count.
+     * @param {ManyRequiredCountArgs} args - Arguments to filter 'ManyRequired' to count.
      * @example
-     * // Count the number of ManyRequireds
+     * // Count the number of 'ManyRequired'
      * const count = await prisma.manyRequired.count({
      *   where: {
-     *     // ... the filter for the ManyRequireds we want to count
+     *     // ... the filter for the 'ManyRequired' we want to count
      *   }
      * })
     **/
@@ -6967,7 +6920,7 @@ export namespace Prisma {
     >
 
     /**
-     * Allows you to perform aggregations operations on a ManyRequired.
+     * Allows you to perform aggregations operations on 'ManyRequired'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {ManyRequiredAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
@@ -6993,7 +6946,7 @@ export namespace Prisma {
     aggregate<T extends ManyRequiredAggregateArgs>(args: Subset<T, ManyRequiredAggregateArgs>): PrismaPromise<GetManyRequiredAggregateType<T>>
 
     /**
-     * Group by ManyRequired.
+     * Group by 'ManyRequired'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {ManyRequiredGroupByArgs} args - Group by arguments.
@@ -7008,7 +6961,6 @@ export namespace Prisma {
      *     _all: true
      *   },
      * })
-     * 
     **/
     groupBy<
       T extends ManyRequiredGroupByArgs,
@@ -7174,35 +7126,35 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ManyRequireds to fetch.
+     * Determine the order of 'ManyRequired' to fetch.
      * 
     **/
     orderBy?: Enumerable<ManyRequiredOrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for ManyRequireds.
+     * Sets the position for searching for 'ManyRequired'.
      * 
     **/
     cursor?: ManyRequiredWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` ManyRequireds from the position of the cursor.
+     * Take \`±n\` 'ManyRequired' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` ManyRequireds.
+     * Skip the first \`n\` 'ManyRequired'.
      * 
     **/
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of ManyRequireds.
+     * Filter by unique combinations of 'ManyRequired'.
      * 
     **/
     distinct?: Enumerable<ManyRequiredScalarFieldEnum>
@@ -7224,35 +7176,35 @@ export namespace Prisma {
     **/
     include?: ManyRequiredInclude | null
     /**
-     * Filter, which ManyRequireds to fetch.
+     * Filter on 'ManyRequired'.
      * 
     **/
     where?: ManyRequiredWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ManyRequireds to fetch.
+     * Determine the order of 'ManyRequired' to fetch.
      * 
     **/
     orderBy?: Enumerable<ManyRequiredOrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing ManyRequireds.
+     * Sets the position for listing 'ManyRequired'.
      * 
     **/
     cursor?: ManyRequiredWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` ManyRequireds from the position of the cursor.
+     * Take \`±n\` 'ManyRequired' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` ManyRequireds.
+     * Skip the first \`n\` 'ManyRequired'.
      * 
     **/
     skip?: number
@@ -7275,7 +7227,7 @@ export namespace Prisma {
     **/
     include?: ManyRequiredInclude | null
     /**
-     * The data needed to create a ManyRequired.
+     * The data needed to create 'ManyRequired'.
      * 
     **/
     data: XOR<ManyRequiredCreateInput, ManyRequiredUncheckedCreateInput>
@@ -7287,7 +7239,7 @@ export namespace Prisma {
    */
   export type ManyRequiredCreateManyArgs = {
     /**
-     * The data used to create many ManyRequireds.
+     * The data used to create many 'ManyRequired'.
      * 
     **/
     data: Enumerable<ManyRequiredCreateManyInput>
@@ -7310,7 +7262,7 @@ export namespace Prisma {
     **/
     include?: ManyRequiredInclude | null
     /**
-     * The data needed to update a ManyRequired.
+     * The data needed to update 'ManyRequired'.
      * 
     **/
     data: XOR<ManyRequiredUpdateInput, ManyRequiredUncheckedUpdateInput>
@@ -7327,12 +7279,12 @@ export namespace Prisma {
    */
   export type ManyRequiredUpdateManyArgs = {
     /**
-     * The data used to update ManyRequireds.
+     * The data used to update 'ManyRequired'.
      * 
     **/
     data: XOR<ManyRequiredUpdateManyMutationInput, ManyRequiredUncheckedUpdateManyInput>
     /**
-     * Filter which ManyRequireds to update
+     * Filter which 'ManyRequired' to update
      * 
     **/
     where?: ManyRequiredWhereInput
@@ -7398,7 +7350,7 @@ export namespace Prisma {
    */
   export type ManyRequiredDeleteManyArgs = {
     /**
-     * Filter which ManyRequireds to delete
+     * Filter which 'ManyRequired' to delete
      * 
     **/
     where?: ManyRequiredWhereInput
@@ -7571,14 +7523,14 @@ export namespace Prisma {
 
   export type OptionalSide1AggregateArgs = {
     /**
-     * Filter which OptionalSide1 to aggregate.
+     * Filter what 'OptionalSide1' to aggregate.
      * 
     **/
     where?: OptionalSide1WhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of OptionalSide1s to fetch.
+     * Determine the order of 'OptionalSide1' to fetch.
      * 
     **/
     orderBy?: Enumerable<OptionalSide1OrderByWithRelationInput>
@@ -7592,21 +7544,21 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` OptionalSide1s from the position of the cursor.
+     * Take \`±n\` 'OptionalSide1' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` OptionalSide1s.
+     * Skip the first \`n\` 'OptionalSide1'.
      * 
     **/
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned OptionalSide1s
+     * Count returned 'OptionalSide1'
     **/
     _count?: true | OptionalSide1CountAggregateInputType
     /**
@@ -7749,8 +7701,8 @@ export namespace Prisma {
 
   export interface OptionalSide1Delegate<GlobalRejectSettings> {
     /**
-     * Find zero or one OptionalSide1 that matches the filter.
-     * @param {OptionalSide1FindUniqueArgs} args - Arguments to find a OptionalSide1
+     * Returns OptionalSide1 that matches the filter or null if nothing is found
+     * @param {OptionalSide1FindUniqueArgs} args - Arguments to find 'OptionalSide1'
      * @example
      * // Get one OptionalSide1
      * const optionalSide1 = await prisma.optionalSide1.findUnique({
@@ -7767,7 +7719,7 @@ export namespace Prisma {
      * Find the first OptionalSide1 that matches the filter.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {OptionalSide1FindFirstArgs} args - Arguments to find a OptionalSide1
+     * @param {OptionalSide1FindFirstArgs} args - Arguments to find 'OptionalSide1'
      * @example
      * // Get one OptionalSide1
      * const optionalSide1 = await prisma.optionalSide1.findFirst({
@@ -7781,68 +7733,64 @@ export namespace Prisma {
     ): HasReject<GlobalRejectSettings, LocalRejectSettings, 'findFirst', 'OptionalSide1'> extends True ? CheckSelect<T, Prisma__OptionalSide1Client<OptionalSide1>, Prisma__OptionalSide1Client<OptionalSide1GetPayload<T>>> : CheckSelect<T, Prisma__OptionalSide1Client<OptionalSide1 | null >, Prisma__OptionalSide1Client<OptionalSide1GetPayload<T> | null >>
 
     /**
-     * Find zero or more OptionalSide1s that matches the filter.
+     * Find zero or more 'OptionalSide1' that match the filter.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {OptionalSide1FindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all OptionalSide1s
-     * const optionalSide1s = await prisma.optionalSide1.findMany()
-     * 
-     * // Get first 10 OptionalSide1s
-     * const optionalSide1s = await prisma.optionalSide1.findMany({ take: 10 })
+     * // Get all 'OptionalSide1'
+     * const results = await prisma.optionalSide1.findMany()
+     *         
+     * // Get first 10 'OptionalSide1'
+     * const results = await prisma.optionalSide1.findMany({ take: 10 })
      * 
      * // Only select the \`id\`
-     * const optionalSide1WithIdOnly = await prisma.optionalSide1.findMany({ select: { id: true } })
-     * 
+     * const resultsWithIdOnly = await prisma.optionalSide1.findMany({ select: { id: true } })
     **/
     findMany<T extends OptionalSide1FindManyArgs>(
       args?: SelectSubset<T, OptionalSide1FindManyArgs>
     ): CheckSelect<T, PrismaPromise<Array<OptionalSide1>>, PrismaPromise<Array<OptionalSide1GetPayload<T>>>>
 
     /**
-     * Create a OptionalSide1.
-     * @param {OptionalSide1CreateArgs} args - Arguments to create a OptionalSide1.
+     * Create 'OptionalSide1'.
+     * @param {OptionalSide1CreateArgs} args - Arguments to create 'OptionalSide1'.
      * @example
      * // Create one OptionalSide1
      * const OptionalSide1 = await prisma.optionalSide1.create({
      *   data: {
-     *     // ... data to create a OptionalSide1
+     *     // ... data to create 'OptionalSide1'
      *   }
      * })
-     * 
     **/
     create<T extends OptionalSide1CreateArgs>(
       args: SelectSubset<T, OptionalSide1CreateArgs>
     ): CheckSelect<T, Prisma__OptionalSide1Client<OptionalSide1>, Prisma__OptionalSide1Client<OptionalSide1GetPayload<T>>>
 
     /**
-     * Create many OptionalSide1s.
-     *     @param {OptionalSide1CreateManyArgs} args - Arguments to create many OptionalSide1s.
-     *     @example
-     *     // Create many OptionalSide1s
-     *     const optionalSide1 = await prisma.optionalSide1.createMany({
-     *       data: {
-     *         // ... provide data here
-     *       }
-     *     })
-     *     
+     * Create many 'OptionalSide1'.
+     * @param {OptionalSide1CreateManyArgs} args - Arguments to create many 'OptionalSide1'.
+     * @example
+     * // Create many 'OptionalSide1'
+     * const results = await prisma.optionalSide1.createMany({
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
     **/
     createMany<T extends OptionalSide1CreateManyArgs>(
       args?: SelectSubset<T, OptionalSide1CreateManyArgs>
     ): PrismaPromise<BatchPayload>
 
     /**
-     * Delete a OptionalSide1.
+     * Delete 'OptionalSide1'.
      * @param {OptionalSide1DeleteArgs} args - Arguments to delete one OptionalSide1.
      * @example
      * // Delete one OptionalSide1
-     * const OptionalSide1 = await prisma.optionalSide1.delete({
+     * await prisma.optionalSide1.delete({
      *   where: {
      *     // ... filter to delete one OptionalSide1
      *   }
      * })
-     * 
     **/
     delete<T extends OptionalSide1DeleteArgs>(
       args: SelectSubset<T, OptionalSide1DeleteArgs>
@@ -7861,36 +7809,34 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     * 
     **/
     update<T extends OptionalSide1UpdateArgs>(
       args: SelectSubset<T, OptionalSide1UpdateArgs>
     ): CheckSelect<T, Prisma__OptionalSide1Client<OptionalSide1>, Prisma__OptionalSide1Client<OptionalSide1GetPayload<T>>>
 
     /**
-     * Delete zero or more OptionalSide1s.
-     * @param {OptionalSide1DeleteManyArgs} args - Arguments to filter OptionalSide1s to delete.
+     * Delete zero or more 'OptionalSide1'.
+     * @param {OptionalSide1DeleteManyArgs} args - Arguments to filter 'OptionalSide1' to delete.
      * @example
-     * // Delete a few OptionalSide1s
+     * // Delete a few 'OptionalSide1'
      * const { count } = await prisma.optionalSide1.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
-     * 
     **/
     deleteMany<T extends OptionalSide1DeleteManyArgs>(
       args?: SelectSubset<T, OptionalSide1DeleteManyArgs>
     ): PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more OptionalSide1s.
+     * Update zero or more 'OptionalSide1'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {OptionalSide1UpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many OptionalSide1s
-     * const optionalSide1 = await prisma.optionalSide1.updateMany({
+     * // Update many 'OptionalSide1'
+     * const results = await prisma.optionalSide1.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -7898,7 +7844,6 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     * 
     **/
     updateMany<T extends OptionalSide1UpdateManyArgs>(
       args: SelectSubset<T, OptionalSide1UpdateManyArgs>
@@ -7906,12 +7851,12 @@ export namespace Prisma {
 
     /**
      * Create or update one OptionalSide1.
-     * @param {OptionalSide1UpsertArgs} args - Arguments to update or create a OptionalSide1.
+     * @param {OptionalSide1UpsertArgs} args - Arguments to update or create 'OptionalSide1'.
      * @example
-     * // Update or create a OptionalSide1
+     * // Update or create 'OptionalSide1'
      * const optionalSide1 = await prisma.optionalSide1.upsert({
      *   create: {
-     *     // ... data to create a OptionalSide1
+     *     // ... data to create 'OptionalSide1'
      *   },
      *   update: {
      *     // ... in case it already exists, update
@@ -7926,15 +7871,15 @@ export namespace Prisma {
     ): CheckSelect<T, Prisma__OptionalSide1Client<OptionalSide1>, Prisma__OptionalSide1Client<OptionalSide1GetPayload<T>>>
 
     /**
-     * Count the number of OptionalSide1s.
+     * Count the number of 'OptionalSide1'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {OptionalSide1CountArgs} args - Arguments to filter OptionalSide1s to count.
+     * @param {OptionalSide1CountArgs} args - Arguments to filter 'OptionalSide1' to count.
      * @example
-     * // Count the number of OptionalSide1s
+     * // Count the number of 'OptionalSide1'
      * const count = await prisma.optionalSide1.count({
      *   where: {
-     *     // ... the filter for the OptionalSide1s we want to count
+     *     // ... the filter for the 'OptionalSide1' we want to count
      *   }
      * })
     **/
@@ -7949,7 +7894,7 @@ export namespace Prisma {
     >
 
     /**
-     * Allows you to perform aggregations operations on a OptionalSide1.
+     * Allows you to perform aggregations operations on 'OptionalSide1'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {OptionalSide1AggregateArgs} args - Select which aggregations you would like to apply and on what fields.
@@ -7975,7 +7920,7 @@ export namespace Prisma {
     aggregate<T extends OptionalSide1AggregateArgs>(args: Subset<T, OptionalSide1AggregateArgs>): PrismaPromise<GetOptionalSide1AggregateType<T>>
 
     /**
-     * Group by OptionalSide1.
+     * Group by 'OptionalSide1'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {OptionalSide1GroupByArgs} args - Group by arguments.
@@ -7990,7 +7935,6 @@ export namespace Prisma {
      *     _all: true
      *   },
      * })
-     * 
     **/
     groupBy<
       T extends OptionalSide1GroupByArgs,
@@ -8156,35 +8100,35 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of OptionalSide1s to fetch.
+     * Determine the order of 'OptionalSide1' to fetch.
      * 
     **/
     orderBy?: Enumerable<OptionalSide1OrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for OptionalSide1s.
+     * Sets the position for searching for 'OptionalSide1'.
      * 
     **/
     cursor?: OptionalSide1WhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` OptionalSide1s from the position of the cursor.
+     * Take \`±n\` 'OptionalSide1' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` OptionalSide1s.
+     * Skip the first \`n\` 'OptionalSide1'.
      * 
     **/
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of OptionalSide1s.
+     * Filter by unique combinations of 'OptionalSide1'.
      * 
     **/
     distinct?: Enumerable<OptionalSide1ScalarFieldEnum>
@@ -8206,35 +8150,35 @@ export namespace Prisma {
     **/
     include?: OptionalSide1Include | null
     /**
-     * Filter, which OptionalSide1s to fetch.
+     * Filter on 'OptionalSide1'.
      * 
     **/
     where?: OptionalSide1WhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of OptionalSide1s to fetch.
+     * Determine the order of 'OptionalSide1' to fetch.
      * 
     **/
     orderBy?: Enumerable<OptionalSide1OrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing OptionalSide1s.
+     * Sets the position for listing 'OptionalSide1'.
      * 
     **/
     cursor?: OptionalSide1WhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` OptionalSide1s from the position of the cursor.
+     * Take \`±n\` 'OptionalSide1' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` OptionalSide1s.
+     * Skip the first \`n\` 'OptionalSide1'.
      * 
     **/
     skip?: number
@@ -8257,7 +8201,7 @@ export namespace Prisma {
     **/
     include?: OptionalSide1Include | null
     /**
-     * The data needed to create a OptionalSide1.
+     * The data needed to create 'OptionalSide1'.
      * 
     **/
     data: XOR<OptionalSide1CreateInput, OptionalSide1UncheckedCreateInput>
@@ -8269,7 +8213,7 @@ export namespace Prisma {
    */
   export type OptionalSide1CreateManyArgs = {
     /**
-     * The data used to create many OptionalSide1s.
+     * The data used to create many 'OptionalSide1'.
      * 
     **/
     data: Enumerable<OptionalSide1CreateManyInput>
@@ -8292,7 +8236,7 @@ export namespace Prisma {
     **/
     include?: OptionalSide1Include | null
     /**
-     * The data needed to update a OptionalSide1.
+     * The data needed to update 'OptionalSide1'.
      * 
     **/
     data: XOR<OptionalSide1UpdateInput, OptionalSide1UncheckedUpdateInput>
@@ -8309,12 +8253,12 @@ export namespace Prisma {
    */
   export type OptionalSide1UpdateManyArgs = {
     /**
-     * The data used to update OptionalSide1s.
+     * The data used to update 'OptionalSide1'.
      * 
     **/
     data: XOR<OptionalSide1UpdateManyMutationInput, OptionalSide1UncheckedUpdateManyInput>
     /**
-     * Filter which OptionalSide1s to update
+     * Filter which 'OptionalSide1' to update
      * 
     **/
     where?: OptionalSide1WhereInput
@@ -8380,7 +8324,7 @@ export namespace Prisma {
    */
   export type OptionalSide1DeleteManyArgs = {
     /**
-     * Filter which OptionalSide1s to delete
+     * Filter which 'OptionalSide1' to delete
      * 
     **/
     where?: OptionalSide1WhereInput
@@ -8543,14 +8487,14 @@ export namespace Prisma {
 
   export type OptionalSide2AggregateArgs = {
     /**
-     * Filter which OptionalSide2 to aggregate.
+     * Filter what 'OptionalSide2' to aggregate.
      * 
     **/
     where?: OptionalSide2WhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of OptionalSide2s to fetch.
+     * Determine the order of 'OptionalSide2' to fetch.
      * 
     **/
     orderBy?: Enumerable<OptionalSide2OrderByWithRelationInput>
@@ -8564,21 +8508,21 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` OptionalSide2s from the position of the cursor.
+     * Take \`±n\` 'OptionalSide2' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` OptionalSide2s.
+     * Skip the first \`n\` 'OptionalSide2'.
      * 
     **/
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned OptionalSide2s
+     * Count returned 'OptionalSide2'
     **/
     _count?: true | OptionalSide2CountAggregateInputType
     /**
@@ -8719,8 +8663,8 @@ export namespace Prisma {
 
   export interface OptionalSide2Delegate<GlobalRejectSettings> {
     /**
-     * Find zero or one OptionalSide2 that matches the filter.
-     * @param {OptionalSide2FindUniqueArgs} args - Arguments to find a OptionalSide2
+     * Returns OptionalSide2 that matches the filter or null if nothing is found
+     * @param {OptionalSide2FindUniqueArgs} args - Arguments to find 'OptionalSide2'
      * @example
      * // Get one OptionalSide2
      * const optionalSide2 = await prisma.optionalSide2.findUnique({
@@ -8737,7 +8681,7 @@ export namespace Prisma {
      * Find the first OptionalSide2 that matches the filter.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {OptionalSide2FindFirstArgs} args - Arguments to find a OptionalSide2
+     * @param {OptionalSide2FindFirstArgs} args - Arguments to find 'OptionalSide2'
      * @example
      * // Get one OptionalSide2
      * const optionalSide2 = await prisma.optionalSide2.findFirst({
@@ -8751,68 +8695,64 @@ export namespace Prisma {
     ): HasReject<GlobalRejectSettings, LocalRejectSettings, 'findFirst', 'OptionalSide2'> extends True ? CheckSelect<T, Prisma__OptionalSide2Client<OptionalSide2>, Prisma__OptionalSide2Client<OptionalSide2GetPayload<T>>> : CheckSelect<T, Prisma__OptionalSide2Client<OptionalSide2 | null >, Prisma__OptionalSide2Client<OptionalSide2GetPayload<T> | null >>
 
     /**
-     * Find zero or more OptionalSide2s that matches the filter.
+     * Find zero or more 'OptionalSide2' that match the filter.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {OptionalSide2FindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all OptionalSide2s
-     * const optionalSide2s = await prisma.optionalSide2.findMany()
-     * 
-     * // Get first 10 OptionalSide2s
-     * const optionalSide2s = await prisma.optionalSide2.findMany({ take: 10 })
+     * // Get all 'OptionalSide2'
+     * const results = await prisma.optionalSide2.findMany()
+     *         
+     * // Get first 10 'OptionalSide2'
+     * const results = await prisma.optionalSide2.findMany({ take: 10 })
      * 
      * // Only select the \`id\`
-     * const optionalSide2WithIdOnly = await prisma.optionalSide2.findMany({ select: { id: true } })
-     * 
+     * const resultsWithIdOnly = await prisma.optionalSide2.findMany({ select: { id: true } })
     **/
     findMany<T extends OptionalSide2FindManyArgs>(
       args?: SelectSubset<T, OptionalSide2FindManyArgs>
     ): CheckSelect<T, PrismaPromise<Array<OptionalSide2>>, PrismaPromise<Array<OptionalSide2GetPayload<T>>>>
 
     /**
-     * Create a OptionalSide2.
-     * @param {OptionalSide2CreateArgs} args - Arguments to create a OptionalSide2.
+     * Create 'OptionalSide2'.
+     * @param {OptionalSide2CreateArgs} args - Arguments to create 'OptionalSide2'.
      * @example
      * // Create one OptionalSide2
      * const OptionalSide2 = await prisma.optionalSide2.create({
      *   data: {
-     *     // ... data to create a OptionalSide2
+     *     // ... data to create 'OptionalSide2'
      *   }
      * })
-     * 
     **/
     create<T extends OptionalSide2CreateArgs>(
       args: SelectSubset<T, OptionalSide2CreateArgs>
     ): CheckSelect<T, Prisma__OptionalSide2Client<OptionalSide2>, Prisma__OptionalSide2Client<OptionalSide2GetPayload<T>>>
 
     /**
-     * Create many OptionalSide2s.
-     *     @param {OptionalSide2CreateManyArgs} args - Arguments to create many OptionalSide2s.
-     *     @example
-     *     // Create many OptionalSide2s
-     *     const optionalSide2 = await prisma.optionalSide2.createMany({
-     *       data: {
-     *         // ... provide data here
-     *       }
-     *     })
-     *     
+     * Create many 'OptionalSide2'.
+     * @param {OptionalSide2CreateManyArgs} args - Arguments to create many 'OptionalSide2'.
+     * @example
+     * // Create many 'OptionalSide2'
+     * const results = await prisma.optionalSide2.createMany({
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
     **/
     createMany<T extends OptionalSide2CreateManyArgs>(
       args?: SelectSubset<T, OptionalSide2CreateManyArgs>
     ): PrismaPromise<BatchPayload>
 
     /**
-     * Delete a OptionalSide2.
+     * Delete 'OptionalSide2'.
      * @param {OptionalSide2DeleteArgs} args - Arguments to delete one OptionalSide2.
      * @example
      * // Delete one OptionalSide2
-     * const OptionalSide2 = await prisma.optionalSide2.delete({
+     * await prisma.optionalSide2.delete({
      *   where: {
      *     // ... filter to delete one OptionalSide2
      *   }
      * })
-     * 
     **/
     delete<T extends OptionalSide2DeleteArgs>(
       args: SelectSubset<T, OptionalSide2DeleteArgs>
@@ -8831,36 +8771,34 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     * 
     **/
     update<T extends OptionalSide2UpdateArgs>(
       args: SelectSubset<T, OptionalSide2UpdateArgs>
     ): CheckSelect<T, Prisma__OptionalSide2Client<OptionalSide2>, Prisma__OptionalSide2Client<OptionalSide2GetPayload<T>>>
 
     /**
-     * Delete zero or more OptionalSide2s.
-     * @param {OptionalSide2DeleteManyArgs} args - Arguments to filter OptionalSide2s to delete.
+     * Delete zero or more 'OptionalSide2'.
+     * @param {OptionalSide2DeleteManyArgs} args - Arguments to filter 'OptionalSide2' to delete.
      * @example
-     * // Delete a few OptionalSide2s
+     * // Delete a few 'OptionalSide2'
      * const { count } = await prisma.optionalSide2.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
-     * 
     **/
     deleteMany<T extends OptionalSide2DeleteManyArgs>(
       args?: SelectSubset<T, OptionalSide2DeleteManyArgs>
     ): PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more OptionalSide2s.
+     * Update zero or more 'OptionalSide2'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {OptionalSide2UpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many OptionalSide2s
-     * const optionalSide2 = await prisma.optionalSide2.updateMany({
+     * // Update many 'OptionalSide2'
+     * const results = await prisma.optionalSide2.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -8868,7 +8806,6 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     * 
     **/
     updateMany<T extends OptionalSide2UpdateManyArgs>(
       args: SelectSubset<T, OptionalSide2UpdateManyArgs>
@@ -8876,12 +8813,12 @@ export namespace Prisma {
 
     /**
      * Create or update one OptionalSide2.
-     * @param {OptionalSide2UpsertArgs} args - Arguments to update or create a OptionalSide2.
+     * @param {OptionalSide2UpsertArgs} args - Arguments to update or create 'OptionalSide2'.
      * @example
-     * // Update or create a OptionalSide2
+     * // Update or create 'OptionalSide2'
      * const optionalSide2 = await prisma.optionalSide2.upsert({
      *   create: {
-     *     // ... data to create a OptionalSide2
+     *     // ... data to create 'OptionalSide2'
      *   },
      *   update: {
      *     // ... in case it already exists, update
@@ -8896,15 +8833,15 @@ export namespace Prisma {
     ): CheckSelect<T, Prisma__OptionalSide2Client<OptionalSide2>, Prisma__OptionalSide2Client<OptionalSide2GetPayload<T>>>
 
     /**
-     * Count the number of OptionalSide2s.
+     * Count the number of 'OptionalSide2'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {OptionalSide2CountArgs} args - Arguments to filter OptionalSide2s to count.
+     * @param {OptionalSide2CountArgs} args - Arguments to filter 'OptionalSide2' to count.
      * @example
-     * // Count the number of OptionalSide2s
+     * // Count the number of 'OptionalSide2'
      * const count = await prisma.optionalSide2.count({
      *   where: {
-     *     // ... the filter for the OptionalSide2s we want to count
+     *     // ... the filter for the 'OptionalSide2' we want to count
      *   }
      * })
     **/
@@ -8919,7 +8856,7 @@ export namespace Prisma {
     >
 
     /**
-     * Allows you to perform aggregations operations on a OptionalSide2.
+     * Allows you to perform aggregations operations on 'OptionalSide2'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {OptionalSide2AggregateArgs} args - Select which aggregations you would like to apply and on what fields.
@@ -8945,7 +8882,7 @@ export namespace Prisma {
     aggregate<T extends OptionalSide2AggregateArgs>(args: Subset<T, OptionalSide2AggregateArgs>): PrismaPromise<GetOptionalSide2AggregateType<T>>
 
     /**
-     * Group by OptionalSide2.
+     * Group by 'OptionalSide2'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {OptionalSide2GroupByArgs} args - Group by arguments.
@@ -8960,7 +8897,6 @@ export namespace Prisma {
      *     _all: true
      *   },
      * })
-     * 
     **/
     groupBy<
       T extends OptionalSide2GroupByArgs,
@@ -9126,35 +9062,35 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of OptionalSide2s to fetch.
+     * Determine the order of 'OptionalSide2' to fetch.
      * 
     **/
     orderBy?: Enumerable<OptionalSide2OrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for OptionalSide2s.
+     * Sets the position for searching for 'OptionalSide2'.
      * 
     **/
     cursor?: OptionalSide2WhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` OptionalSide2s from the position of the cursor.
+     * Take \`±n\` 'OptionalSide2' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` OptionalSide2s.
+     * Skip the first \`n\` 'OptionalSide2'.
      * 
     **/
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of OptionalSide2s.
+     * Filter by unique combinations of 'OptionalSide2'.
      * 
     **/
     distinct?: Enumerable<OptionalSide2ScalarFieldEnum>
@@ -9176,35 +9112,35 @@ export namespace Prisma {
     **/
     include?: OptionalSide2Include | null
     /**
-     * Filter, which OptionalSide2s to fetch.
+     * Filter on 'OptionalSide2'.
      * 
     **/
     where?: OptionalSide2WhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of OptionalSide2s to fetch.
+     * Determine the order of 'OptionalSide2' to fetch.
      * 
     **/
     orderBy?: Enumerable<OptionalSide2OrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing OptionalSide2s.
+     * Sets the position for listing 'OptionalSide2'.
      * 
     **/
     cursor?: OptionalSide2WhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` OptionalSide2s from the position of the cursor.
+     * Take \`±n\` 'OptionalSide2' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` OptionalSide2s.
+     * Skip the first \`n\` 'OptionalSide2'.
      * 
     **/
     skip?: number
@@ -9227,7 +9163,7 @@ export namespace Prisma {
     **/
     include?: OptionalSide2Include | null
     /**
-     * The data needed to create a OptionalSide2.
+     * The data needed to create 'OptionalSide2'.
      * 
     **/
     data: XOR<OptionalSide2CreateInput, OptionalSide2UncheckedCreateInput>
@@ -9239,7 +9175,7 @@ export namespace Prisma {
    */
   export type OptionalSide2CreateManyArgs = {
     /**
-     * The data used to create many OptionalSide2s.
+     * The data used to create many 'OptionalSide2'.
      * 
     **/
     data: Enumerable<OptionalSide2CreateManyInput>
@@ -9262,7 +9198,7 @@ export namespace Prisma {
     **/
     include?: OptionalSide2Include | null
     /**
-     * The data needed to update a OptionalSide2.
+     * The data needed to update 'OptionalSide2'.
      * 
     **/
     data: XOR<OptionalSide2UpdateInput, OptionalSide2UncheckedUpdateInput>
@@ -9279,12 +9215,12 @@ export namespace Prisma {
    */
   export type OptionalSide2UpdateManyArgs = {
     /**
-     * The data used to update OptionalSide2s.
+     * The data used to update 'OptionalSide2'.
      * 
     **/
     data: XOR<OptionalSide2UpdateManyMutationInput, OptionalSide2UncheckedUpdateManyInput>
     /**
-     * Filter which OptionalSide2s to update
+     * Filter which 'OptionalSide2' to update
      * 
     **/
     where?: OptionalSide2WhereInput
@@ -9350,7 +9286,7 @@ export namespace Prisma {
    */
   export type OptionalSide2DeleteManyArgs = {
     /**
-     * Filter which OptionalSide2s to delete
+     * Filter which 'OptionalSide2' to delete
      * 
     **/
     where?: OptionalSide2WhereInput
@@ -9501,14 +9437,14 @@ export namespace Prisma {
 
   export type AAggregateArgs = {
     /**
-     * Filter which A to aggregate.
+     * Filter what 'A' to aggregate.
      * 
     **/
     where?: AWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of AS to fetch.
+     * Determine the order of 'A' to fetch.
      * 
     **/
     orderBy?: Enumerable<AOrderByWithRelationInput>
@@ -9522,21 +9458,21 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` AS from the position of the cursor.
+     * Take \`±n\` 'A' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` AS.
+     * Skip the first \`n\` 'A'.
      * 
     **/
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned AS
+     * Count returned 'A'
     **/
     _count?: true | ACountAggregateInputType
     /**
@@ -9661,8 +9597,8 @@ export namespace Prisma {
 
   export interface ADelegate<GlobalRejectSettings> {
     /**
-     * Find zero or one A that matches the filter.
-     * @param {AFindUniqueArgs} args - Arguments to find a A
+     * Returns A that matches the filter or null if nothing is found
+     * @param {AFindUniqueArgs} args - Arguments to find 'A'
      * @example
      * // Get one A
      * const a = await prisma.a.findUnique({
@@ -9679,7 +9615,7 @@ export namespace Prisma {
      * Find the first A that matches the filter.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {AFindFirstArgs} args - Arguments to find a A
+     * @param {AFindFirstArgs} args - Arguments to find 'A'
      * @example
      * // Get one A
      * const a = await prisma.a.findFirst({
@@ -9693,68 +9629,64 @@ export namespace Prisma {
     ): HasReject<GlobalRejectSettings, LocalRejectSettings, 'findFirst', 'A'> extends True ? CheckSelect<T, Prisma__AClient<A>, Prisma__AClient<AGetPayload<T>>> : CheckSelect<T, Prisma__AClient<A | null >, Prisma__AClient<AGetPayload<T> | null >>
 
     /**
-     * Find zero or more As that matches the filter.
+     * Find zero or more 'A' that match the filter.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {AFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all As
-     * const as = await prisma.a.findMany()
-     * 
-     * // Get first 10 As
-     * const as = await prisma.a.findMany({ take: 10 })
+     * // Get all 'A'
+     * const results = await prisma.a.findMany()
+     *         
+     * // Get first 10 'A'
+     * const results = await prisma.a.findMany({ take: 10 })
      * 
      * // Only select the \`id\`
-     * const aWithIdOnly = await prisma.a.findMany({ select: { id: true } })
-     * 
+     * const resultsWithIdOnly = await prisma.a.findMany({ select: { id: true } })
     **/
     findMany<T extends AFindManyArgs>(
       args?: SelectSubset<T, AFindManyArgs>
     ): CheckSelect<T, PrismaPromise<Array<A>>, PrismaPromise<Array<AGetPayload<T>>>>
 
     /**
-     * Create a A.
-     * @param {ACreateArgs} args - Arguments to create a A.
+     * Create 'A'.
+     * @param {ACreateArgs} args - Arguments to create 'A'.
      * @example
      * // Create one A
      * const A = await prisma.a.create({
      *   data: {
-     *     // ... data to create a A
+     *     // ... data to create 'A'
      *   }
      * })
-     * 
     **/
     create<T extends ACreateArgs>(
       args: SelectSubset<T, ACreateArgs>
     ): CheckSelect<T, Prisma__AClient<A>, Prisma__AClient<AGetPayload<T>>>
 
     /**
-     * Create many As.
-     *     @param {ACreateManyArgs} args - Arguments to create many As.
-     *     @example
-     *     // Create many As
-     *     const a = await prisma.a.createMany({
-     *       data: {
-     *         // ... provide data here
-     *       }
-     *     })
-     *     
+     * Create many 'A'.
+     * @param {ACreateManyArgs} args - Arguments to create many 'A'.
+     * @example
+     * // Create many 'A'
+     * const results = await prisma.a.createMany({
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
     **/
     createMany<T extends ACreateManyArgs>(
       args?: SelectSubset<T, ACreateManyArgs>
     ): PrismaPromise<BatchPayload>
 
     /**
-     * Delete a A.
+     * Delete 'A'.
      * @param {ADeleteArgs} args - Arguments to delete one A.
      * @example
      * // Delete one A
-     * const A = await prisma.a.delete({
+     * await prisma.a.delete({
      *   where: {
      *     // ... filter to delete one A
      *   }
      * })
-     * 
     **/
     delete<T extends ADeleteArgs>(
       args: SelectSubset<T, ADeleteArgs>
@@ -9773,36 +9705,34 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     * 
     **/
     update<T extends AUpdateArgs>(
       args: SelectSubset<T, AUpdateArgs>
     ): CheckSelect<T, Prisma__AClient<A>, Prisma__AClient<AGetPayload<T>>>
 
     /**
-     * Delete zero or more As.
-     * @param {ADeleteManyArgs} args - Arguments to filter As to delete.
+     * Delete zero or more 'A'.
+     * @param {ADeleteManyArgs} args - Arguments to filter 'A' to delete.
      * @example
-     * // Delete a few As
+     * // Delete a few 'A'
      * const { count } = await prisma.a.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
-     * 
     **/
     deleteMany<T extends ADeleteManyArgs>(
       args?: SelectSubset<T, ADeleteManyArgs>
     ): PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more As.
+     * Update zero or more 'A'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {AUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many As
-     * const a = await prisma.a.updateMany({
+     * // Update many 'A'
+     * const results = await prisma.a.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -9810,7 +9740,6 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     * 
     **/
     updateMany<T extends AUpdateManyArgs>(
       args: SelectSubset<T, AUpdateManyArgs>
@@ -9818,12 +9747,12 @@ export namespace Prisma {
 
     /**
      * Create or update one A.
-     * @param {AUpsertArgs} args - Arguments to update or create a A.
+     * @param {AUpsertArgs} args - Arguments to update or create 'A'.
      * @example
-     * // Update or create a A
+     * // Update or create 'A'
      * const a = await prisma.a.upsert({
      *   create: {
-     *     // ... data to create a A
+     *     // ... data to create 'A'
      *   },
      *   update: {
      *     // ... in case it already exists, update
@@ -9838,15 +9767,15 @@ export namespace Prisma {
     ): CheckSelect<T, Prisma__AClient<A>, Prisma__AClient<AGetPayload<T>>>
 
     /**
-     * Count the number of As.
+     * Count the number of 'A'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ACountArgs} args - Arguments to filter As to count.
+     * @param {ACountArgs} args - Arguments to filter 'A' to count.
      * @example
-     * // Count the number of As
+     * // Count the number of 'A'
      * const count = await prisma.a.count({
      *   where: {
-     *     // ... the filter for the As we want to count
+     *     // ... the filter for the 'A' we want to count
      *   }
      * })
     **/
@@ -9861,7 +9790,7 @@ export namespace Prisma {
     >
 
     /**
-     * Allows you to perform aggregations operations on a A.
+     * Allows you to perform aggregations operations on 'A'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {AAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
@@ -9887,7 +9816,7 @@ export namespace Prisma {
     aggregate<T extends AAggregateArgs>(args: Subset<T, AAggregateArgs>): PrismaPromise<GetAAggregateType<T>>
 
     /**
-     * Group by A.
+     * Group by 'A'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {AGroupByArgs} args - Group by arguments.
@@ -9902,7 +9831,6 @@ export namespace Prisma {
      *     _all: true
      *   },
      * })
-     * 
     **/
     groupBy<
       T extends AGroupByArgs,
@@ -10057,35 +9985,35 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of AS to fetch.
+     * Determine the order of 'A' to fetch.
      * 
     **/
     orderBy?: Enumerable<AOrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for AS.
+     * Sets the position for searching for 'A'.
      * 
     **/
     cursor?: AWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` AS from the position of the cursor.
+     * Take \`±n\` 'A' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` AS.
+     * Skip the first \`n\` 'A'.
      * 
     **/
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of AS.
+     * Filter by unique combinations of 'A'.
      * 
     **/
     distinct?: Enumerable<AScalarFieldEnum>
@@ -10102,35 +10030,35 @@ export namespace Prisma {
     **/
     select?: ASelect | null
     /**
-     * Filter, which AS to fetch.
+     * Filter on 'A'.
      * 
     **/
     where?: AWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of AS to fetch.
+     * Determine the order of 'A' to fetch.
      * 
     **/
     orderBy?: Enumerable<AOrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing AS.
+     * Sets the position for listing 'A'.
      * 
     **/
     cursor?: AWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` AS from the position of the cursor.
+     * Take \`±n\` 'A' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` AS.
+     * Skip the first \`n\` 'A'.
      * 
     **/
     skip?: number
@@ -10148,7 +10076,7 @@ export namespace Prisma {
     **/
     select?: ASelect | null
     /**
-     * The data needed to create a A.
+     * The data needed to create 'A'.
      * 
     **/
     data: XOR<ACreateInput, AUncheckedCreateInput>
@@ -10160,7 +10088,7 @@ export namespace Prisma {
    */
   export type ACreateManyArgs = {
     /**
-     * The data used to create many AS.
+     * The data used to create many 'A'.
      * 
     **/
     data: Enumerable<ACreateManyInput>
@@ -10178,7 +10106,7 @@ export namespace Prisma {
     **/
     select?: ASelect | null
     /**
-     * The data needed to update a A.
+     * The data needed to update 'A'.
      * 
     **/
     data: XOR<AUpdateInput, AUncheckedUpdateInput>
@@ -10195,12 +10123,12 @@ export namespace Prisma {
    */
   export type AUpdateManyArgs = {
     /**
-     * The data used to update AS.
+     * The data used to update 'A'.
      * 
     **/
     data: XOR<AUpdateManyMutationInput, AUncheckedUpdateManyInput>
     /**
-     * Filter which AS to update
+     * Filter which 'A' to update
      * 
     **/
     where?: AWhereInput
@@ -10256,7 +10184,7 @@ export namespace Prisma {
    */
   export type ADeleteManyArgs = {
     /**
-     * Filter which AS to delete
+     * Filter which 'A' to delete
      * 
     **/
     where?: AWhereInput
@@ -10370,14 +10298,14 @@ export namespace Prisma {
 
   export type BAggregateArgs = {
     /**
-     * Filter which B to aggregate.
+     * Filter what 'B' to aggregate.
      * 
     **/
     where?: BWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of BS to fetch.
+     * Determine the order of 'B' to fetch.
      * 
     **/
     orderBy?: Enumerable<BOrderByWithRelationInput>
@@ -10391,21 +10319,21 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` BS from the position of the cursor.
+     * Take \`±n\` 'B' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` BS.
+     * Skip the first \`n\` 'B'.
      * 
     **/
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned BS
+     * Count returned 'B'
     **/
     _count?: true | BCountAggregateInputType
     /**
@@ -10522,8 +10450,8 @@ export namespace Prisma {
 
   export interface BDelegate<GlobalRejectSettings> {
     /**
-     * Find zero or one B that matches the filter.
-     * @param {BFindUniqueArgs} args - Arguments to find a B
+     * Returns B that matches the filter or null if nothing is found
+     * @param {BFindUniqueArgs} args - Arguments to find 'B'
      * @example
      * // Get one B
      * const b = await prisma.b.findUnique({
@@ -10540,7 +10468,7 @@ export namespace Prisma {
      * Find the first B that matches the filter.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {BFindFirstArgs} args - Arguments to find a B
+     * @param {BFindFirstArgs} args - Arguments to find 'B'
      * @example
      * // Get one B
      * const b = await prisma.b.findFirst({
@@ -10554,68 +10482,64 @@ export namespace Prisma {
     ): HasReject<GlobalRejectSettings, LocalRejectSettings, 'findFirst', 'B'> extends True ? CheckSelect<T, Prisma__BClient<B>, Prisma__BClient<BGetPayload<T>>> : CheckSelect<T, Prisma__BClient<B | null >, Prisma__BClient<BGetPayload<T> | null >>
 
     /**
-     * Find zero or more Bs that matches the filter.
+     * Find zero or more 'B' that match the filter.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {BFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Bs
-     * const bs = await prisma.b.findMany()
-     * 
-     * // Get first 10 Bs
-     * const bs = await prisma.b.findMany({ take: 10 })
+     * // Get all 'B'
+     * const results = await prisma.b.findMany()
+     *         
+     * // Get first 10 'B'
+     * const results = await prisma.b.findMany({ take: 10 })
      * 
      * // Only select the \`id\`
-     * const bWithIdOnly = await prisma.b.findMany({ select: { id: true } })
-     * 
+     * const resultsWithIdOnly = await prisma.b.findMany({ select: { id: true } })
     **/
     findMany<T extends BFindManyArgs>(
       args?: SelectSubset<T, BFindManyArgs>
     ): CheckSelect<T, PrismaPromise<Array<B>>, PrismaPromise<Array<BGetPayload<T>>>>
 
     /**
-     * Create a B.
-     * @param {BCreateArgs} args - Arguments to create a B.
+     * Create 'B'.
+     * @param {BCreateArgs} args - Arguments to create 'B'.
      * @example
      * // Create one B
      * const B = await prisma.b.create({
      *   data: {
-     *     // ... data to create a B
+     *     // ... data to create 'B'
      *   }
      * })
-     * 
     **/
     create<T extends BCreateArgs>(
       args: SelectSubset<T, BCreateArgs>
     ): CheckSelect<T, Prisma__BClient<B>, Prisma__BClient<BGetPayload<T>>>
 
     /**
-     * Create many Bs.
-     *     @param {BCreateManyArgs} args - Arguments to create many Bs.
-     *     @example
-     *     // Create many Bs
-     *     const b = await prisma.b.createMany({
-     *       data: {
-     *         // ... provide data here
-     *       }
-     *     })
-     *     
+     * Create many 'B'.
+     * @param {BCreateManyArgs} args - Arguments to create many 'B'.
+     * @example
+     * // Create many 'B'
+     * const results = await prisma.b.createMany({
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
     **/
     createMany<T extends BCreateManyArgs>(
       args?: SelectSubset<T, BCreateManyArgs>
     ): PrismaPromise<BatchPayload>
 
     /**
-     * Delete a B.
+     * Delete 'B'.
      * @param {BDeleteArgs} args - Arguments to delete one B.
      * @example
      * // Delete one B
-     * const B = await prisma.b.delete({
+     * await prisma.b.delete({
      *   where: {
      *     // ... filter to delete one B
      *   }
      * })
-     * 
     **/
     delete<T extends BDeleteArgs>(
       args: SelectSubset<T, BDeleteArgs>
@@ -10634,36 +10558,34 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     * 
     **/
     update<T extends BUpdateArgs>(
       args: SelectSubset<T, BUpdateArgs>
     ): CheckSelect<T, Prisma__BClient<B>, Prisma__BClient<BGetPayload<T>>>
 
     /**
-     * Delete zero or more Bs.
-     * @param {BDeleteManyArgs} args - Arguments to filter Bs to delete.
+     * Delete zero or more 'B'.
+     * @param {BDeleteManyArgs} args - Arguments to filter 'B' to delete.
      * @example
-     * // Delete a few Bs
+     * // Delete a few 'B'
      * const { count } = await prisma.b.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
-     * 
     **/
     deleteMany<T extends BDeleteManyArgs>(
       args?: SelectSubset<T, BDeleteManyArgs>
     ): PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Bs.
+     * Update zero or more 'B'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {BUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Bs
-     * const b = await prisma.b.updateMany({
+     * // Update many 'B'
+     * const results = await prisma.b.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -10671,7 +10593,6 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     * 
     **/
     updateMany<T extends BUpdateManyArgs>(
       args: SelectSubset<T, BUpdateManyArgs>
@@ -10679,12 +10600,12 @@ export namespace Prisma {
 
     /**
      * Create or update one B.
-     * @param {BUpsertArgs} args - Arguments to update or create a B.
+     * @param {BUpsertArgs} args - Arguments to update or create 'B'.
      * @example
-     * // Update or create a B
+     * // Update or create 'B'
      * const b = await prisma.b.upsert({
      *   create: {
-     *     // ... data to create a B
+     *     // ... data to create 'B'
      *   },
      *   update: {
      *     // ... in case it already exists, update
@@ -10699,15 +10620,15 @@ export namespace Prisma {
     ): CheckSelect<T, Prisma__BClient<B>, Prisma__BClient<BGetPayload<T>>>
 
     /**
-     * Count the number of Bs.
+     * Count the number of 'B'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {BCountArgs} args - Arguments to filter Bs to count.
+     * @param {BCountArgs} args - Arguments to filter 'B' to count.
      * @example
-     * // Count the number of Bs
+     * // Count the number of 'B'
      * const count = await prisma.b.count({
      *   where: {
-     *     // ... the filter for the Bs we want to count
+     *     // ... the filter for the 'B' we want to count
      *   }
      * })
     **/
@@ -10722,7 +10643,7 @@ export namespace Prisma {
     >
 
     /**
-     * Allows you to perform aggregations operations on a B.
+     * Allows you to perform aggregations operations on 'B'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {BAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
@@ -10748,7 +10669,7 @@ export namespace Prisma {
     aggregate<T extends BAggregateArgs>(args: Subset<T, BAggregateArgs>): PrismaPromise<GetBAggregateType<T>>
 
     /**
-     * Group by B.
+     * Group by 'B'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {BGroupByArgs} args - Group by arguments.
@@ -10763,7 +10684,6 @@ export namespace Prisma {
      *     _all: true
      *   },
      * })
-     * 
     **/
     groupBy<
       T extends BGroupByArgs,
@@ -10918,35 +10838,35 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of BS to fetch.
+     * Determine the order of 'B' to fetch.
      * 
     **/
     orderBy?: Enumerable<BOrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for BS.
+     * Sets the position for searching for 'B'.
      * 
     **/
     cursor?: BWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` BS from the position of the cursor.
+     * Take \`±n\` 'B' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` BS.
+     * Skip the first \`n\` 'B'.
      * 
     **/
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of BS.
+     * Filter by unique combinations of 'B'.
      * 
     **/
     distinct?: Enumerable<BScalarFieldEnum>
@@ -10963,35 +10883,35 @@ export namespace Prisma {
     **/
     select?: BSelect | null
     /**
-     * Filter, which BS to fetch.
+     * Filter on 'B'.
      * 
     **/
     where?: BWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of BS to fetch.
+     * Determine the order of 'B' to fetch.
      * 
     **/
     orderBy?: Enumerable<BOrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing BS.
+     * Sets the position for listing 'B'.
      * 
     **/
     cursor?: BWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` BS from the position of the cursor.
+     * Take \`±n\` 'B' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` BS.
+     * Skip the first \`n\` 'B'.
      * 
     **/
     skip?: number
@@ -11009,7 +10929,7 @@ export namespace Prisma {
     **/
     select?: BSelect | null
     /**
-     * The data needed to create a B.
+     * The data needed to create 'B'.
      * 
     **/
     data: XOR<BCreateInput, BUncheckedCreateInput>
@@ -11021,7 +10941,7 @@ export namespace Prisma {
    */
   export type BCreateManyArgs = {
     /**
-     * The data used to create many BS.
+     * The data used to create many 'B'.
      * 
     **/
     data: Enumerable<BCreateManyInput>
@@ -11039,7 +10959,7 @@ export namespace Prisma {
     **/
     select?: BSelect | null
     /**
-     * The data needed to update a B.
+     * The data needed to update 'B'.
      * 
     **/
     data: XOR<BUpdateInput, BUncheckedUpdateInput>
@@ -11056,12 +10976,12 @@ export namespace Prisma {
    */
   export type BUpdateManyArgs = {
     /**
-     * The data used to update BS.
+     * The data used to update 'B'.
      * 
     **/
     data: XOR<BUpdateManyMutationInput, BUncheckedUpdateManyInput>
     /**
-     * Filter which BS to update
+     * Filter which 'B' to update
      * 
     **/
     where?: BWhereInput
@@ -11117,7 +11037,7 @@ export namespace Prisma {
    */
   export type BDeleteManyArgs = {
     /**
-     * Filter which BS to delete
+     * Filter which 'B' to delete
      * 
     **/
     where?: BWhereInput
@@ -11213,14 +11133,14 @@ export namespace Prisma {
 
   export type CAggregateArgs = {
     /**
-     * Filter which C to aggregate.
+     * Filter what 'C' to aggregate.
      * 
     **/
     where?: CWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of CS to fetch.
+     * Determine the order of 'C' to fetch.
      * 
     **/
     orderBy?: Enumerable<COrderByWithRelationInput>
@@ -11234,21 +11154,21 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` CS from the position of the cursor.
+     * Take \`±n\` 'C' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` CS.
+     * Skip the first \`n\` 'C'.
      * 
     **/
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned CS
+     * Count returned 'C'
     **/
     _count?: true | CCountAggregateInputType
     /**
@@ -11353,8 +11273,8 @@ export namespace Prisma {
 
   export interface CDelegate<GlobalRejectSettings> {
     /**
-     * Find zero or one C that matches the filter.
-     * @param {CFindUniqueArgs} args - Arguments to find a C
+     * Returns C that matches the filter or null if nothing is found
+     * @param {CFindUniqueArgs} args - Arguments to find 'C'
      * @example
      * // Get one C
      * const c = await prisma.c.findUnique({
@@ -11371,7 +11291,7 @@ export namespace Prisma {
      * Find the first C that matches the filter.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CFindFirstArgs} args - Arguments to find a C
+     * @param {CFindFirstArgs} args - Arguments to find 'C'
      * @example
      * // Get one C
      * const c = await prisma.c.findFirst({
@@ -11385,68 +11305,64 @@ export namespace Prisma {
     ): HasReject<GlobalRejectSettings, LocalRejectSettings, 'findFirst', 'C'> extends True ? CheckSelect<T, Prisma__CClient<C>, Prisma__CClient<CGetPayload<T>>> : CheckSelect<T, Prisma__CClient<C | null >, Prisma__CClient<CGetPayload<T> | null >>
 
     /**
-     * Find zero or more Cs that matches the filter.
+     * Find zero or more 'C' that match the filter.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {CFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Cs
-     * const cs = await prisma.c.findMany()
-     * 
-     * // Get first 10 Cs
-     * const cs = await prisma.c.findMany({ take: 10 })
+     * // Get all 'C'
+     * const results = await prisma.c.findMany()
+     *         
+     * // Get first 10 'C'
+     * const results = await prisma.c.findMany({ take: 10 })
      * 
      * // Only select the \`id\`
-     * const cWithIdOnly = await prisma.c.findMany({ select: { id: true } })
-     * 
+     * const resultsWithIdOnly = await prisma.c.findMany({ select: { id: true } })
     **/
     findMany<T extends CFindManyArgs>(
       args?: SelectSubset<T, CFindManyArgs>
     ): CheckSelect<T, PrismaPromise<Array<C>>, PrismaPromise<Array<CGetPayload<T>>>>
 
     /**
-     * Create a C.
-     * @param {CCreateArgs} args - Arguments to create a C.
+     * Create 'C'.
+     * @param {CCreateArgs} args - Arguments to create 'C'.
      * @example
      * // Create one C
      * const C = await prisma.c.create({
      *   data: {
-     *     // ... data to create a C
+     *     // ... data to create 'C'
      *   }
      * })
-     * 
     **/
     create<T extends CCreateArgs>(
       args: SelectSubset<T, CCreateArgs>
     ): CheckSelect<T, Prisma__CClient<C>, Prisma__CClient<CGetPayload<T>>>
 
     /**
-     * Create many Cs.
-     *     @param {CCreateManyArgs} args - Arguments to create many Cs.
-     *     @example
-     *     // Create many Cs
-     *     const c = await prisma.c.createMany({
-     *       data: {
-     *         // ... provide data here
-     *       }
-     *     })
-     *     
+     * Create many 'C'.
+     * @param {CCreateManyArgs} args - Arguments to create many 'C'.
+     * @example
+     * // Create many 'C'
+     * const results = await prisma.c.createMany({
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
     **/
     createMany<T extends CCreateManyArgs>(
       args?: SelectSubset<T, CCreateManyArgs>
     ): PrismaPromise<BatchPayload>
 
     /**
-     * Delete a C.
+     * Delete 'C'.
      * @param {CDeleteArgs} args - Arguments to delete one C.
      * @example
      * // Delete one C
-     * const C = await prisma.c.delete({
+     * await prisma.c.delete({
      *   where: {
      *     // ... filter to delete one C
      *   }
      * })
-     * 
     **/
     delete<T extends CDeleteArgs>(
       args: SelectSubset<T, CDeleteArgs>
@@ -11465,36 +11381,34 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     * 
     **/
     update<T extends CUpdateArgs>(
       args: SelectSubset<T, CUpdateArgs>
     ): CheckSelect<T, Prisma__CClient<C>, Prisma__CClient<CGetPayload<T>>>
 
     /**
-     * Delete zero or more Cs.
-     * @param {CDeleteManyArgs} args - Arguments to filter Cs to delete.
+     * Delete zero or more 'C'.
+     * @param {CDeleteManyArgs} args - Arguments to filter 'C' to delete.
      * @example
-     * // Delete a few Cs
+     * // Delete a few 'C'
      * const { count } = await prisma.c.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
-     * 
     **/
     deleteMany<T extends CDeleteManyArgs>(
       args?: SelectSubset<T, CDeleteManyArgs>
     ): PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Cs.
+     * Update zero or more 'C'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {CUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Cs
-     * const c = await prisma.c.updateMany({
+     * // Update many 'C'
+     * const results = await prisma.c.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -11502,7 +11416,6 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     * 
     **/
     updateMany<T extends CUpdateManyArgs>(
       args: SelectSubset<T, CUpdateManyArgs>
@@ -11510,12 +11423,12 @@ export namespace Prisma {
 
     /**
      * Create or update one C.
-     * @param {CUpsertArgs} args - Arguments to update or create a C.
+     * @param {CUpsertArgs} args - Arguments to update or create 'C'.
      * @example
-     * // Update or create a C
+     * // Update or create 'C'
      * const c = await prisma.c.upsert({
      *   create: {
-     *     // ... data to create a C
+     *     // ... data to create 'C'
      *   },
      *   update: {
      *     // ... in case it already exists, update
@@ -11530,15 +11443,15 @@ export namespace Prisma {
     ): CheckSelect<T, Prisma__CClient<C>, Prisma__CClient<CGetPayload<T>>>
 
     /**
-     * Count the number of Cs.
+     * Count the number of 'C'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CCountArgs} args - Arguments to filter Cs to count.
+     * @param {CCountArgs} args - Arguments to filter 'C' to count.
      * @example
-     * // Count the number of Cs
+     * // Count the number of 'C'
      * const count = await prisma.c.count({
      *   where: {
-     *     // ... the filter for the Cs we want to count
+     *     // ... the filter for the 'C' we want to count
      *   }
      * })
     **/
@@ -11553,7 +11466,7 @@ export namespace Prisma {
     >
 
     /**
-     * Allows you to perform aggregations operations on a C.
+     * Allows you to perform aggregations operations on 'C'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {CAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
@@ -11579,7 +11492,7 @@ export namespace Prisma {
     aggregate<T extends CAggregateArgs>(args: Subset<T, CAggregateArgs>): PrismaPromise<GetCAggregateType<T>>
 
     /**
-     * Group by C.
+     * Group by 'C'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {CGroupByArgs} args - Group by arguments.
@@ -11594,7 +11507,6 @@ export namespace Prisma {
      *     _all: true
      *   },
      * })
-     * 
     **/
     groupBy<
       T extends CGroupByArgs,
@@ -11749,35 +11661,35 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of CS to fetch.
+     * Determine the order of 'C' to fetch.
      * 
     **/
     orderBy?: Enumerable<COrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for CS.
+     * Sets the position for searching for 'C'.
      * 
     **/
     cursor?: CWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` CS from the position of the cursor.
+     * Take \`±n\` 'C' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` CS.
+     * Skip the first \`n\` 'C'.
      * 
     **/
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of CS.
+     * Filter by unique combinations of 'C'.
      * 
     **/
     distinct?: Enumerable<CScalarFieldEnum>
@@ -11794,35 +11706,35 @@ export namespace Prisma {
     **/
     select?: CSelect | null
     /**
-     * Filter, which CS to fetch.
+     * Filter on 'C'.
      * 
     **/
     where?: CWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of CS to fetch.
+     * Determine the order of 'C' to fetch.
      * 
     **/
     orderBy?: Enumerable<COrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing CS.
+     * Sets the position for listing 'C'.
      * 
     **/
     cursor?: CWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` CS from the position of the cursor.
+     * Take \`±n\` 'C' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` CS.
+     * Skip the first \`n\` 'C'.
      * 
     **/
     skip?: number
@@ -11840,7 +11752,7 @@ export namespace Prisma {
     **/
     select?: CSelect | null
     /**
-     * The data needed to create a C.
+     * The data needed to create 'C'.
      * 
     **/
     data: XOR<CCreateInput, CUncheckedCreateInput>
@@ -11852,7 +11764,7 @@ export namespace Prisma {
    */
   export type CCreateManyArgs = {
     /**
-     * The data used to create many CS.
+     * The data used to create many 'C'.
      * 
     **/
     data: Enumerable<CCreateManyInput>
@@ -11870,7 +11782,7 @@ export namespace Prisma {
     **/
     select?: CSelect | null
     /**
-     * The data needed to update a C.
+     * The data needed to update 'C'.
      * 
     **/
     data: XOR<CUpdateInput, CUncheckedUpdateInput>
@@ -11887,12 +11799,12 @@ export namespace Prisma {
    */
   export type CUpdateManyArgs = {
     /**
-     * The data used to update CS.
+     * The data used to update 'C'.
      * 
     **/
     data: XOR<CUpdateManyMutationInput, CUncheckedUpdateManyInput>
     /**
-     * Filter which CS to update
+     * Filter which 'C' to update
      * 
     **/
     where?: CWhereInput
@@ -11948,7 +11860,7 @@ export namespace Prisma {
    */
   export type CDeleteManyArgs = {
     /**
-     * Filter which CS to delete
+     * Filter which 'C' to delete
      * 
     **/
     where?: CWhereInput
@@ -12030,14 +11942,14 @@ export namespace Prisma {
 
   export type DAggregateArgs = {
     /**
-     * Filter which D to aggregate.
+     * Filter what 'D' to aggregate.
      * 
     **/
     where?: DWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of DS to fetch.
+     * Determine the order of 'D' to fetch.
      * 
     **/
     orderBy?: Enumerable<DOrderByWithRelationInput>
@@ -12051,21 +11963,21 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` DS from the position of the cursor.
+     * Take \`±n\` 'D' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` DS.
+     * Skip the first \`n\` 'D'.
      * 
     **/
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned DS
+     * Count returned 'D'
     **/
     _count?: true | DCountAggregateInputType
     /**
@@ -12168,8 +12080,8 @@ export namespace Prisma {
 
   export interface DDelegate<GlobalRejectSettings> {
     /**
-     * Find zero or one D that matches the filter.
-     * @param {DFindUniqueArgs} args - Arguments to find a D
+     * Returns D that matches the filter or null if nothing is found
+     * @param {DFindUniqueArgs} args - Arguments to find 'D'
      * @example
      * // Get one D
      * const d = await prisma.d.findUnique({
@@ -12186,7 +12098,7 @@ export namespace Prisma {
      * Find the first D that matches the filter.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DFindFirstArgs} args - Arguments to find a D
+     * @param {DFindFirstArgs} args - Arguments to find 'D'
      * @example
      * // Get one D
      * const d = await prisma.d.findFirst({
@@ -12200,68 +12112,64 @@ export namespace Prisma {
     ): HasReject<GlobalRejectSettings, LocalRejectSettings, 'findFirst', 'D'> extends True ? CheckSelect<T, Prisma__DClient<D>, Prisma__DClient<DGetPayload<T>>> : CheckSelect<T, Prisma__DClient<D | null >, Prisma__DClient<DGetPayload<T> | null >>
 
     /**
-     * Find zero or more Ds that matches the filter.
+     * Find zero or more 'D' that match the filter.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {DFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Ds
-     * const ds = await prisma.d.findMany()
-     * 
-     * // Get first 10 Ds
-     * const ds = await prisma.d.findMany({ take: 10 })
+     * // Get all 'D'
+     * const results = await prisma.d.findMany()
+     *         
+     * // Get first 10 'D'
+     * const results = await prisma.d.findMany({ take: 10 })
      * 
      * // Only select the \`id\`
-     * const dWithIdOnly = await prisma.d.findMany({ select: { id: true } })
-     * 
+     * const resultsWithIdOnly = await prisma.d.findMany({ select: { id: true } })
     **/
     findMany<T extends DFindManyArgs>(
       args?: SelectSubset<T, DFindManyArgs>
     ): CheckSelect<T, PrismaPromise<Array<D>>, PrismaPromise<Array<DGetPayload<T>>>>
 
     /**
-     * Create a D.
-     * @param {DCreateArgs} args - Arguments to create a D.
+     * Create 'D'.
+     * @param {DCreateArgs} args - Arguments to create 'D'.
      * @example
      * // Create one D
      * const D = await prisma.d.create({
      *   data: {
-     *     // ... data to create a D
+     *     // ... data to create 'D'
      *   }
      * })
-     * 
     **/
     create<T extends DCreateArgs>(
       args: SelectSubset<T, DCreateArgs>
     ): CheckSelect<T, Prisma__DClient<D>, Prisma__DClient<DGetPayload<T>>>
 
     /**
-     * Create many Ds.
-     *     @param {DCreateManyArgs} args - Arguments to create many Ds.
-     *     @example
-     *     // Create many Ds
-     *     const d = await prisma.d.createMany({
-     *       data: {
-     *         // ... provide data here
-     *       }
-     *     })
-     *     
+     * Create many 'D'.
+     * @param {DCreateManyArgs} args - Arguments to create many 'D'.
+     * @example
+     * // Create many 'D'
+     * const results = await prisma.d.createMany({
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
     **/
     createMany<T extends DCreateManyArgs>(
       args?: SelectSubset<T, DCreateManyArgs>
     ): PrismaPromise<BatchPayload>
 
     /**
-     * Delete a D.
+     * Delete 'D'.
      * @param {DDeleteArgs} args - Arguments to delete one D.
      * @example
      * // Delete one D
-     * const D = await prisma.d.delete({
+     * await prisma.d.delete({
      *   where: {
      *     // ... filter to delete one D
      *   }
      * })
-     * 
     **/
     delete<T extends DDeleteArgs>(
       args: SelectSubset<T, DDeleteArgs>
@@ -12280,36 +12188,34 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     * 
     **/
     update<T extends DUpdateArgs>(
       args: SelectSubset<T, DUpdateArgs>
     ): CheckSelect<T, Prisma__DClient<D>, Prisma__DClient<DGetPayload<T>>>
 
     /**
-     * Delete zero or more Ds.
-     * @param {DDeleteManyArgs} args - Arguments to filter Ds to delete.
+     * Delete zero or more 'D'.
+     * @param {DDeleteManyArgs} args - Arguments to filter 'D' to delete.
      * @example
-     * // Delete a few Ds
+     * // Delete a few 'D'
      * const { count } = await prisma.d.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
-     * 
     **/
     deleteMany<T extends DDeleteManyArgs>(
       args?: SelectSubset<T, DDeleteManyArgs>
     ): PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Ds.
+     * Update zero or more 'D'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {DUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Ds
-     * const d = await prisma.d.updateMany({
+     * // Update many 'D'
+     * const results = await prisma.d.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -12317,7 +12223,6 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     * 
     **/
     updateMany<T extends DUpdateManyArgs>(
       args: SelectSubset<T, DUpdateManyArgs>
@@ -12325,12 +12230,12 @@ export namespace Prisma {
 
     /**
      * Create or update one D.
-     * @param {DUpsertArgs} args - Arguments to update or create a D.
+     * @param {DUpsertArgs} args - Arguments to update or create 'D'.
      * @example
-     * // Update or create a D
+     * // Update or create 'D'
      * const d = await prisma.d.upsert({
      *   create: {
-     *     // ... data to create a D
+     *     // ... data to create 'D'
      *   },
      *   update: {
      *     // ... in case it already exists, update
@@ -12345,15 +12250,15 @@ export namespace Prisma {
     ): CheckSelect<T, Prisma__DClient<D>, Prisma__DClient<DGetPayload<T>>>
 
     /**
-     * Count the number of Ds.
+     * Count the number of 'D'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DCountArgs} args - Arguments to filter Ds to count.
+     * @param {DCountArgs} args - Arguments to filter 'D' to count.
      * @example
-     * // Count the number of Ds
+     * // Count the number of 'D'
      * const count = await prisma.d.count({
      *   where: {
-     *     // ... the filter for the Ds we want to count
+     *     // ... the filter for the 'D' we want to count
      *   }
      * })
     **/
@@ -12368,7 +12273,7 @@ export namespace Prisma {
     >
 
     /**
-     * Allows you to perform aggregations operations on a D.
+     * Allows you to perform aggregations operations on 'D'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {DAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
@@ -12394,7 +12299,7 @@ export namespace Prisma {
     aggregate<T extends DAggregateArgs>(args: Subset<T, DAggregateArgs>): PrismaPromise<GetDAggregateType<T>>
 
     /**
-     * Group by D.
+     * Group by 'D'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {DGroupByArgs} args - Group by arguments.
@@ -12409,7 +12314,6 @@ export namespace Prisma {
      *     _all: true
      *   },
      * })
-     * 
     **/
     groupBy<
       T extends DGroupByArgs,
@@ -12564,35 +12468,35 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of DS to fetch.
+     * Determine the order of 'D' to fetch.
      * 
     **/
     orderBy?: Enumerable<DOrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for DS.
+     * Sets the position for searching for 'D'.
      * 
     **/
     cursor?: DWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` DS from the position of the cursor.
+     * Take \`±n\` 'D' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` DS.
+     * Skip the first \`n\` 'D'.
      * 
     **/
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of DS.
+     * Filter by unique combinations of 'D'.
      * 
     **/
     distinct?: Enumerable<DScalarFieldEnum>
@@ -12609,35 +12513,35 @@ export namespace Prisma {
     **/
     select?: DSelect | null
     /**
-     * Filter, which DS to fetch.
+     * Filter on 'D'.
      * 
     **/
     where?: DWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of DS to fetch.
+     * Determine the order of 'D' to fetch.
      * 
     **/
     orderBy?: Enumerable<DOrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing DS.
+     * Sets the position for listing 'D'.
      * 
     **/
     cursor?: DWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` DS from the position of the cursor.
+     * Take \`±n\` 'D' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` DS.
+     * Skip the first \`n\` 'D'.
      * 
     **/
     skip?: number
@@ -12655,7 +12559,7 @@ export namespace Prisma {
     **/
     select?: DSelect | null
     /**
-     * The data needed to create a D.
+     * The data needed to create 'D'.
      * 
     **/
     data: XOR<DCreateInput, DUncheckedCreateInput>
@@ -12667,7 +12571,7 @@ export namespace Prisma {
    */
   export type DCreateManyArgs = {
     /**
-     * The data used to create many DS.
+     * The data used to create many 'D'.
      * 
     **/
     data: Enumerable<DCreateManyInput>
@@ -12685,7 +12589,7 @@ export namespace Prisma {
     **/
     select?: DSelect | null
     /**
-     * The data needed to update a D.
+     * The data needed to update 'D'.
      * 
     **/
     data: XOR<DUpdateInput, DUncheckedUpdateInput>
@@ -12702,12 +12606,12 @@ export namespace Prisma {
    */
   export type DUpdateManyArgs = {
     /**
-     * The data used to update DS.
+     * The data used to update 'D'.
      * 
     **/
     data: XOR<DUpdateManyMutationInput, DUncheckedUpdateManyInput>
     /**
-     * Filter which DS to update
+     * Filter which 'D' to update
      * 
     **/
     where?: DWhereInput
@@ -12763,7 +12667,7 @@ export namespace Prisma {
    */
   export type DDeleteManyArgs = {
     /**
-     * Filter which DS to delete
+     * Filter which 'D' to delete
      * 
     **/
     where?: DWhereInput
@@ -12841,14 +12745,14 @@ export namespace Prisma {
 
   export type EAggregateArgs = {
     /**
-     * Filter which E to aggregate.
+     * Filter what 'E' to aggregate.
      * 
     **/
     where?: EWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ES to fetch.
+     * Determine the order of 'E' to fetch.
      * 
     **/
     orderBy?: Enumerable<EOrderByWithRelationInput>
@@ -12862,21 +12766,21 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` ES from the position of the cursor.
+     * Take \`±n\` 'E' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` ES.
+     * Skip the first \`n\` 'E'.
      * 
     **/
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned ES
+     * Count returned 'E'
     **/
     _count?: true | ECountAggregateInputType
     /**
@@ -12975,8 +12879,8 @@ export namespace Prisma {
 
   export interface EDelegate<GlobalRejectSettings> {
     /**
-     * Find zero or one E that matches the filter.
-     * @param {EFindUniqueArgs} args - Arguments to find a E
+     * Returns E that matches the filter or null if nothing is found
+     * @param {EFindUniqueArgs} args - Arguments to find 'E'
      * @example
      * // Get one E
      * const e = await prisma.e.findUnique({
@@ -12993,7 +12897,7 @@ export namespace Prisma {
      * Find the first E that matches the filter.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {EFindFirstArgs} args - Arguments to find a E
+     * @param {EFindFirstArgs} args - Arguments to find 'E'
      * @example
      * // Get one E
      * const e = await prisma.e.findFirst({
@@ -13007,68 +12911,64 @@ export namespace Prisma {
     ): HasReject<GlobalRejectSettings, LocalRejectSettings, 'findFirst', 'E'> extends True ? CheckSelect<T, Prisma__EClient<E>, Prisma__EClient<EGetPayload<T>>> : CheckSelect<T, Prisma__EClient<E | null >, Prisma__EClient<EGetPayload<T> | null >>
 
     /**
-     * Find zero or more Es that matches the filter.
+     * Find zero or more 'E' that match the filter.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {EFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Es
-     * const es = await prisma.e.findMany()
-     * 
-     * // Get first 10 Es
-     * const es = await prisma.e.findMany({ take: 10 })
+     * // Get all 'E'
+     * const results = await prisma.e.findMany()
+     *         
+     * // Get first 10 'E'
+     * const results = await prisma.e.findMany({ take: 10 })
      * 
      * // Only select the \`id\`
-     * const eWithIdOnly = await prisma.e.findMany({ select: { id: true } })
-     * 
+     * const resultsWithIdOnly = await prisma.e.findMany({ select: { id: true } })
     **/
     findMany<T extends EFindManyArgs>(
       args?: SelectSubset<T, EFindManyArgs>
     ): CheckSelect<T, PrismaPromise<Array<E>>, PrismaPromise<Array<EGetPayload<T>>>>
 
     /**
-     * Create a E.
-     * @param {ECreateArgs} args - Arguments to create a E.
+     * Create 'E'.
+     * @param {ECreateArgs} args - Arguments to create 'E'.
      * @example
      * // Create one E
      * const E = await prisma.e.create({
      *   data: {
-     *     // ... data to create a E
+     *     // ... data to create 'E'
      *   }
      * })
-     * 
     **/
     create<T extends ECreateArgs>(
       args: SelectSubset<T, ECreateArgs>
     ): CheckSelect<T, Prisma__EClient<E>, Prisma__EClient<EGetPayload<T>>>
 
     /**
-     * Create many Es.
-     *     @param {ECreateManyArgs} args - Arguments to create many Es.
-     *     @example
-     *     // Create many Es
-     *     const e = await prisma.e.createMany({
-     *       data: {
-     *         // ... provide data here
-     *       }
-     *     })
-     *     
+     * Create many 'E'.
+     * @param {ECreateManyArgs} args - Arguments to create many 'E'.
+     * @example
+     * // Create many 'E'
+     * const results = await prisma.e.createMany({
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
     **/
     createMany<T extends ECreateManyArgs>(
       args?: SelectSubset<T, ECreateManyArgs>
     ): PrismaPromise<BatchPayload>
 
     /**
-     * Delete a E.
+     * Delete 'E'.
      * @param {EDeleteArgs} args - Arguments to delete one E.
      * @example
      * // Delete one E
-     * const E = await prisma.e.delete({
+     * await prisma.e.delete({
      *   where: {
      *     // ... filter to delete one E
      *   }
      * })
-     * 
     **/
     delete<T extends EDeleteArgs>(
       args: SelectSubset<T, EDeleteArgs>
@@ -13087,36 +12987,34 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     * 
     **/
     update<T extends EUpdateArgs>(
       args: SelectSubset<T, EUpdateArgs>
     ): CheckSelect<T, Prisma__EClient<E>, Prisma__EClient<EGetPayload<T>>>
 
     /**
-     * Delete zero or more Es.
-     * @param {EDeleteManyArgs} args - Arguments to filter Es to delete.
+     * Delete zero or more 'E'.
+     * @param {EDeleteManyArgs} args - Arguments to filter 'E' to delete.
      * @example
-     * // Delete a few Es
+     * // Delete a few 'E'
      * const { count } = await prisma.e.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
-     * 
     **/
     deleteMany<T extends EDeleteManyArgs>(
       args?: SelectSubset<T, EDeleteManyArgs>
     ): PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Es.
+     * Update zero or more 'E'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {EUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Es
-     * const e = await prisma.e.updateMany({
+     * // Update many 'E'
+     * const results = await prisma.e.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -13124,7 +13022,6 @@ export namespace Prisma {
      *     // ... provide data here
      *   }
      * })
-     * 
     **/
     updateMany<T extends EUpdateManyArgs>(
       args: SelectSubset<T, EUpdateManyArgs>
@@ -13132,12 +13029,12 @@ export namespace Prisma {
 
     /**
      * Create or update one E.
-     * @param {EUpsertArgs} args - Arguments to update or create a E.
+     * @param {EUpsertArgs} args - Arguments to update or create 'E'.
      * @example
-     * // Update or create a E
+     * // Update or create 'E'
      * const e = await prisma.e.upsert({
      *   create: {
-     *     // ... data to create a E
+     *     // ... data to create 'E'
      *   },
      *   update: {
      *     // ... in case it already exists, update
@@ -13152,15 +13049,15 @@ export namespace Prisma {
     ): CheckSelect<T, Prisma__EClient<E>, Prisma__EClient<EGetPayload<T>>>
 
     /**
-     * Count the number of Es.
+     * Count the number of 'E'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ECountArgs} args - Arguments to filter Es to count.
+     * @param {ECountArgs} args - Arguments to filter 'E' to count.
      * @example
-     * // Count the number of Es
+     * // Count the number of 'E'
      * const count = await prisma.e.count({
      *   where: {
-     *     // ... the filter for the Es we want to count
+     *     // ... the filter for the 'E' we want to count
      *   }
      * })
     **/
@@ -13175,7 +13072,7 @@ export namespace Prisma {
     >
 
     /**
-     * Allows you to perform aggregations operations on a E.
+     * Allows you to perform aggregations operations on 'E'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {EAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
@@ -13201,7 +13098,7 @@ export namespace Prisma {
     aggregate<T extends EAggregateArgs>(args: Subset<T, EAggregateArgs>): PrismaPromise<GetEAggregateType<T>>
 
     /**
-     * Group by E.
+     * Group by 'E'.
      * Note, that providing \`undefined\` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
      * @param {EGroupByArgs} args - Group by arguments.
@@ -13216,7 +13113,6 @@ export namespace Prisma {
      *     _all: true
      *   },
      * })
-     * 
     **/
     groupBy<
       T extends EGroupByArgs,
@@ -13371,35 +13267,35 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ES to fetch.
+     * Determine the order of 'E' to fetch.
      * 
     **/
     orderBy?: Enumerable<EOrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for ES.
+     * Sets the position for searching for 'E'.
      * 
     **/
     cursor?: EWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` ES from the position of the cursor.
+     * Take \`±n\` 'E' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` ES.
+     * Skip the first \`n\` 'E'.
      * 
     **/
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of ES.
+     * Filter by unique combinations of 'E'.
      * 
     **/
     distinct?: Enumerable<EScalarFieldEnum>
@@ -13416,35 +13312,35 @@ export namespace Prisma {
     **/
     select?: ESelect | null
     /**
-     * Filter, which ES to fetch.
+     * Filter on 'E'.
      * 
     **/
     where?: EWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ES to fetch.
+     * Determine the order of 'E' to fetch.
      * 
     **/
     orderBy?: Enumerable<EOrderByWithRelationInput>
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing ES.
+     * Sets the position for listing 'E'.
      * 
     **/
     cursor?: EWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take \`±n\` ES from the position of the cursor.
+     * Take \`±n\` 'E' from the position of the cursor.
      * 
     **/
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first \`n\` ES.
+     * Skip the first \`n\` 'E'.
      * 
     **/
     skip?: number
@@ -13462,7 +13358,7 @@ export namespace Prisma {
     **/
     select?: ESelect | null
     /**
-     * The data needed to create a E.
+     * The data needed to create 'E'.
      * 
     **/
     data: XOR<ECreateInput, EUncheckedCreateInput>
@@ -13474,7 +13370,7 @@ export namespace Prisma {
    */
   export type ECreateManyArgs = {
     /**
-     * The data used to create many ES.
+     * The data used to create many 'E'.
      * 
     **/
     data: Enumerable<ECreateManyInput>
@@ -13492,7 +13388,7 @@ export namespace Prisma {
     **/
     select?: ESelect | null
     /**
-     * The data needed to update a E.
+     * The data needed to update 'E'.
      * 
     **/
     data: XOR<EUpdateInput, EUncheckedUpdateInput>
@@ -13509,12 +13405,12 @@ export namespace Prisma {
    */
   export type EUpdateManyArgs = {
     /**
-     * The data used to update ES.
+     * The data used to update 'E'.
      * 
     **/
     data: XOR<EUpdateManyMutationInput, EUncheckedUpdateManyInput>
     /**
-     * Filter which ES to update
+     * Filter which 'E' to update
      * 
     **/
     where?: EWhereInput
@@ -13570,7 +13466,7 @@ export namespace Prisma {
    */
   export type EDeleteManyArgs = {
     /**
-     * Filter which ES to delete
+     * Filter which 'E' to delete
      * 
     **/
     where?: EWhereInput
