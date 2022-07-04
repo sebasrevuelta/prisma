@@ -1,5 +1,5 @@
 import type { NodeAPILibraryTypes } from '@prisma/engine-core'
-import { BinaryType } from '@prisma/fetch-engine'
+import { EngineTypeEnum } from '@prisma/fetch-engine'
 import { isNodeAPISupported } from '@prisma/get-platform'
 import * as E from 'fp-ts/Either'
 import { pipe } from 'fp-ts/lib/function'
@@ -8,13 +8,13 @@ import fs from 'fs'
 import tmpWrite from 'temp-write'
 import { match } from 'ts-pattern'
 
-import { resolveBinary } from '../resolveBinary'
+import { resolveEngine } from '../resolveEngine'
 import { load } from '../utils/load'
 
 export function preliminaryNodeAPIPipeline(options: { prismaPath?: string }) {
   return pipe(
     TE.tryCatch(
-      () => resolveBinary(BinaryType.libqueryEngine, options.prismaPath),
+      () => resolveEngine(EngineTypeEnum.libqueryEngine, options.prismaPath),
       (e) => ({
         type: 'query-engine-unresolved' as const,
         reason: 'Unable to resolve path to query-engine binary',
@@ -41,7 +41,7 @@ export function preliminaryBinaryPipeline(options: {
 }) {
   return pipe(
     TE.tryCatch(
-      () => resolveBinary(BinaryType.queryEngine, options.prismaPath),
+      () => resolveEngine(EngineTypeEnum.queryEngine, options.prismaPath),
       (e) => ({
         type: 'query-engine-unresolved' as const,
         reason: 'Unable to resolve path to query-engine binary',

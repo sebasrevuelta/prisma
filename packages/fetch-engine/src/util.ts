@@ -6,7 +6,7 @@ import makeDir from 'make-dir'
 import os from 'os'
 import path from 'path'
 
-import { BinaryType } from './download'
+import { EngineTypeEnum } from './download'
 
 const debug = Debug('prisma:cache-dir')
 
@@ -54,7 +54,7 @@ export function getDownloadUrl(
   channel: string,
   version: string,
   platform: Platform,
-  binaryName: string,
+  engineName: string,
   extension = '.gz',
 ): string {
   const baseUrl =
@@ -62,10 +62,10 @@ export function getDownloadUrl(
     process.env.PRISMA_ENGINES_MIRROR ||
     'https://binaries.prisma.sh'
   const finalExtension =
-    platform === 'windows' && BinaryType.libqueryEngine !== binaryName ? `.exe${extension}` : extension
-  if (binaryName === BinaryType.libqueryEngine) {
-    binaryName = getNodeAPIName(platform, 'url')
+    platform === 'windows' && EngineTypeEnum.libqueryEngine !== engineName ? `.exe${extension}` : extension
+  if (engineName === EngineTypeEnum.libqueryEngine) {
+    engineName = getNodeAPIName(platform, 'url')
   }
 
-  return `${baseUrl}/${channel}/${version}/${platform}/${binaryName}${finalExtension}`
+  return `${baseUrl}/${channel}/${version}/${platform}/${engineName}${finalExtension}`
 }

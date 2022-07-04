@@ -1,5 +1,5 @@
-import { BinaryType } from '@prisma/fetch-engine'
-import type { BinaryPaths, DataSource, DMMF, GeneratorConfig } from '@prisma/generator-helper'
+import { EngineTypeEnum } from '@prisma/fetch-engine'
+import type { EnginePaths, DataSource, DMMF, GeneratorConfig } from '@prisma/generator-helper'
 import type { Platform } from '@prisma/internals'
 import { ClientEngineType, getClientEngineType, getEngineVersion } from '@prisma/internals'
 import copy from '@timsuchanek/copy'
@@ -40,7 +40,7 @@ export interface GenerateClientOptions {
   generator?: GeneratorConfig
   dmmf: DMMF.Document
   datasources: DataSource[]
-  binaryPaths: BinaryPaths
+  binaryPaths: EnginePaths
   testMode?: boolean
   copyRuntime?: boolean
   engineVersion: string
@@ -287,12 +287,12 @@ export async function generateClient(options: GenerateClientOptions): Promise<vo
         await copyFile(filePath, target)
         continue
       }
-      const binaryName =
-        clientEngineType === ClientEngineType.Binary ? BinaryType.queryEngine : BinaryType.libqueryEngine
+      const engineName =
+        clientEngineType === ClientEngineType.Binary ? EngineTypeEnum.queryEngine : EngineTypeEnum.libqueryEngine
       // They must have an equal size now, let's check for the hash
       const [sourceVersion, targetVersion] = await Promise.all([
-        getEngineVersion(filePath, binaryName).catch(() => null),
-        getEngineVersion(target, binaryName).catch(() => null),
+        getEngineVersion(filePath, engineName).catch(() => null),
+        getEngineVersion(target, engineName).catch(() => null),
       ])
 
       if (sourceVersion && targetVersion && sourceVersion === targetVersion) {

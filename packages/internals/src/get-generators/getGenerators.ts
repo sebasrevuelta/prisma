@@ -1,6 +1,6 @@
 import Debug from '@prisma/debug'
 import { fixBinaryTargets, getOriginalBinaryTargetsValue, printGeneratorConfig } from '@prisma/engine-core'
-import { enginesVersion, getCliQueryEngineBinaryType } from '@prisma/engines'
+import { enginesVersion, getCliQueryEngineType } from '@prisma/engines'
 import type { DownloadOptions } from '@prisma/fetch-engine'
 import { download } from '@prisma/fetch-engine'
 import type { BinaryTargetsEnvValue, EngineType, GeneratorConfig, GeneratorOptions } from '@prisma/generator-helper'
@@ -23,16 +23,16 @@ import { missingModelMessage, missingModelMessageMongoDB } from '../utils/missin
 import { parseBinaryTargetsEnvValue, parseEnvValue } from '../utils/parseEnvValue'
 import { pick } from '../utils/pick'
 import { printConfigWarnings } from '../utils/printConfigWarnings'
-import { binaryTypeToEngineType } from './utils/binaryTypeToEngineType'
+import { barToFoo } from './utils/binaryTypeToEngineType'
 import { checkFeatureFlags } from './utils/check-feature-flags/checkFeatureFlags'
-import { getBinaryPathsByVersion } from './utils/getBinaryPathsByVersion'
+import { getEnginePathsByVersion } from './utils/getEnginePathsByVersion'
 import { getEngineVersionForGenerator } from './utils/getEngineVersionForGenerator'
 
 const debug = Debug('prisma:getGenerators')
 
 export type ProviderAliases = { [alias: string]: GeneratorPaths }
 
-type BinaryPathsOverride = {
+type EnginePathsOverride = {
   [P in EngineType]?: string
 }
 
@@ -49,11 +49,11 @@ export type GetGeneratorOptions = {
   baseDir?: string // useful in tests to resolve the base dir from which `output` is resolved
   overrideGenerators?: GeneratorConfig[]
   skipDownload?: boolean
-  binaryPathsOverride?: BinaryPathsOverride
+  enginePathsOverride?: EnginePathsOverride
   dataProxy: boolean
 }
 /**
- * Makes sure that all generators have the binaries they deserve and returns a
+ * Makes sure that all generators have the engine files they deserve and returns a
  * `Generator` class per generator defined in the schema.prisma file.
  * In other words, this is basically a generator factory function.
  * @param schemaPath Path to schema.prisma
@@ -69,7 +69,7 @@ export async function getGenerators(options: GetGeneratorOptions): Promise<Gener
     baseDir = path.dirname(schemaPath),
     overrideGenerators,
     skipDownload,
-    binaryPathsOverride,
+    enginePathsOverride,
     dataProxy,
   } = options
 
@@ -82,10 +82,10 @@ export async function getGenerators(options: GetGeneratorOptions): Promise<Gener
   }
   const platform = await getPlatform()
 
-  const queryEngineBinaryType = getCliQueryEngineBinaryType()
+  const cliQueryEngineType = getCliQueryEngineType()
 
-  const queryEngineType = binaryTypeToEngineType(queryEngineBinaryType)
-  let prismaPath: string | undefined = binaryPathsOverride?.[queryEngineType]
+  const queryEngineType = barToFoo(cliQueryEngineType)
+  let prismaPath: string | undefined = enginePathsOverride?.[queryEngineType]
 
   // overwrite query engine if the version is provided
   if (version && !prismaPath) {
@@ -93,8 +93,8 @@ export async function getGenerators(options: GetGeneratorOptions): Promise<Gener
     // for pkg we need to make an exception
     if (!potentialPath.startsWith('/snapshot/')) {
       const downloadParams: DownloadOptions = {
-        binaries: {
-          [queryEngineBinaryType]: potentialPath,
+        engines: {
+          [cliQueryEngineType]: potentialPath,
         },
         binaryTargets: [platform],
         showProgress: false,
@@ -102,8 +102,8 @@ export async function getGenerators(options: GetGeneratorOptions): Promise<Gener
         skipDownload,
       }
 
-      const binaryPathsWithEngineType = await download(downloadParams)
-      prismaPath = binaryPathsWithEngineType[queryEngineBinaryType]![platform]
+      const enginePathsWithEngineType = await download(downloadParams)
+      prismaPath = enginePathsWithEngineType[cliQueryEngineType]![platform]
     }
   }
 
@@ -248,7 +248,7 @@ generator gen {
       }
     }
 
-    // 3. Download all binaries and binary targets needed
+    // 3. Download all engines and binary targets needed
     const neededVersions = Object.create(null)
     for (const g of generators) {
       if (
@@ -310,13 +310,13 @@ generator gen {
       }
     }
     debug('neededVersions', JSON.stringify(neededVersions, null, 2))
-    const binaryPathsByVersion = await getBinaryPathsByVersion({
+    const binaryPathsByVersion = await getEnginePathsByVersion({
       neededVersions,
       platform,
       version,
       printDownloadProgress,
       skipDownload,
-      binaryPathsOverride,
+      enginePathsOverride: enginePathsOverride,
     })
     for (const generator of generators) {
       if (generator.manifest && generator.manifest.requiresEngines) {
@@ -366,20 +366,20 @@ type NeededVersions = {
   }
 }
 
-export type GetBinaryPathsByVersionInput = {
+export type GetEnginePathsByVersionInput = {
   neededVersions: NeededVersions
   platform: Platform
   version?: string
   printDownloadProgress?: boolean
   skipDownload?: boolean
-  binaryPathsOverride?: BinaryPathsOverride
+  enginePathsOverride?: EnginePathsOverride
 }
 
 /**
  * Shortcut for getGenerators, if there is only one generator defined. Useful for testing.
  * @param schemaPath path to schema.prisma
  * @param aliases Aliases like `photonjs` -> `node_modules/photonjs/gen.js`
- * @param version Version of the binary, commit hash of https://github.com/prisma/prisma-engine/commits/master
+ * @param version Version of the engine, commit hash of https://github.com/prisma/prisma-engine/commits/master
  * @param printDownloadProgress `boolean` to print download progress or not
  */
 export async function getGenerator(options: GetGeneratorOptions): Promise<Generator> {

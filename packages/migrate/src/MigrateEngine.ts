@@ -1,6 +1,6 @@
 import Debug from '@prisma/debug'
 import type { MigrateEngineLogLine } from '@prisma/internals'
-import { BinaryType, ErrorArea, MigrateEngineExitCode, resolveBinary, RustPanic } from '@prisma/internals'
+import { EngineTypeEnum, ErrorArea, MigrateEngineExitCode, resolveEngine, RustPanic } from '@prisma/internals'
 import chalk from 'chalk'
 import type { ChildProcess } from 'child_process'
 import { spawn } from 'child_process'
@@ -173,8 +173,8 @@ export class MigrateEngine {
       try {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const { PWD, ...rest } = process.env
-        const binaryPath = await resolveBinary(BinaryType.migrationEngine)
-        debugRpc('starting migration engine with binary: ' + binaryPath)
+        const enginePath = await resolveEngine(EngineTypeEnum.migrationEngine)
+        debugRpc('starting migration engine with engine file: ' + enginePath)
         const args: string[] = []
 
         if (this.schemaPath) {
@@ -188,7 +188,7 @@ export class MigrateEngine {
         ) {
           args.push(...['--enabled-preview-features', this.enabledPreviewFeatures.join(',')])
         }
-        this.child = spawn(binaryPath, args, {
+        this.child = spawn(enginePath, args, {
           cwd: this.projectDir,
           stdio: ['pipe', 'pipe', this.debug ? process.stderr : 'pipe'],
           env: {

@@ -1,6 +1,6 @@
 import Debug from '@prisma/debug'
-import { getCliQueryEngineBinaryType } from '@prisma/engines'
-import { BinaryType } from '@prisma/fetch-engine'
+import { getCliQueryEngineType } from '@prisma/engines'
+import { EngineTypeEnum } from '@prisma/fetch-engine'
 import type { DataSource, DMMF, GeneratorConfig } from '@prisma/generator-helper'
 import chalk from 'chalk'
 import execa from 'execa'
@@ -83,12 +83,12 @@ ${detailsHeader} ${message}`
 
 export async function getDMMF(options: GetDMMFOptions): Promise<DMMF.Document> {
   warnOnDeprecatedFeatureFlag(options.previewFeatures)
-  const cliEngineBinaryType = getCliQueryEngineBinaryType()
+  const cliEngineBinaryType = getCliQueryEngineType()
   const dmmf: DMMF.Document = await match(cliEngineBinaryType)
-    .with(BinaryType.libqueryEngine, () => {
+    .with(EngineTypeEnum.libqueryEngine, () => {
       return getDmmfNodeAPI(options)
     })
-    .with(BinaryType.queryEngine, () => {
+    .with(EngineTypeEnum.queryEngine, () => {
       // Note: this function may be retried in case of:
       // - ETXTBSY (busy) error
       // - when reading 'Retrying after "Please wait until"' from the console output

@@ -1,7 +1,7 @@
 import Debug from '@prisma/debug'
 import { plusX } from '@prisma/engine-core'
 import { getEnginesPath } from '@prisma/engines'
-import { BinaryType } from '@prisma/fetch-engine'
+import { EngineTypeEnum } from '@prisma/fetch-engine'
 import { getNodeAPIName, getPlatform } from '@prisma/get-platform'
 import fs from 'fs'
 import makeDir from 'make-dir'
@@ -11,26 +11,26 @@ import { promisify } from 'util'
 
 const readFile = promisify(fs.readFile)
 const writeFile = promisify(fs.writeFile)
-const debug = Debug('prisma:resolveBinary')
+const debug = Debug('prisma:resolveEngine')
 
-async function getBinaryName(name: BinaryType): Promise<string> {
+async function getEngineFileName(name: EngineTypeEnum): Promise<string> {
   const platform = await getPlatform()
   const extension = platform === 'windows' ? '.exe' : ''
 
-  if (name === BinaryType.libqueryEngine) {
+  if (name === EngineTypeEnum.libqueryEngine) {
     return getNodeAPIName(platform, 'fs')
   }
   return `${name}-${platform}${extension}`
 }
 export const engineEnvVarMap = {
-  [BinaryType.queryEngine]: 'PRISMA_QUERY_ENGINE_BINARY',
-  [BinaryType.libqueryEngine]: 'PRISMA_QUERY_ENGINE_LIBRARY',
-  [BinaryType.migrationEngine]: 'PRISMA_MIGRATION_ENGINE_BINARY',
-  [BinaryType.introspectionEngine]: 'PRISMA_INTROSPECTION_ENGINE_BINARY',
-  [BinaryType.prismaFmt]: 'PRISMA_FMT_BINARY',
+  [EngineTypeEnum.queryEngine]: 'PRISMA_QUERY_ENGINE_BINARY',
+  [EngineTypeEnum.libqueryEngine]: 'PRISMA_QUERY_ENGINE_LIBRARY',
+  [EngineTypeEnum.migrationEngine]: 'PRISMA_MIGRATION_ENGINE_BINARY',
+  [EngineTypeEnum.introspectionEngine]: 'PRISMA_INTROSPECTION_ENGINE_BINARY',
+  [EngineTypeEnum.prismaFmt]: 'PRISMA_FMT_BINARY',
 }
-export { BinaryType }
-export async function resolveBinary(name: BinaryType, proposedPath?: string): Promise<string> {
+export { EngineTypeEnum }
+export async function resolveEngine(name: EngineTypeEnum, proposedPath?: string): Promise<string> {
   // if file exists at proposedPath (and does not start with `/snapshot/` (= pkg), use that one
   if (proposedPath && !proposedPath.startsWith('/snapshot/') && fs.existsSync(proposedPath)) {
     return proposedPath
@@ -46,34 +46,34 @@ export async function resolveBinary(name: BinaryType, proposedPath?: string): Pr
   }
 
   // If still here, try different paths
-  const binaryName = await getBinaryName(name)
+  const engineFileName = await getEngineFileName(name)
 
-  const prismaPath = path.join(getEnginesPath(), binaryName)
+  const prismaPath = path.join(getEnginesPath(), engineFileName)
   if (fs.existsSync(prismaPath)) {
-    return maybeCopyToTmp(prismaPath)
+    return maybeCopyToTmpForPkg(prismaPath)
   }
 
   // for pkg (related: https://github.com/vercel/pkg#snapshot-filesystem)
-  const prismaPath2 = path.join(__dirname, '..', binaryName)
+  const prismaPath2 = path.join(__dirname, '..', engineFileName)
   if (fs.existsSync(prismaPath2)) {
-    return maybeCopyToTmp(prismaPath2)
+    return maybeCopyToTmpForPkg(prismaPath2)
   }
 
   // TODO for ??
-  const prismaPath3 = path.join(__dirname, '../..', binaryName)
+  const prismaPath3 = path.join(__dirname, '../..', engineFileName)
   if (fs.existsSync(prismaPath3)) {
-    return maybeCopyToTmp(prismaPath3)
+    return maybeCopyToTmpForPkg(prismaPath3)
   }
 
   // TODO for ?? / needed to come from @prisma/client/generator-build to @prisma/client/runtime
-  const prismaPath4 = path.join(__dirname, '../runtime', binaryName)
+  const prismaPath4 = path.join(__dirname, '../runtime', engineFileName)
   if (fs.existsSync(prismaPath4)) {
-    return maybeCopyToTmp(prismaPath4)
+    return maybeCopyToTmpForPkg(prismaPath4)
   }
 
   // Still here? Could not find the engine, so error out.
   throw new Error(
-    `Could not find ${name} binary. Searched in:
+    `Could not find ${name} engine file. Searched in:
 - ${prismaPath}
 - ${prismaPath2}
 - ${prismaPath3}
@@ -81,16 +81,17 @@ export async function resolveBinary(name: BinaryType, proposedPath?: string): Pr
   )
 }
 
-export async function maybeCopyToTmp(file: string): Promise<string> {
+// TODO This is duplicated in fetch-engine/download
+export async function maybeCopyToTmpForPkg(file: string): Promise<string> {
   const dir = eval('__dirname')
 
   if (dir.startsWith('/snapshot/')) {
     // in this case, we are in a "pkg" context with a virtual fs
-    // to make this work, we need to copy the binary to /tmp and execute it from there
+    // to make this work, we need to copy the engine file to /tmp and execute it from there
     // TODO Why is this needed? What happens if you do not do it?
     // TODO Probably to be able to make the file executable?
-    // TODO Go and Python Client (which use pkg) actually provide the binaries _outside_ of the CLI via env vars - so never and up here
-    const targetDir = path.join(tempDir, 'prisma-binaries')
+    // TODO Go and Python Client (which use pkg) actually provide the engine files _outside_ of the CLI via env vars - so never and up here
+    const targetDir = path.join(tempDir, 'prisma-engines')
     await makeDir(targetDir)
     const target = path.join(targetDir, path.basename(file))
 

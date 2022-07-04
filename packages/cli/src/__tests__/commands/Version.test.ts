@@ -1,5 +1,5 @@
-import { enginesVersion, getCliQueryEngineBinaryType } from '@prisma/engines'
-import { BinaryType, download } from '@prisma/fetch-engine'
+import { enginesVersion, getCliQueryEngineType } from '@prisma/engines'
+import { EngineTypeEnum, download } from '@prisma/fetch-engine'
 import { getPlatform } from '@prisma/get-platform'
 import { engineEnvVarMap, jestConsoleContext, jestContext } from '@prisma/internals'
 import makeDir from 'make-dir'
@@ -9,7 +9,7 @@ import packageJson from '../../../package.json'
 
 const ctx = jestContext.new().add(jestConsoleContext()).assemble()
 const testIf = (condition: boolean) => (condition ? test : test.skip)
-const useNodeAPI = getCliQueryEngineBinaryType() === BinaryType.libqueryEngine
+const useNodeAPI = getCliQueryEngineType() === EngineTypeEnum.libqueryEngine
 const version = '5a2e5869b69a983e279380ec68596b71beae9eff'
 
 describe('version', () => {
@@ -21,12 +21,12 @@ describe('version', () => {
   })
 
   testIf(useNodeAPI)(
-    'version with custom binaries (Node-API)',
+    'version with custom engine files (Node-API)',
     async () => {
       const enginesDir = path.join(__dirname, 'version-test-engines')
       await makeDir(enginesDir)
-      const binaryPaths = await download({
-        binaries: {
+      const enginePaths = await download({
+        engines: {
           'introspection-engine': enginesDir,
           'migration-engine': enginesDir,
           'prisma-fmt': enginesDir,
@@ -42,8 +42,8 @@ describe('version', () => {
 
       for (const engine in envVarMap) {
         const envVar = envVarMap[engine]
-        process.env[envVar] = binaryPaths[engine][platform]
-        // console.debug(`Setting ${envVar} to ${binaryPaths[engine][platform]}`)
+        process.env[envVar] = enginePaths[engine][platform]
+        // console.debug(`Setting ${envVar} to ${enginePaths[engine][platform]}`)
       }
 
       const data = await ctx.cli('--version')
@@ -66,12 +66,12 @@ describe('version', () => {
   })
 
   testIf(!useNodeAPI)(
-    'version with custom binaries',
+    'version with custom engine files',
     async () => {
       const enginesDir = path.join(__dirname, 'version-test-engines')
       await makeDir(enginesDir)
-      const binaryPaths = await download({
-        binaries: {
+      const enginePaths = await download({
+        engines: {
           'introspection-engine': enginesDir,
           'migration-engine': enginesDir,
           'prisma-fmt': enginesDir,
@@ -85,8 +85,8 @@ describe('version', () => {
       const { ['libquery-engine']: qe, ...envVarMap } = engineEnvVarMap
       for (const engine in envVarMap) {
         const envVar = envVarMap[engine]
-        process.env[envVar] = binaryPaths[engine][platform]
-        // console.debug(`Setting ${envVar} to ${binaryPaths[engine][platform]}`)
+        process.env[envVar] = enginePaths[engine][platform]
+        // console.debug(`Setting ${envVar} to ${enginePaths[engine][platform]}`)
       }
 
       const data = await ctx.cli('--version')

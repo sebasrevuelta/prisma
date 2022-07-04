@@ -1,6 +1,6 @@
 import Debug from '@prisma/debug'
 import { enginesVersion } from '@prisma/engines-version'
-import { BinaryType, download } from '@prisma/fetch-engine'
+import { EngineTypeEnum, download } from '@prisma/fetch-engine'
 import type { Platform } from '@prisma/get-platform'
 import path from 'path'
 
@@ -8,41 +8,41 @@ const debug = Debug('prisma:engines')
 export function getEnginesPath() {
   return path.join(__dirname, '../')
 }
-export const DEFAULT_CLI_QUERY_ENGINE_BINARY_TYPE = BinaryType.libqueryEngine // TODO: name not clear
+export const DEFAULT_CLI_QUERY_ENGINE_TYPE = EngineTypeEnum.libqueryEngine // TODO: name not clear
 /**
  * Checks if the env override `PRISMA_CLI_QUERY_ENGINE_TYPE` is set to `library` or `binary`
  * Otherwise returns the default
  */
-export function getCliQueryEngineBinaryType(): BinaryType.libqueryEngine | BinaryType.queryEngine {
+export function getCliQueryEngineType(): EngineTypeEnum.libqueryEngine | EngineTypeEnum.queryEngine {
   const envCliQueryEngineType = process.env.PRISMA_CLI_QUERY_ENGINE_TYPE
   if (envCliQueryEngineType) {
     if (envCliQueryEngineType === 'binary') {
-      return BinaryType.queryEngine
+      return EngineTypeEnum.queryEngine
     }
     if (envCliQueryEngineType === 'library') {
-      return BinaryType.libqueryEngine
+      return EngineTypeEnum.libqueryEngine
     }
   }
-  return DEFAULT_CLI_QUERY_ENGINE_BINARY_TYPE
+  return DEFAULT_CLI_QUERY_ENGINE_TYPE
 }
-export async function ensureBinariesExist() {
-  const binaryDir = path.join(__dirname, '../')
+export async function ensureEnginesExist() {
+  const engineDir = path.join(__dirname, '../')
   let binaryTargets: string[] | undefined
   if (process.env.PRISMA_CLI_BINARY_TARGETS) {
     binaryTargets = process.env.PRISMA_CLI_BINARY_TARGETS.split(',')
   }
 
-  const cliQueryEngineBinaryType = getCliQueryEngineBinaryType()
+  const cliQueryEngineType = getCliQueryEngineType()
 
-  const binaries = {
-    [cliQueryEngineBinaryType]: binaryDir,
-    [BinaryType.migrationEngine]: binaryDir,
-    [BinaryType.introspectionEngine]: binaryDir,
-    [BinaryType.prismaFmt]: binaryDir,
+  const enginesToDownload = {
+    [cliQueryEngineType]: engineDir,
+    [EngineTypeEnum.migrationEngine]: engineDir,
+    [EngineTypeEnum.introspectionEngine]: engineDir,
+    [EngineTypeEnum.prismaFmt]: engineDir,
   }
-  debug(`binaries to download ${Object.keys(binaries).join(', ')}`)
+  debug(`engines to download ${Object.keys(enginesToDownload).join(', ')}`)
   await download({
-    binaries: binaries,
+    engines: enginesToDownload,
     showProgress: true,
     version: enginesVersion,
     failSilent: false,
