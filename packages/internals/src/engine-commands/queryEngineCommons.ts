@@ -1,4 +1,3 @@
-import type { NodeAPILibraryTypes } from '@prisma/engine-core'
 import { BinaryType } from '@prisma/fetch-engine'
 import { isNodeAPISupported } from '@prisma/get-platform'
 import chalk from 'chalk'
@@ -12,6 +11,7 @@ import { match } from 'ts-pattern'
 
 import { resolveBinary } from '../resolveBinary'
 import { load } from '../utils/load'
+import { Library } from './Library'
 
 export function preliminaryNodeAPIPipeline(options: { prismaPath?: string }) {
   return pipe(
@@ -77,7 +77,7 @@ export function preliminaryBinaryPipeline(options: {
 export function loadNodeAPILibrary(queryEnginePath: string) {
   return pipe(
     E.tryCatch(
-      () => load<NodeAPILibraryTypes.Library>(queryEnginePath),
+      () => load<Library>(queryEnginePath),
       (e) => {
         const error = e as Error
         const defaultErrorMessage = `Unable to establish a connection to query-engine-node-api library.`

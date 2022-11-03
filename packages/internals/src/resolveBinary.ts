@@ -1,7 +1,5 @@
-import Debug from '@prisma/debug'
-import { plusX } from '@prisma/engine-core'
 import { getEnginesPath } from '@prisma/engines'
-import { BinaryType } from '@prisma/fetch-engine'
+import { BinaryType, plusX } from '@prisma/fetch-engine'
 import { getNodeAPIName, getPlatform } from '@prisma/get-platform'
 import * as TE from 'fp-ts/TaskEither'
 import fs from 'fs'

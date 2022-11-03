@@ -115,6 +115,22 @@ testMatrix.setupTestSuite(
         ).toHaveLength(0)
 
         expect(
+          await prisma.post.findMany({
+            where: {
+              title: newTitle,
+            },
+          }),
+        ).toHaveLength(0)
+
+        expect(
+          await prisma.user.findMany({
+            where: {
+              email: newEmail,
+            },
+          }),
+        ).toHaveLength(0)
+
+        expect(
           await prisma.user.findMany({
             where: {
               email: newEmail,

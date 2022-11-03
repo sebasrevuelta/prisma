@@ -15,7 +15,7 @@ import { downloadZip } from './downloadZip'
 import { getHash } from './getHash'
 import { getLatestTag } from './getLatestTag'
 import { getBar } from './log'
-import { getCacheDir, getDownloadUrl, overwriteFile } from './utils'
+import { getCacheDir, getDownloadUrl, overwriteFile, plusX } from './utils'
 
 const { enginesOverride } = require('../package.json')
 
@@ -517,14 +517,4 @@ export async function maybeCopyToTmp(file: string): Promise<string> {
   }
 
   return file
-}
-
-export function plusX(file): void {
-  const s = fs.statSync(file)
-  const newMode = s.mode | 64 | 8 | 1
-  if (s.mode === newMode) {
-    return
-  }
-  const base8 = newMode.toString(8).slice(-3)
-  fs.chmodSync(file, base8)
 }

@@ -92,7 +92,6 @@ Error relocating /app/node_modules/.pnpm/prisma@x.x.x/node_modules/prisma/libque
 
     if (E.isRight(result)) {
       expect(result.right.NodeAPIQueryEngineLibrary).toBeTruthy()
-      expect(result.right.NodeAPIQueryEngineLibrary.QueryEngine).toBeTruthy()
     }
   })
 })
