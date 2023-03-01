@@ -32,6 +32,7 @@ interface LogFields {
   // Only for ERROR level messages
   is_panic?: boolean
   error_code?: string
+  backtrace?: string
   [key: string]: any
 }
 
@@ -61,6 +62,25 @@ function parseJsonFromStderr(stderr: string): MigrateEngineLogLine[] {
   }
 
   return logs
+}
+
+function getNextIdxIfFound(lines: string[], entry: string): number | undefined {
+  const idx = lines.indexOf(entry)
+  if (idx === -1) {
+    return undefined
+  }
+  return idx + 1
+}
+
+function redactFailedCommand(message: string) {
+  // remove the connection url that follows '--datasource' from the given `message`.
+  // Note: if the command isn't properly formed, i.e., no connection url follows `--datasource`, we risk redacting an irrelevant part of the command
+  const messageLines = message.split(/\s/)
+  const datasourceIdx = getNextIdxIfFound(messageLines, '--datasource')
+  if (datasourceIdx) {
+    messageLines[datasourceIdx] = '<REDACTED>'
+  }
+  return messageLines.join(' ')
 }
 
 // could be refactored with engines using JSON RPC instead and just passing the schema
@@ -95,10 +115,15 @@ export async function canConnectToDatabase(
           message: error.fields.message,
         }
       } else {
-        throw new Error(`Migration engine error:\n${logs.map((log) => log.fields.message).join('\n')}`)
+        const shortMessage = redactFailedCommand(e.shortMessage)
+        throw new Error(
+          `Migration engine error (canConnectToDatabase): ${shortMessage}\n${logs
+            .map((log) => log.fields.message)
+            .join('\n')}`,
+        )
       }
     } else {
-      throw new Error(`Migration engine exited. ${_e}`)
+      throw new Error(`Migration engine exited (canConnectToDatabase). ${e}`)
     }
   }
 
@@ -133,10 +158,15 @@ export async function createDatabase(connectionString: string, cwd = process.cwd
       if (error && error.fields.error_code && error.fields.message) {
         throw new Error(`${error.fields.error_code}: ${error.fields.message}`)
       } else {
-        throw new Error(`Migration engine error:\n${logs.map((log) => log.fields.message).join('\n')}`)
+        const shortMessage = redactFailedCommand(e.shortMessage)
+        throw new Error(
+          `Migration engine error (createDatabase): ${shortMessage}\n${logs
+            .map((log) => log.fields.message)
+            .join('\n')}`,
+        )
       }
     } else {
-      throw new Error(`Migration engine exited. ${_e}`)
+      throw new Error(`Migration engine exited (createDatabase). ${e}`)
     }
   }
 }
@@ -155,13 +185,17 @@ export async function dropDatabase(connectionString: string, cwd = process.cwd()
       // We should not arrive here normally
       throw Error(`An error occurred during the drop: ${JSON.stringify(result, undefined, 2)}`)
     }
-  } catch (e: any) {
-    if (e.stderr) {
-      const logs = parseJsonFromStderr(e.stderr)
+  } catch (_e: any) {
+    const e = _e as execa.ExecaError
 
-      throw new Error(`Migration engine error:\n${logs.map((log) => log.fields.message).join('\n')}`)
+    if (e.stderr) {
+      const logs = parseJsonFromStderr(_e.stderr)
+      const shortMessage = redactFailedCommand(e.shortMessage)
+      throw new Error(
+        `Migration engine error (dropDatabase): ${shortMessage}\n${logs.map((log) => log.fields.message).join('\n')}`,
+      )
     } else {
-      throw new Error(`Migration engine exited. ${e}`)
+      throw new Error(`Migration engine exited (dropDatabase). ${e}`)
     }
   }
 }
