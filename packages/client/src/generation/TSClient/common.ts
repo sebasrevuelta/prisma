@@ -13,8 +13,7 @@ export const commonCodeJS = ({
   deno,
 }: TSClientOptions): string => `${deno ? 'const exports = {}' : ''}
 Object.defineProperty(exports, "__esModule", { value: true });
-${
-  deno
+${deno
     ? `
 import {
   PrismaClientKnownRequestError,
@@ -37,14 +36,14 @@ import {
   defineDmmfProperty
 } from '${runtimeDir}/edge-esm.js'`
     : browser
-    ? `
+      ? `
 const {
   Decimal,
   objectEnumValues,
   makeStrictEnum
 } = require('${runtimeDir}/${runtimeName}')
 `
-    : `
+      : `
 const {
   PrismaClientKnownRequestError,
   PrismaClientUnknownRequestError,
@@ -67,7 +66,7 @@ const {
   defineDmmfProperty,
 } = require('${runtimeDir}/${runtimeName}')
 `
-}
+  }
 
 const Prisma = {}
 
@@ -100,15 +99,15 @@ Prisma.raw = ${notSupportOnBrowser('raw', browser)}
 Prisma.validator = () => (val) => val
 
 ${ifExtensions(
-  `/**
+    `/**
 * Extensions
 */
 Prisma.getExtensionContext = ${notSupportOnBrowser('Extensions.getExtensionContext', browser)}
 Prisma.defineExtension = ${notSupportOnBrowser('Extensions.defineExtension', browser)}
 
 `,
-  '',
-)}
+    '',
+  )}
 /**
  * Shorthand utilities for JSON filtering
  */
@@ -180,7 +179,7 @@ export type MetricHistogram = runtime.MetricHistogram
 export type MetricHistogramBucket = runtime.MetricHistogramBucket
 
 ${ifExtensions(
-  `/**
+    `/**
 * Extensions
 */
 export type Extension = runtime.Types.Extensions.UserArgs
@@ -191,8 +190,8 @@ export type Result<T, A, F extends runtime.Types.Public.Operation> = runtime.Typ
 export type Exact<T, W> = runtime.Types.Public.Exact<T, W>
 
 `,
-  '',
-)}
+    '',
+  )}
 /**
  * Prisma Client JS version: ${clientVersion}
  * Query Engine version: ${engineVersion}
@@ -331,6 +330,10 @@ export type RequiredKeys<T> = {
 
 export type TruthyKeys<T> = keyof {
   [K in keyof T as T[K] extends false | undefined | null ? never : K]: K
+}
+
+export type ActuallyTruthyKeys<T> keyof {
+  [K in keyof T as T[K] extends true ? K : never]: K
 }
 
 export type TrueKeys<T> = TruthyKeys<Prisma__Pick<T, RequiredKeys<T>>>
