@@ -46,11 +46,12 @@ ${bold('Usage')}
 
 ${bold('Options')}
 
-    -h, --help   Display this help message
-      --schema   Custom path to your Prisma schema
-  --data-proxy   Enable the Data Proxy in the Prisma Client
-       --watch   Watch the Prisma schema and rerun after a change
-   --generator   Generator to use (may be provided multiple times)
+       -h, --help   Display this help message
+         --schema   Custom path to your Prisma schema
+     --data-proxy   Enable the Data Proxy in the Prisma Client
+          --watch   Watch the Prisma schema and rerun after a change
+      --generator   Generator to use (may be provided multiple times)
+  --binary-target   Generate the client for specific target(s)
 
 ${bold('Examples')}
 
@@ -62,6 +63,9 @@ ${bold('Examples')}
 
   Run the command with multiple specific generators
     ${dim('$')} prisma generate --generator client1 --generator client2
+
+  Generate the client for deployment to a different platform
+    ${chalk.dim('$')} prisma generate --binary-target rhel-openssl-1.0.x
 
   Watch Prisma schema file and rerun after each change
     ${dim('$')} prisma generate --watch
@@ -99,6 +103,7 @@ ${bold('Examples')}
       '--schema': String,
       '--data-proxy': Boolean,
       '--generator': [String],
+      '--binary-target': [String],
       // Only used for checkpoint information
       '--postinstall': String,
       '--telemetry-information': String,
@@ -137,6 +142,7 @@ ${bold('Examples')}
         dataProxy: !!args['--data-proxy'] || !!process.env.PRISMA_GENERATE_DATAPROXY,
         generatorNames: args['--generator'],
         postinstall: Boolean(args['--postinstall']),
+        binaryTargetsOverride: args['--binary-target'],
       })
 
       if (!generators || generators.length === 0) {
