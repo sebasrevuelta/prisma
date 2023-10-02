@@ -7,9 +7,16 @@ import type { PrismaClient } from './node_modules/@prisma/client'
 declare const newPrismaClient: NewPrismaClient<typeof PrismaClient>
 
 testMatrix.setupTestSuite(
-  ({ providerFlavor }, __, ___, setupDatabase) => {
+  ({ providerFlavor }, __, ___, setupDatabase, dropDatabase) => {
     // TODO fails sometimes with Rejected to value: [LibsqlError: : no such table: main.User]
     skipTestIf(providerFlavor === ProviderFlavors.JS_LIBSQL)('example', async () => {
+      // Clean out database to make sure this can be run repeatedly
+      try {
+        await dropDatabase()
+      } catch (error) {
+        // well, fine if this does not work
+      }
+
       const client = newPrismaClient()
 
       // Try sending a query without a spawned database

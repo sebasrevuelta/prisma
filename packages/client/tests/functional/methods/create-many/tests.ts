@@ -1,4 +1,4 @@
-import { faker } from '@faker-js/faker'
+import { copycat } from '@snaplet/copycat'
 
 import testMatrix from './_matrix'
 // @ts-ignore
@@ -9,10 +9,10 @@ declare let prisma: PrismaClient
 testMatrix.setupTestSuite(
   () => {
     test('should create many records', async () => {
-      const email1 = faker.internet.email()
-      const email2 = faker.internet.email()
-      const email3 = faker.internet.email()
-      const email4 = faker.internet.email()
+      const email1 = copycat.email(32)
+      const email2 = copycat.email(65)
+      const email3 = copycat.email(38)
+      const email4 = copycat.email(47)
 
       const created = await prisma.user.createMany({
         data: [
@@ -35,9 +35,9 @@ testMatrix.setupTestSuite(
     })
 
     test('should create a single record with a single nested create', async () => {
-      const email = faker.internet.email()
-      const name = faker.person.firstName()
-      const title = faker.person.firstName()
+      const email = copycat.email(45)
+      const name = copycat.firstName(62)
+      const title = copycat.firstName(97)
 
       const res = await prisma.user.create({
         include: {
@@ -63,12 +63,12 @@ testMatrix.setupTestSuite(
     })
 
     test('should create a single record with many nested create', async () => {
-      const email = faker.internet.email()
-      const name = faker.person.firstName()
-      const title1 = faker.person.firstName()
-      const title2 = faker.person.firstName()
-      const title3 = faker.person.firstName()
-      const title4 = faker.person.firstName()
+      const email = copycat.email(19)
+      const name = copycat.firstName(28)
+      const title1 = copycat.firstName(63)
+      const title2 = copycat.firstName(47)
+      const title3 = copycat.firstName(50)
+      const title4 = copycat.firstName(60)
 
       const res = await prisma.user.create({
         include: {

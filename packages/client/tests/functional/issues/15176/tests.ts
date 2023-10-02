@@ -1,6 +1,6 @@
-import { faker } from '@faker-js/faker'
 // @ts-ignore
 import type { PrismaClient } from '@prisma/client'
+import { copycat } from '@snaplet/copycat'
 
 import testMatrix from './_matrix'
 
@@ -11,7 +11,7 @@ testMatrix.setupTestSuite(({ provider }) => {
   const getTime = (dt: Date): number => dt.getTime()
 
   test('should update both updatedAt fields on a model', async () => {
-    const id = provider === 'mongodb' ? faker.database.mongodbObjectId() : faker.string.alpha(10)
+    const id = provider === 'mongodb' ? copycat.uuid(25).replaceAll('-', '').slice(-24) : copycat.uuid(73)
 
     const created = await prisma.testModel.create({
       data: {

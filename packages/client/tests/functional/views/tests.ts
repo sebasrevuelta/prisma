@@ -1,6 +1,6 @@
-import { faker } from '@faker-js/faker'
 // @ts-ignore
 import type { PrismaClient } from '@prisma/client'
+import { copycat } from '@snaplet/copycat'
 
 import testMatrix from './_matrix'
 
@@ -9,14 +9,14 @@ declare let prisma: PrismaClient
 testMatrix.setupTestSuite(
   (suiteConfig) => {
     const fakeUser = {
-      id: suiteConfig.provider === 'mongodb' ? faker.database.mongodbObjectId() : faker.string.alphanumeric(5),
-      email: faker.internet.email(),
-      name: faker.person.firstName(),
+      id: copycat.uuid(30).replaceAll('-', '').slice(-24),
+      email: copycat.email(82),
+      name: copycat.firstName(10),
     }
 
     const fakeProfile = {
-      id: suiteConfig.provider === 'mongodb' ? faker.database.mongodbObjectId() : faker.string.alphanumeric(5),
-      bio: faker.person.jobTitle(),
+      id: copycat.uuid(37).replaceAll('-', '').slice(-24),
+      bio: copycat.word(19),
     }
 
     beforeAll(async () => {

@@ -26,14 +26,14 @@ testMatrix.setupTestSuite(
     test('create required json', async () => {
       const result = await prisma.resource.create({
         data: {
-          id: copycat.uuid(1).replaceAll('-', '').slice(-24),
+          id: copycat.uuid(11).replaceAll('-', '').slice(-24),
           requiredJson,
         },
       })
 
       expect(result).toMatchInlineSnapshot(`
         {
-          id: 02d25579a73a72373fa4e846,
+          id: 0e255db3a16f02a8fc34cffe,
           optionalJson: null,
           requiredJson: {
             bar: {
@@ -128,7 +128,7 @@ testMatrix.setupTestSuite(
     test('update required json with where equals', async () => {
       const result = await prisma.resource.update({
         where: {
-          id: copycat.uuid(1).replaceAll('-', '').slice(-24),
+          id: copycat.uuid(11).replaceAll('-', '').slice(-24),
         },
         data: {
           requiredJson: {},
@@ -137,7 +137,7 @@ testMatrix.setupTestSuite(
 
       expect(result).toMatchInlineSnapshot(`
         {
-          id: 02d25579a73a72373fa4e846,
+          id: 0e255db3a16f02a8fc34cffe,
           optionalJson: null,
           requiredJson: {},
         }

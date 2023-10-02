@@ -1,4 +1,4 @@
-import { afterAll, beforeAll, test } from '@jest/globals'
+import { afterAll, beforeAll, beforeEach, test } from '@jest/globals'
 import fs from 'fs-extra'
 import path from 'path'
 
@@ -8,6 +8,7 @@ import {
   getTestSuiteCliMeta,
   getTestSuiteConfigs,
   getTestSuiteFolderPath,
+  getTestSuiteFullName,
   getTestSuiteMeta,
 } from './getTestSuiteInfo'
 import { getTestSuitePlan } from './getTestSuitePlan'
@@ -56,6 +57,7 @@ function setupTestSuiteMatrix(
     suiteMeta: TestCallbackSuiteMeta,
     clientMeta: ClientMeta,
     setupDatabase: () => Promise<void>,
+    dropDatabase: () => Promise<void>,
   ) => void,
   options?: MatrixOptions,
 ) {
@@ -80,6 +82,7 @@ function setupTestSuiteMatrix(
   for (const { name, suiteConfig, skip } of testPlan) {
     const clientMeta = getTestSuiteClientMeta(suiteConfig.matrixOptions)
     const generatedFolder = getTestSuiteFolderPath(suiteMeta, suiteConfig)
+    const suiteName = getTestSuiteFullName(suiteMeta, suiteConfig)
     const describeFn = skip ? describe.skip : describe
 
     describeFn(name, () => {
@@ -87,6 +90,9 @@ function setupTestSuiteMatrix(
 
       // we inject modified env vars, and make the client available as globals
       beforeAll(async () => {
+        // console.log("setupTextSuiteMatrix beforeAll", suiteName)
+        globalThis['testName'] = suiteName
+
         const datasourceInfo = setupTestSuiteDbURI(suiteConfig.matrixOptions, clientMeta)
 
         globalThis['datasourceInfo'] = datasourceInfo // keep it here before anything runs
@@ -100,7 +106,7 @@ function setupTestSuiteMatrix(
           alterStatementCallback: options?.alterStatementCallback,
         })
 
-        const driverAdapter = setupTestSuiteClientDriverAdapter({ suiteConfig, clientMeta, datasourceInfo })
+        const driverAdapter = setupTestSuiteClientDriverAdapter({ suiteConfig, clientMeta, datasourceInfo, suiteMeta })
 
         globalThis['newPrismaClient'] = (args: any) => {
           const client = new globalThis['loaded']['PrismaClient']({ ...driverAdapter, ...args })
@@ -132,7 +138,16 @@ function setupTestSuiteMatrix(
         })
       })
 
+      beforeEach(() => {
+        // console.log("setupTextSuiteMatrix beforeEach")
+
+        const testName = expect.getState().currentTestName
+        // console.log({ testName })
+        globalThis['testName'] = testName
+      })
+
       afterAll(async () => {
+        // console.log("setupTextSuiteMatrix afterAll")
         for (const client of clients) {
           await client.$disconnect().catch(() => {
             // sometimes we test connection errors. In that case,
@@ -167,6 +182,10 @@ function setupTestSuiteMatrix(
         return setupTestSuiteDatabase(suiteMeta, suiteConfig, [], options?.alterStatementCallback)
       }
 
+      const dropDatabase = async () => {
+        return dropTestSuiteDatabase(suiteMeta, suiteConfig, [])
+      }
+
       if (originalEnv.TEST_GENERATE_ONLY === 'true') {
         // because we have our own custom `test` global call defined that reacts
         // to this env var already, we import the original jest `test` and call
@@ -174,7 +193,7 @@ function setupTestSuiteMatrix(
         test('generate only', () => {})
       }
 
-      tests(suiteConfig.matrixOptions, { ...suiteMeta, generatedFolder }, clientMeta, setupDatabase)
+      tests(suiteConfig.matrixOptions, { ...suiteMeta, generatedFolder }, clientMeta, setupDatabase, dropDatabase)
     })
   }
 }
