@@ -1,8 +1,40 @@
 import { jestConsoleContext, jestContext } from '@prisma/get-platform'
-import { getClientEngineType } from '@prisma/internals'
+import { getClientEngineType, isCurrentBinInstalledGlobally } from '@prisma/internals'
 import path from 'path'
 
-import { Generate } from '../../Generate'
+import { Generate, getLocalPrismaVersion } from '../../Generate'
+import { getInstalledPrismaClientVersion } from '../../utils/getClientVersion'
+
+const isCurrentBinInstalledGloballyMock = isCurrentBinInstalledGlobally as unknown as jest.Mock
+const getInstalledPrismaClientVersionMock = getInstalledPrismaClientVersion as unknown as jest.Mock
+const getLocalPrismaVersionMock = getLocalPrismaVersion as unknown as jest.Mock
+
+jest.mock('@prisma/internals', () => {
+  const actual = jest.requireActual('@prisma/internals')
+
+  return {
+    ...actual,
+    isCurrentBinInstalledGlobally: jest.fn(),
+  }
+})
+
+jest.mock('../../Generate', () => {
+  const actual = jest.requireActual('../../Generate')
+
+  return {
+    ...actual,
+    getLocalPrismaVersion: jest.fn(),
+  }
+})
+
+jest.mock('../../utils/getClientVersion', () => {
+  const actual = jest.requireActual('../../utils/getClientVersion')
+
+  return {
+    ...actual,
+    getInstalledPrismaClientVersion: jest.fn(),
+  }
+})
 
 const ctx = jestContext.new().add(jestConsoleContext()).assemble()
 
@@ -348,6 +380,30 @@ describe('using cli', () => {
 
     expect(data.stdout).toContain(`I am a minimal generator`)
   }, 75_000) // timeout
+
+  it('should warn on mismatch of global version and local prisma version', async () => {
+    ctx.fixture('example-project')
+
+    isCurrentBinInstalledGloballyMock.mockReturnValue('npm')
+    getLocalPrismaVersionMock.mockResolvedValue('0.0.2')
+
+    const data = await ctx.cli('generate')
+    expect(data.stdout).toMatchInlineSnapshot(
+      `warn Global prisma@0.0.0 and Local prisma@0.0.2 don't match. This might lead to unexpected behavior. Would you like to proceed ? [yes/no]`,
+    )
+  }, 75_000)
+
+  it('should warn on mismatch of global version and local client version', async () => {
+    ctx.fixture('example-project')
+
+    getInstalledPrismaClientVersionMock.mockResolvedValue('0.0.1')
+    isCurrentBinInstalledGloballyMock.mockReturnValue('npm')
+
+    const data = await ctx.cli('generate')
+    expect(data.stdout).toMatchInlineSnapshot(
+      `warn Global prisma@0.0.0 and Local @prisma/client@0.0.1 don't match. This might lead to unexpected behavior. Would you like to proceed ? [yes/no]`,
+    )
+  }, 75_000)
 })
 
 describe('--schema from project directory', () => {
