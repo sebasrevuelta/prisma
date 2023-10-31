@@ -10,6 +10,7 @@ import {
   getGeneratorSuccessMessage,
   HelpError,
   highlightTS,
+  isCurrentBinInstalledGlobally,
   isError,
   link,
   loadEnvFile,
@@ -23,10 +24,13 @@ import { blue, bold, dim, green, red, yellow } from 'kleur/colors'
 import logUpdate from 'log-update'
 import os from 'os'
 import path from 'path'
+import pkgUp from 'pkg-up'
 import resolvePkg from 'resolve-pkg'
 
 import { getHardcodedUrlWarning } from './generate/getHardcodedUrlWarning'
 import { breakingChangesMessage } from './utils/breakingChanges'
+import { getInstalledPrismaClientVersion } from './utils/getClientVersion'
+import { promptQuestion } from './utils/prompt/utils/helpers'
 import { simpleDebounce } from './utils/simpleDebounce'
 
 const pkg = eval(`require('../package.json')`)
@@ -107,6 +111,11 @@ ${bold('Examples')}
       '--postinstall': String,
       '--telemetry-information': String,
     })
+
+    const isPrismaInstalledGlobally = isCurrentBinInstalledGlobally()
+    if (isPrismaInstalledGlobally) {
+      await warnOnMismatchOfGlobalAndLocalVersions(String(pkg.version))
+    }
 
     const isPostinstall = process.env.PRISMA_GENERATE_IN_POSTINSTALL
     let cwd = process.cwd()
@@ -368,4 +377,53 @@ function replacePathSeparatorsIfNecessary(path: string): string {
     return path.replace(/\\/g, '/')
   }
   return path
+}
+
+async function warnOnMismatchOfGlobalAndLocalVersions(globalPackageVersion: string): Promise<void> {
+  try {
+    const localPrimsaClientPackageVersion = await getInstalledPrismaClientVersion()
+    const localPrismaPackageVersion = await getLocalPrismaVersion()
+
+    const isLocalPrismaClientVersionMismatch = localPrimsaClientPackageVersion !== globalPackageVersion
+    const isLocalPrismaVersionMismatch = localPrismaPackageVersion !== globalPackageVersion
+
+    if (isLocalPrismaClientVersionMismatch || isLocalPrismaVersionMismatch) {
+      const userAnswer = await promptQuestion(
+        `${yellow(bold('warn'))} Global ${bold(`prisma@${globalPackageVersion}`)} and Local ${
+          isLocalPrismaClientVersionMismatch
+            ? bold(`@prisma/client@${localPrimsaClientPackageVersion}`)
+            : bold(`prisma@${isLocalPrismaVersionMismatch}`)
+        } don't match. This might lead to unexpected behavior. Would you like to proceed ? [yes/no]`,
+      )
+
+      if (!userAnswer) {
+        process.exit(1)
+      }
+    }
+    return
+  } catch (e) {
+    return
+  }
+}
+
+export async function getLocalPrismaVersion(cwd: string = process.cwd()): Promise<string | null> {
+  try {
+    const pkgJsonPath = await pkgUp({ cwd })
+
+    if (!pkgJsonPath) {
+      return null
+    }
+
+    const pkgJsonString = await fs.promises.readFile(pkgJsonPath, 'utf-8')
+    const pkgJson = JSON.parse(pkgJsonString)
+    const clientVersion = pkgJson.devDependencies?.['prisma'] ?? pkgJson.dependencies?.['prisma']
+
+    if (!clientVersion) {
+      return null
+    }
+
+    return clientVersion
+  } catch (err) {
+    return null
+  }
 }
