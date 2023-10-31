@@ -1,13 +1,12 @@
 import Debug from '@prisma/debug'
 import { assertNodeAPISupported, getNodeAPIName, getos, getPlatform, Platform, platforms } from '@prisma/get-platform'
-import execa from 'execa'
 import fs from 'fs'
 import { ensureDir } from 'fs-extra'
 import { bold, yellow } from 'kleur/colors'
 import pFilter from 'p-filter'
 import path from 'path'
 import tempDir from 'temp-dir'
-import { promisify } from 'util'
+import tempy from 'tempy'
 
 import { BinaryType } from './BinaryType'
 import { chmodPlusX } from './chmodPlusX'
@@ -16,13 +15,11 @@ import { downloadZip } from './downloadZip'
 import { allEngineEnvVarsSet, getBinaryEnvVarPath } from './env'
 import { getHash } from './getHash'
 import { getBar } from './log'
-import { getCacheDir, getDownloadUrl, overwriteFile } from './utils'
+import { getCacheDir, getDownloadUrl, getSha256Paths, overwriteFile, removeFileIfExists } from './utils'
 
 const { enginesOverride } = require('../package.json')
 
 const debug = Debug('prisma:fetch-engine:download')
-const exists = promisify(fs.exists)
-
 const channel = 'master'
 
 // matches `/snapshot/` or `C:\\snapshot\\` or `C:/snapshot/` for vercel's pkg apps
@@ -161,7 +158,7 @@ export async function download(options: DownloadOptions): Promise<BinaryPaths> {
 
       debug(`${downloadUrl} will be downloaded to ${job.targetFilePath}`)
 
-      return downloadBinary({
+      return downloadEngineAndSha256({
         ...job,
         downloadUrl,
         version: opts.version,
@@ -173,6 +170,7 @@ export async function download(options: DownloadOptions): Promise<BinaryPaths> {
     await Promise.all(promises)
 
     await cleanupPromise // make sure, that cleanup finished
+
     if (finishBar) {
       finishBar()
     }
@@ -258,7 +256,7 @@ async function binaryNeedsToBeDownloaded(
     return false
   }
   // 1. Check if file exists
-  const targetExists = await exists(job.targetFilePath)
+  const targetExists = fs.existsSync(job.targetFilePath)
   // 2. If exists, check, if cached file exists and is up to date and has same hash as file.
   // If not, copy cached file over
   const cachedFile = await getCachedBinaryPath({
@@ -270,18 +268,19 @@ async function binaryNeedsToBeDownloaded(
     // for local development, when using `enginesOverride`
     // we don't have the sha256 hash, so we can't check it
     if (job.skipCacheIntegrityCheck === true) {
+      debug(`skipCacheIntegrityCheck === true - ${cachedFile} will be copied to ${job.targetFilePath}`)
       await overwriteFile(cachedFile, job.targetFilePath)
 
       return false
     }
 
     const sha256FilePath = cachedFile + '.sha256'
-    if (await exists(sha256FilePath)) {
+    if (fs.existsSync(sha256FilePath)) {
       const sha256File = await fs.promises.readFile(sha256FilePath, 'utf-8')
       const sha256Cache = await getHash(cachedFile)
       if (sha256File === sha256Cache) {
         if (!targetExists) {
-          debug(`copying ${cachedFile} to ${job.targetFilePath}`)
+          debug(`sha256File === sha256Cache - ${cachedFile} will be copied to ${job.targetFilePath}`)
 
           // TODO Remove when https://github.com/docker/for-linux/issues/1015 is fixed
           // Workaround for https://github.com/prisma/prisma/issues/7037
@@ -318,33 +317,41 @@ async function binaryNeedsToBeDownloaded(
 
   // 3. If same platform, check --version and compare to expected version
   if (job.binaryTarget === nativePlatform) {
-    const currentVersion = await getVersion(job.targetFilePath, job.binaryName)
+    debug(`job.binaryTarget === nativePlatform - the checksum will be checked`)
 
-    if (currentVersion?.includes(version) !== true) {
-      debug(`file ${job.targetFilePath} exists but its version is ${currentVersion} and we expect ${version}`)
+    const engineSha256 = await getHash(job.targetFilePath)
+    const { sha256_path_for_engine } = getSha256Paths(job.targetFilePath)
 
+    let engineSha256FromSha256File = ''
+    try {
+      engineSha256FromSha256File = await fs.promises.readFile(sha256_path_for_engine, 'utf8')
+    } catch (e) {
+      if (e.code === 'ENOENT') {
+        // Download is needed, because the sha256 file does not exist
+        debug(`The engineSha256FromSha256File does not exist, we need to execute the download logic for that engine.`)
+      } else {
+        // Download is needed, we can't read the sha256 file
+        debug(
+          `There was an error while trying to read ${sha256_path_for_engine} we will ignore it, we need to execute the download logic for that engine.`,
+          e,
+        )
+      }
+      return true
+    }
+
+    if (engineSha256 === engineSha256FromSha256File) {
+      debug(
+        `The engineSha256 (${engineSha256}) matches with the one contained in ${sha256_path_for_engine} The download logic will be skipped for that engine.`,
+      )
+    } else {
+      debug(
+        `The engineSha256 (${engineSha256}) does not match engineSha256FromSha256File (${engineSha256FromSha256File}), we need to execute the download logic for that engine.`,
+      )
       return true
     }
   }
 
   return false
-}
-
-export async function getVersion(enginePath: string, binaryName: string) {
-  try {
-    if (binaryName === BinaryType.QueryEngineLibrary) {
-      assertNodeAPISupported()
-
-      const commitHash = require(enginePath).version().commit
-      return `${BinaryType.QueryEngineLibrary} ${commitHash}`
-    } else {
-      const result = await execa(enginePath, ['--version'])
-
-      return result.stdout
-    }
-  } catch {}
-
-  return undefined
 }
 
 export function getBinaryName(binaryName: BinaryType, platform: Platform): string {
@@ -382,7 +389,7 @@ async function getCachedBinaryPath({
     return cachedTargetPath
   }
 
-  if (await exists(cachedTargetPath)) {
+  if (fs.existsSync(cachedTargetPath)) {
     return cachedTargetPath
   }
 
@@ -396,7 +403,7 @@ type DownloadBinaryOptions = BinaryDownloadJob & {
   failSilent?: boolean
 }
 
-async function downloadBinary(options: DownloadBinaryOptions): Promise<void> {
+async function downloadEngineAndSha256(options: DownloadBinaryOptions): Promise<void> {
   const { version, progressCb, targetFilePath, downloadUrl } = options
 
   const targetDir = path.dirname(targetFilePath)
@@ -412,20 +419,45 @@ async function downloadBinary(options: DownloadBinaryOptions): Promise<void> {
     }
   }
 
-  debug(`Downloading ${downloadUrl} to ${targetFilePath} ...`)
-
+  debug(`We will download ${downloadUrl} then unpack it and copy it to ${targetFilePath} ...`)
   if (progressCb) {
     progressCb(0)
   }
 
-  const { sha256, zippedSha256 } = await downloadZip(downloadUrl, targetFilePath, progressCb)
+  const downloadTempTarget = tempy.file()
+  const { sha256, zippedSha256 } = await downloadZip({ url: downloadUrl, downloadTempTarget, progressCb })
   if (progressCb) {
     progressCb(1)
   }
 
+  // Here we must call `overwriteFile` which will first delete and then copy
+  // Copying in place (actually overwriting) errors in some case on Linux (and maybe others)
+  // Example in our monorepo pnpm errors with
+  // packages/engines postinstall: Failed
+  // ELIFECYCLE Command failed with exit code 129.
+  await overwriteFile(downloadTempTarget, targetFilePath)
+
+  const { sha256_path_for_engine, sha256_path_for_gz } = getSha256Paths(targetFilePath)
+  if (sha256 != null) {
+    await fs.promises.writeFile(sha256_path_for_engine, sha256)
+  }
+  if (zippedSha256 != null) {
+    await fs.promises.writeFile(sha256_path_for_gz, zippedSha256)
+  }
+
+  // await fs.promises.copyFile(downloadTempTarget, targetFilePath)
+
+  // it's ok if the unlink fails
+  try {
+    await removeFileIfExists(downloadTempTarget)
+  } catch (e) {
+    debug('Error from removeFileIfExists', e)
+  }
+
+  debug(`Setting chmod +x permission (noop on Windows)`)
   chmodPlusX(targetFilePath)
 
-  // Cache result
+  // Add files to local cache directory
   await saveFileToCache(options, version, sha256, zippedSha256)
 }
 
@@ -438,23 +470,24 @@ async function saveFileToCache(
   // always fail silent, as the cache is optional
   const cacheDir = await getCacheDir(channel, version, job.binaryTarget)
   if (!cacheDir) {
+    debug(`The file will not be saved to the cache, as the cache directory ${cacheDir} doesn't exist`)
     return
   }
 
   const cachedTargetPath = path.join(cacheDir, job.binaryName)
-  const cachedSha256Path = path.join(cacheDir, job.binaryName + '.sha256')
-  const cachedSha256ZippedPath = path.join(cacheDir, job.binaryName + '.gz.sha256')
-
+  const { sha256_path_for_engine, sha256_path_for_gz } = getSha256Paths(path.join(cacheDir, job.binaryName))
   try {
+    debug(`Saving files to the cache directory ${cacheDir} ...`)
     await overwriteFile(job.targetFilePath, cachedTargetPath)
+
     if (sha256 != null) {
-      await fs.promises.writeFile(cachedSha256Path, sha256)
+      await fs.promises.writeFile(sha256_path_for_engine, sha256)
     }
     if (zippedSha256 != null) {
-      await fs.promises.writeFile(cachedSha256ZippedPath, zippedSha256)
+      await fs.promises.writeFile(sha256_path_for_gz, zippedSha256)
     }
   } catch (e) {
-    debug(e)
+    debug('Something failed while saving files to the cache directory', e)
     // let this fail silently - the CI system may have reached the file size limit
   }
 }
@@ -480,7 +513,7 @@ export async function maybeCopyToTmp(file: string): Promise<string> {
   return file
 }
 
-export function plusX(file): void {
+export function plusX(file: string): void {
   const s = fs.statSync(file)
   const newMode = s.mode | 64 | 8 | 1
   if (s.mode === newMode) {

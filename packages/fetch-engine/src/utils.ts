@@ -8,7 +8,8 @@ import path from 'path'
 
 import { BinaryType } from './BinaryType'
 
-const debug = Debug('prisma:fetch-engine:cache-dir')
+const debugCacheDir = Debug('prisma:fetch-engine:cache-dir')
+const debugOverwrite = Debug('prisma:fetch-engine:overwrite')
 
 export async function getRootCacheDir(): Promise<string | null> {
   if (os.platform() === 'win32') {
@@ -40,11 +41,11 @@ export async function getCacheDir(channel: string, version: string, platform: st
   const cacheDir = path.join(rootCacheDir, channel, version, platform)
   try {
     if (!fs.existsSync(cacheDir)) {
+      debugCacheDir(`The directory path for ${cacheDir} cache directory doesn't exist and will be created now`)
       await ensureDir(cacheDir)
     }
   } catch (e) {
-    debug('The following error is being caught and just there for debugging:')
-    debug(e)
+    debugCacheDir('The following error is being caught and just there for debugging:', e)
     return null
   }
   return cacheDir
@@ -77,25 +78,35 @@ export function getDownloadUrl({
 }
 
 export async function overwriteFile(sourcePath: string, targetPath: string) {
+  // TODO: maybe this is not a thing anymore since we do not call getVersion anymore?
   // without removing the file first,
   // macOS Gatekeeper can sometimes complain
   // about incorrect binary signature and kill node process
   // https://openradar.appspot.com/FB8914243
-
-  // TODO: this is a temporary revert of https://github.com/prisma/prisma/pull/21439
-  // To debug https://github.com/prisma/prisma/pull/21448
-  // if (os.platform() === 'darwin') {
-  await removeFileIfExists(targetPath)
-  // }
+  if (os.platform() === 'darwin') {
+    debugOverwrite(
+      `We will now attempt to remove (if it exists) ${targetPath}, and then copy ${sourcePath} to that location.`,
+    )
+    await removeFileIfExists(targetPath)
+  } else {
+    debugOverwrite(`We will now copy ${sourcePath} to ${targetPath}.`)
+  }
   await fs.promises.copyFile(sourcePath, targetPath)
 }
 
-async function removeFileIfExists(filePath: string) {
+export async function removeFileIfExists(filePath: string) {
   try {
     await fs.promises.unlink(filePath)
   } catch (e) {
     if (e.code !== 'ENOENT') {
       throw e
     }
+  }
+}
+
+export function getSha256Paths(enginePath) {
+  return {
+    sha256_path_for_engine: path.join(enginePath + '.sha256'),
+    sha256_path_for_gz: path.join(enginePath + '.gz.sha256'),
   }
 }
