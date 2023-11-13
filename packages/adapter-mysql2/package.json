@@ -1,0 +1,36 @@
+{
+  "name": "@prisma/adapter-mysql2",
+  "version": "0.0.0",
+  "description": "Prisma's driver adapter for \"mysql2\"",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prisma/prisma.git",
+    "directory": "packages/adapter-mysql2"
+  },
+  "scripts": {
+    "dev": "DEV=true node -r esbuild-register helpers/build.ts",
+    "build": "node -r esbuild-register helpers/build.ts"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "keywords": [],
+  "author": "Jan Piotrowski <piotrowski@prisma.io>",
+  "license": "Apache-2.0",
+  "sideEffects": false,
+  "dependencies": {
+    "@prisma/driver-adapter-utils": "workspace:*",
+    "mysql2": "^3.6.3"
+  },
+  "peerDependencies": {
+    "mysql2": "^3.6.3"
+  },
+  "devDependencies": {
+    "jest": "29.7.0",
+    "ts-jest": "^29.1.1"
+  }
+}
