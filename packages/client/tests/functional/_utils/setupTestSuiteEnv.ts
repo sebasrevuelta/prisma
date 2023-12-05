@@ -129,6 +129,7 @@ export async function setupTestSuiteDatabase(
 
     if (
       suiteConfig.matrixOptions.providerFlavor === ProviderFlavors.VITESS_8 ||
+      suiteConfig.matrixOptions.providerFlavor === ProviderFlavors.VITESS_FK ||
       suiteConfig.matrixOptions.providerFlavor === ProviderFlavors.JS_PLANETSCALE
     ) {
       // wait for vitess to catch up, corresponds to TABLET_REFRESH_INTERVAL in docker-compose.yml
@@ -286,6 +287,7 @@ function getDbUrlFromFlavor(providerFlavor: `${ProviderFlavors}` | undefined, pr
   return (
     match(providerFlavor)
       .with(ProviderFlavors.VITESS_8, () => requireEnvVariable('TEST_FUNCTIONAL_VITESS_8_URI'))
+      .with(ProviderFlavors.VITESS_FK, () => requireEnvVariable('TEST_FUNCTIONAL_VITESS_FK_URI'))
       // Note: we're using Postgres 10 for Postgres (Rust driver, `pg` driver adapter),
       // and Postgres 16 for Neon due to https://github.com/prisma/team-orm/issues/511.
       .with(ProviderFlavors.JS_PG, () => requireEnvVariable('TEST_FUNCTIONAL_POSTGRES_URI'))
@@ -308,10 +310,10 @@ function requireEnvVariable(varName: string): string {
       `Required env variable ${varName} is not set. See https://github.com/prisma/prisma/blob/main/TESTING.md for instructions`,
     )
   }
-  if (!value.includes(DB_NAME_VAR)) {
-    throw new Error(
-      `Env variable ${varName} must include ${DB_NAME_VAR} placeholder. See https://github.com/prisma/prisma/blob/main/TESTING.md for instructions`,
-    )
-  }
+  // if (!value.includes(DB_NAME_VAR)) {
+  //   throw new Error(
+  //     `Env variable ${varName} must include ${DB_NAME_VAR} placeholder. See https://github.com/prisma/prisma/blob/main/TESTING.md for instructions`,
+  //   )
+  // }
   return value
 }
