@@ -1,4 +1,3 @@
-import { SchemaEngine } from '@prisma/migrate'
 import slugify from '@sindresorhus/slugify'
 import fs from 'fs-jetpack'
 import type { FSJetpack } from 'fs-jetpack/types'
@@ -6,6 +5,7 @@ import path from 'path'
 import hash from 'string-hash'
 import VError, { MultiError } from 'verror'
 
+import { SchemaEngine } from '../../../../cli/src/migrate/SchemaEngine'
 import { getTestClient } from '../../../../client/src/utils/getTestClient'
 
 process.setMaxListeners(200)
