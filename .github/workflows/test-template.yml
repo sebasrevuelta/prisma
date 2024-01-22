@@ -108,7 +108,8 @@ jobs:
         shard: ['1/5', '2/5', '3/5', '4/5', '5/5']
         queryEngine: ${{ fromJson(inputs.queryEngine) }}
         node: [16, 18, 20]
-        previewFeatures: ['', 'relationJoins']
+        previewFeatureSet: ['all', 'none']
+
     env:
       NODE_OPTIONS: '--max-old-space-size=8096'
       JEST_JUNIT_SUITE_NAME: 'client/functional'
@@ -141,8 +142,15 @@ jobs:
           # Fails if set to true
           skip-tsc: false
 
+      - name: Get Preview Features
+        id: gpf
+        run: ./.github/workflows/scripts/get-preview-features.js
+        env:
+          PREVIEW_FEATURE_SET: ${{ matrix.previewFeatureSet }}
+          EXCLUDED_PREVIEW_FEATURES: 'driverAdapters'
+
       # Run the functional test suite
-      - run: pnpm run test:functional --silent --shard ${{ matrix.shard }} --engine-type ${{ matrix.queryEngine }} --preview-features "${{ matrix.previewFeatures }}"
+      - run: pnpm run test:functional --engine-type ${{ matrix.queryEngine }} --preview-features '${{ steps.gpf.outputs.previewFeatures }}' --shard ${{ matrix.shard }} --silent
         if: |
           contains(inputs.jobsToRun, '-all-') || 
           contains(inputs.jobsToRun, '-client-')
@@ -187,6 +195,8 @@ jobs:
       matrix:
         shard: ['1/6', '2/6', '3/6', '4/6', '5/6', '6/6']
         node: [16, 18, 20]
+        previewFeatureSet: ['all', 'none']
+
     steps:
       - uses: actions/checkout@v4
 
@@ -207,14 +217,21 @@ jobs:
           # Fails if set to true
           skip-tsc: false
 
-      - run: pnpm run test:functional --data-proxy --shard ${{ matrix.shard }}
+      - name: Get Preview Features
+        id: gpf
+        run: ./.github/workflows/scripts/get-preview-features.js
+        env:
+          PREVIEW_FEATURE_SET: ${{ matrix.previewFeatureSet }}
+          EXCLUDED_PREVIEW_FEATURES: driverAdapters,metrics
+
+      - run: pnpm run test:functional --data-proxy --preview-features '${{ steps.gpf.outputs.previewFeatures }}' --shard ${{ matrix.shard }} --silent
         working-directory: packages/client
         env:
           NODE_OPTIONS: '--max-old-space-size=8096'
           JEST_JUNIT_SUITE_NAME: 'client/functional'
           JEST_JUNIT_UNIQUE_OUTPUT_NAME: true
 
-      - run: pnpm run test:functional --data-proxy --edge-client --shard ${{ matrix.shard }}
+      - run: pnpm run test:functional --data-proxy --edge-client --preview-features '${{ steps.gpf.outputs.previewFeatures }}' --shard ${{ matrix.shard }} --silent
         working-directory: packages/client
         env:
           NODE_OPTIONS: '--max-old-space-size=8096'
@@ -256,11 +273,8 @@ jobs:
         adapter: ['js_pg', 'js_neon', 'js_libsql', 'js_planetscale']
         shard: ['1/6', '2/6', '3/6', '4/6', '5/6', '6/6']
         node: [20] #[16, 18, 20]
-        previewFeatures: ['driverAdapters', 'driverAdapters,relationJoins']
-        exclude:
-          # Exclude relationJoins tests with WASM because the WASM engine does not include the necessary changes yet.
-          - engine-type: 'wasm'
-            previewFeatures: 'driverAdapters,relationJoins'
+        previewFeatureSet: ['all', 'none']
+
     steps:
       - uses: actions/checkout@v4
 
@@ -280,7 +294,15 @@ jobs:
           engine-hash: ${{ inputs.engineHash }}
           skip-tsc: false
 
-      - run: pnpm run test:functional --adapter ${{ matrix.adapter }} --shard ${{ matrix.shard }} --engine-type ${{ matrix.engine-type }} --preview-features ${{ matrix.previewFeatures }} --runInBand
+      - name: Get Preview Features
+        id: gpf
+        run: ./.github/workflows/scripts/get-preview-features.js
+        env:
+          PREVIEW_FEATURE_SET: ${{ matrix.previewFeatureSet }}
+          INCLUDED_PREVIEW_FEATURES: driverAdapters
+          EXCLUDED_PREVIEW_FEATURES: ${{ matrix.engine-type == 'wasm' && 'relationJoins' || '' }}
+
+      - run: pnpm run test:functional --adapter ${{ matrix.adapter }} --engine-type ${{ matrix.engine-type }} --preview-features '${{ steps.gpf.outputs.previewFeatures }}' --shard ${{ matrix.shard }} --runInBand --silent
         working-directory: packages/client
         env:
           PRISMA_DISABLE_QUAINT_EXECUTORS: true, # ensures quaint runs no queries
