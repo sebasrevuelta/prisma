@@ -2,12 +2,14 @@ import { enginesVersion } from '@prisma/engines'
 import {
   arg,
   Command,
+  drawBox,
   format,
   Generator,
   getCommandWithExecutor,
   getConfig,
   getGenerators,
   getGeneratorSuccessMessage,
+  getPackageCmd,
   HelpError,
   highlightTS,
   isError,
@@ -19,7 +21,7 @@ import {
 } from '@prisma/internals'
 import { getSchemaPathAndPrint } from '@prisma/migrate'
 import fs from 'fs'
-import { blue, bold, dim, green, red, yellow } from 'kleur/colors'
+import { blue, bold, dim, green, grey, red, yellow } from 'kleur/colors'
 import logUpdate from 'log-update'
 import os from 'os'
 import path from 'path'
@@ -123,7 +125,7 @@ ${bold('Examples')}
 
     const watchMode = args['--watch'] || false
 
-    loadEnvFile(args['--schema'], true)
+    loadEnvFile({ schemaPath: args['--schema'], printMessage: true })
 
     const schemaPath = await getSchemaPathAndPrint(args['--schema'], cwd)
 
@@ -216,6 +218,7 @@ Please run \`prisma generate\` manually.`
       )
       let hint = ''
       if (prismaClientJSGenerator) {
+        const agentPathPrefix = (await getPackageCmd(cwd, 'agent')) !== 'npm' ? 'link:' : ''
         const generator = prismaClientJSGenerator.options?.generator
         const isDeno = generator?.previewFeatures.includes('deno') && !!globalThis.Deno
         if (isDeno && !generator?.isCustomOutput) {
@@ -248,6 +251,17 @@ This might lead to unexpected behavior.
 Please make sure they have the same version.`
             : ''
 
+        const tryAccelerateMessage = `Deploying your app to serverless or edge functions?
+Try Prisma Accelerate for connection pooling and caching.
+${link('https://pris.ly/cli/accelerate')}`
+
+        const boxedTryAccelerateMessage = drawBox({
+          height: tryAccelerateMessage.split('\n').length,
+          width: 0, // calculated automatically
+          str: tryAccelerateMessage,
+          horizontalPadding: 2,
+        })
+
         hint = `
 Start using Prisma Client in Node.js (See: ${link('https://pris.ly/d/client')})
 ${dim('```')}
@@ -263,7 +277,57 @@ const prisma = new PrismaClient()`)}
 ${dim('```')}
 
 See other ways of importing Prisma Client: ${link('http://pris.ly/d/importing-client')}
+
+${boxedTryAccelerateMessage}
 ${getHardcodedUrlWarning(config)}${breakingChangesStr}${versionsWarning}`
+        if (generator?.previewFeatures.includes('driverAdapters')) {
+          if (generator?.isCustomOutput && isDeno) {
+            hint = `
+${bold('Start using Prisma Client')}
+${dim('```')}
+${highlightTS(`\
+import { PrismaClient } from '${importPath}/${isDeno ? 'deno/' : ''}edge${isDeno ? '.ts' : ''}'
+const prisma = new PrismaClient()`)}
+${dim('```')}
+
+More information: https://pris.ly/d/client`
+          } else if (generator?.isCustomOutput && !isDeno) {
+            hint = `
+Prisma Client has been generated to a custom path:
+
+${bold('1. Make it a dependency of your project')}
+${dim('```')}
+${grey(`# adapt this relative path if needed`)}
+${bold(blue(await getPackageCmd(cwd, 'add', `db@${agentPathPrefix}${importPath}`)))}
+${dim('```')}
+
+More information: https://pris.ly/d/custom-output
+
+${bold('2. Start using Prisma Client')}
+${dim('```')}
+${highlightTS(`\
+import { PrismaClient } from 'db'
+const prisma = new PrismaClient()`)}
+${dim('```')}
+
+More information: https://pris.ly/d/client`
+          } else {
+            hint = `
+${bold('Start using Prisma Client')}
+${dim('```')}
+${highlightTS(`\
+import { PrismaClient } from ${importPath}
+const prisma = new PrismaClient()`)}
+${dim('```')}
+
+More information: https://pris.ly/d/client`
+          }
+
+          hint = `${hint}
+
+${boxedTryAccelerateMessage}
+${getHardcodedUrlWarning(config)}${breakingChangesStr}${versionsWarning}`
+        }
       }
 
       const message = '\n' + this.logText + (hasJsClient && !this.hasGeneratorErrored ? hint : '')
