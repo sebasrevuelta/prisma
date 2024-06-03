@@ -252,7 +252,18 @@ This might lead to unexpected behavior.
 Please make sure they have the same version.`
             : ''
 
-            const tryAccelerateMessage = `Deploying your app to serverless or edge functions?
+        const isTS = canResolveTypeScript()
+
+        const clientImport =
+          isDeno || isTS
+            ? `import { PrismaClient } from '${importPath}'`
+            : `const { PrismaClient } = require('${importPath}')`
+        const edgeImport =
+          isDeno || isTS
+            ? `import { PrismaClient } from '${importPath}/${isDeno ? 'deno/' : ''}edge${isDeno ? '.ts' : ''}'`
+            : `const { PrismaClient } = require('${importPath}/edge')`
+        
+        const tryAccelerateMessage = `Deploying your app to serverless or edge functions?
 Try Prisma Accelerate for connection pooling and caching.
 ${link('https://pris.ly/cli/--accelerate')}`
 
@@ -267,13 +278,13 @@ ${link('https://pris.ly/cli/--accelerate')}`
 Start using Prisma Client in Node.js (See: ${link('https://pris.ly/d/client')})
 ${dim('```')}
 ${highlightTS(`\
-import { PrismaClient } from '${importPath}'
+${clientImport}
 const prisma = new PrismaClient()`)}
 ${dim('```')}
 or start using Prisma Client at the edge (See: ${link('https://pris.ly/d/accelerate')})
 ${dim('```')}
 ${highlightTS(`\
-import { PrismaClient } from '${importPath}/${isDeno ? 'deno/' : ''}edge${isDeno ? '.ts' : ''}'
+${edgeImport}
 const prisma = new PrismaClient()`)}
 ${dim('```')}
 
@@ -413,4 +424,13 @@ function replacePathSeparatorsIfNecessary(path: string): string {
     return path.replace(/\\/g, '/')
   }
   return path
+}
+
+function canResolveTypeScript() {
+  try {
+    require.resolve('typescript')
+    return true
+  } catch (e) {
+    return false
+  }
 }
