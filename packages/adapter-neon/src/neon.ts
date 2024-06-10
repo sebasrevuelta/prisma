@@ -89,7 +89,7 @@ abstract class NeonQueryable implements Queryable {
  * Base class for WS-based queryables: top-level client and transaction
  */
 class NeonWsQueryable<ClientT extends neon.Pool | neon.PoolClient> extends NeonQueryable {
-  constructor(protected client: ClientT) {
+  constructor(readonly client: ClientT) {
     super()
   }
 
@@ -212,7 +212,7 @@ const adapter = new PrismaNeon(pool)
 }
 
 export class PrismaNeonHTTP extends NeonQueryable implements DriverAdapter {
-  constructor(private client: neon.NeonQueryFunction<any, any>) {
+  constructor(readonly client: neon.NeonQueryFunction<any, any>) {
     super()
   }
 

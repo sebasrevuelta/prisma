@@ -28,7 +28,7 @@ class D1Queryable<ClientT extends StdClient> implements Queryable {
   readonly provider = 'sqlite'
   readonly adapterName = packageName
 
-  constructor(protected readonly client: ClientT) {}
+  constructor(readonly client: ClientT) {}
 
   /**
    * Execute a query given as SQL, interpolating the given parameters.
@@ -139,7 +139,7 @@ export class PrismaD1 extends D1Queryable<StdClient> implements DriverAdapter {
 
   alreadyWarned = new Set()
 
-  constructor(client: StdClient) {
+  constructor(readonly client: StdClient) {
     super(client)
   }
 

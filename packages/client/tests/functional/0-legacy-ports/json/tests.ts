@@ -1,11 +1,13 @@
 import { copycat } from '@snaplet/copycat'
 
 import { Providers } from '../../_utils/providers'
+import { NewPrismaClient } from '../../_utils/types'
 import testMatrix from './_matrix'
 // @ts-ignore
 import type $ from './node_modules/@prisma/client'
 
-declare let prisma: $.PrismaClient
+declare let prisma: $.PrismaClient<{ log: [{ emit: 'event'; level: 'query' }] }>
+declare let newPrismaClient: NewPrismaClient<typeof $.PrismaClient>
 
 const requiredJson = {
   foo: 'bar',
@@ -21,10 +23,26 @@ const requiredJson = {
 testMatrix.setupTestSuite(
   (suiteConfig) => {
     beforeAll(async () => {
-      await prisma.resource.deleteMany()
-    })
+      prisma = newPrismaClient({
+        log: [{ emit: 'event', level: 'query' }],
+      })
 
-    test('create required json', async () => {
+      prisma.$on('query', (e) => {
+        console.log('Query: ' + e.query)
+        console.log('Params: ' + e.params)
+        console.log('Duration: ' + e.duration + 'ms')
+      })
+
+      await prisma.resource.deleteMany()
+
+      // create unrelated entry so that test that want to filter down to specific entry actually fail if filters don't work
+      await prisma.resource.create({
+        data: {
+          id: copycat.uuid(17).replaceAll('-', '').slice(-24),
+          requiredJson: { foo: 'bar' },
+        },
+      })
+
       const result = await prisma.resource.create({
         data: {
           id: copycat.uuid(1).replaceAll('-', '').slice(-24),
@@ -65,12 +83,12 @@ testMatrix.setupTestSuite(
         },
       })
 
-      expect(result).toHaveLength(1)
+      expect(result).toHaveLength(2)
       expect(result[0]).toHaveProperty('requiredJson')
     })
 
     testIf(['mysql', 'postgresql', 'cockroachdb'].includes(suiteConfig.provider))(
-      'select required json with where path',
+      'select required json with where equals and path',
       async () => {
         let result
 
@@ -123,7 +141,8 @@ testMatrix.setupTestSuite(
         },
       })
 
-      expect(result).toHaveLength(0)
+      expect(result).toHaveLength(1)
+      expect(result[0].requiredJson).toEqual({ foo: 'bar' })
     })
 
     test('update required json with where equals', async () => {

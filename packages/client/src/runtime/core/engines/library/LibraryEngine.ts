@@ -29,6 +29,7 @@ import { getBatchRequestPayload } from '../common/utils/getBatchRequestPayload'
 import { getErrorMessageWithLink as genericGetErrorMessageWithLink } from '../common/utils/getErrorMessageWithLink'
 import { getInteractiveTransactionId } from '../common/utils/getInteractiveTransactionId'
 import { defaultLibraryLoader } from './DefaultLibraryLoader'
+import { NodeQueryEngine } from './NodeQueryEngine'
 import { reactNativeLibraryLoader } from './ReactNativeLibraryLoader'
 import type { Library, LibraryLoader, QueryEngineConstructor, QueryEngineInstance } from './types/Library'
 import { wasmLibraryLoader } from './WasmLibraryLoader'
@@ -76,6 +77,8 @@ export class LibraryEngine implements Engine<undefined> {
     commit: string
     version: string
   }
+  adapter: any
+  nodeQueryEngine!: NodeQueryEngine
 
   constructor(config: EngineConfig, libraryLoader?: LibraryLoader) {
     if (TARGET_BUILD_TYPE === 'react-native') {
@@ -93,6 +96,7 @@ export class LibraryEngine implements Engine<undefined> {
       throw new Error(`Invalid TARGET_BUILD_TYPE: ${TARGET_BUILD_TYPE}`)
     }
 
+    // console.log({config})
     this.config = config
     this.libraryStarted = false
     this.logQueries = config.logQueries ?? false
@@ -240,7 +244,7 @@ You may have to run ${green('prisma generate')} for your changes to take effect.
       const config = JSON.parse(response)
       return config as T
     } catch (err) {
-      throw new PrismaClientUnknownRequestError(`Unable to JSON.parse response from engine`, {
+      throw new PrismaClientUnknownRequestError(`Unable to JSON.parse response from engine ${err} ${response}`, {
         clientVersion: this.config.clientVersion!,
       })
     }
@@ -265,6 +269,8 @@ You may have to run ${green('prisma generate')} for your changes to take effect.
 
       if (adapter) {
         debug('Using driver adapter: %O', adapter)
+        this.adapter = adapter
+        this.nodeQueryEngine = new NodeQueryEngine(this)
       }
 
       this.engine = new this.QueryEngineConstructor(
@@ -455,17 +461,50 @@ You may have to run ${green('prisma generate')} for your changes to take effect.
     { traceparent, interactiveTransaction }: RequestOptions<undefined>,
   ): Promise<{ data: T; elapsed: number }> {
     debug(`sending request, this.libraryStarted: ${this.libraryStarted}`)
+    // console.log('this is the json ', query)
+
     const headerStr = JSON.stringify({ traceparent }) // object equivalent to http headers for the library
     const queryStr = JSON.stringify(query)
 
     try {
       await this.start()
 
-      this.executingQueryPromise = this.engine?.query(queryStr, headerStr, interactiveTransaction?.id)
+      let data: any = {}
 
-      this.lastQuery = queryStr
-      const data = this.parseEngineResponse<any>(await this.executingQueryPromise)
+      console.dir({ query }, { depth: null })
+      if (
+        this.adapter && // trigger only for driverAdapters
+        !interactiveTransaction?.id && // TODO implement interaction transactions support
+        // query.modelName == 'User' // trigger only for model User
+        query.action == 'findMany' // &&
+        // No argument: /* arguments = {} */
+        // Object.keys(query.query.arguments!).length == 0 &&
+        // Select all composites and scalars /* selection = { '$composites': true, '$scalars': true } */
+        // query.query.selection.$composites === true // &&
+        // query.query.selection.$scalars === true
 
+        // Do not run for _count aggregations
+        // && !query.query.selection._count /* _count: { arguments: {}, selection: { links: true } } */
+
+        // comment in this line if you just want to skip the NodeEngine completely
+        // && query.modelName == 'foobar'
+      ) {
+        this.executingQueryPromise = this.nodeQueryEngine.execute(query)
+        this.lastQuery = queryStr
+        let engineResponse = await this.executingQueryPromise
+        engineResponse = { data: { foo: engineResponse } }
+        console.log({ engineResponse })
+        data = engineResponse
+      } else {
+        this.executingQueryPromise = this.engine?.query(queryStr, headerStr, interactiveTransaction?.id)
+
+        this.lastQuery = queryStr
+        const engineResponse = await this.executingQueryPromise
+        console.log({ engineResponse })
+        data = this.parseEngineResponse<any>(engineResponse)
+      }
+      console.log({ data })
+      console.log({ errors: data.errors })
       if (data.errors) {
         if (data.errors.length === 1) {
           throw this.buildQueryError(data.errors[0])
@@ -478,6 +517,7 @@ You may have to run ${green('prisma generate')} for your changes to take effect.
         throw this.loggerRustPanic
       }
       // TODO Implement Elapsed: https://github.com/prisma/prisma/issues/7726
+      // console.dir({ data }, { depth: null })
       return { data, elapsed: 0 }
     } catch (e: any) {
       if (e instanceof PrismaClientInitializationError) {
