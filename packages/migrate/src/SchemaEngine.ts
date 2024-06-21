@@ -17,7 +17,7 @@ import type { ChildProcess } from 'child_process'
 import { spawn } from 'child_process'
 import { bold, red } from 'kleur/colors'
 
-import type { EngineArgs, EngineResults, RPCPayload, RpcSuccessResponse } from './types'
+import type { EngineArgs, EngineResults, RPCPayload, RPCPrintPayload, RpcSuccessResponse } from './types'
 import byline from './utils/byline'
 import { handleViewsIO } from './views/handleViewsIO'
 
@@ -30,6 +30,7 @@ export interface SchemaEngineOptions {
   schemaPath?: string
   debug?: boolean
   enabledPreviewFeatures?: string[]
+  collectPrintPayloads?: boolean
 }
 
 export class EngineError extends Error {
@@ -51,6 +52,7 @@ export class SchemaEngine {
   private child?: ChildProcess
   private schemaPath?: string
   private listeners: { [key: string]: (result: any, err?: any) => any } = {}
+  private printPayloads: RPCPrintPayload[] = []
   /**  _All_ the logs from the engine process. */
   private messages: string[] = []
   private lastRequest?: any
@@ -58,6 +60,7 @@ export class SchemaEngine {
   private lastError: SchemaEngineLogLine['fields'] | null = null
   private initPromise?: Promise<void>
   private enabledPreviewFeatures?: string[]
+  private collectPrintPayloads: boolean
 
   // `latestSchema` is set to the latest schema that was used in `introspect()`
   private latestSchema?: MigrateTypes.SchemasContainer
@@ -65,7 +68,7 @@ export class SchemaEngine {
   // `isRunning` is set to true when the engine is initialized, and set to false when the engine is stopped
   public isRunning = false
 
-  constructor({ projectDir, debug = false, schemaPath, enabledPreviewFeatures }: SchemaEngineOptions) {
+  constructor({ projectDir, debug = false, schemaPath, enabledPreviewFeatures, collectPrintPayloads = false }: SchemaEngineOptions) {
     this.projectDir = projectDir
     this.schemaPath = schemaPath
     if (debug) {
@@ -73,6 +76,7 @@ export class SchemaEngine {
     }
     this.debug = debug
     this.enabledPreviewFeatures = enabledPreviewFeatures
+    this.collectPrintPayloads = collectPrintPayloads
   }
 
   /* eslint-disable @typescript-eslint/no-unsafe-return */
@@ -262,6 +266,13 @@ export class SchemaEngine {
     return this.runCommand(this.getRPCPayload('schemaPush', args))
   }
 
+  /**
+   * The api fetch printPayloads and empty it.
+   */
+  public getPrintPayloads(): RPCPrintPayload[] {
+    return this.printPayloads.splice(0, this.printPayloads.length)
+  }
+
   /* eslint-enable @typescript-eslint/no-unsafe-return */
 
   public stop(): void {
@@ -307,7 +318,11 @@ export class SchemaEngine {
           if (result.method === 'print' && result.params?.content !== undefined) {
             // Here we print the content from the Schema Engine to stdout directly
             // (it is not returned to the caller)
-            process.stdout.write(result.params.content + '\n')
+            if (this.collectPrintPayloads) {
+              this.printPayloads.push(result)
+            } else {
+              process.stdout.write(result.params.content + '\n')
+            }
 
             // Send an empty response back as ACK.
             const response: RpcSuccessResponse<{}> = {
