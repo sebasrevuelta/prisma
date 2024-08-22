@@ -88,6 +88,9 @@ function modelActionsLayer(client: Client, dmmfModelName: string): CompositeProx
             args: userArgs,
             dataPath: [],
 
+            // desugar the userArgs to make them QE compatible
+            argsMapper: desugarUserArgs,
+
             // action name and its related model
             action: dmmfActionName,
             model: dmmfModelName,
@@ -132,5 +135,44 @@ function fieldsPropertyLayer(client: Client, dmmfModelName: string) {
       const model = client._runtimeDataModel.models[dmmfModelName]
       return applyFieldsProxy(dmmfModelName, model)
     }),
+  )
+}
+
+/**
+ * Transforms and cleans the user arguments.
+ * @param args The user input arguments.
+ * @returns The transformed and cleaned user arguments.
+ */
+function desugarUserArgs(args: UserArgs = {}): UserArgs {
+  if (args.select) {
+    cleanSelectFields(args.select)
+  }
+  return args
+}
+
+function cleanSelectFields(selectObject: UserArgs): void {
+  if (typeof selectObject !== 'object' || selectObject === null) {
+    return
+  }
+
+  for (const key in selectObject) {
+    if (selectObject[key]?.select) {
+      cleanSelectFields(selectObject[key].select)
+
+      selectObject[key].select = removeUndefinedAggFields(selectObject[key].select)
+    }
+  }
+}
+
+/**
+ * Removes undefined aggregate fields (e.g., `_count`) from the select object.
+ * @param selectObject - The object containing select fields.
+ * @returns A new object with undefined aggregate fields removed.
+ */
+function removeUndefinedAggFields(selectObject: { [key: string]: unknown }): UserArgs {
+  const aggFields = ['_count']
+
+  return Object.fromEntries(
+    Object.entries(selectObject).filter(([key, value]) => !aggFields.includes(key) || value !== undefined),
   )
 }
