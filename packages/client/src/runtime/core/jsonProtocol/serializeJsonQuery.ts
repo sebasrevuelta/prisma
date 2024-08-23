@@ -229,6 +229,11 @@ function createExplicitSelection(select: Selection, context: SerializeContext) {
 
   for (const [key, value] of Object.entries(selectWithComputedFields)) {
     const field = context.findField(key)
+
+    if (value === undefined || value === null) {
+      continue
+    }
+
     if (computedFields?.[key] && !field) {
       continue
     }
