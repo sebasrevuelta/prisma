@@ -5,7 +5,7 @@ import testMatrix from './_matrix'
 
 declare let prisma: PrismaClient
 
-testMatrix.setupTestSuite((_suiteMeta, _clientMeta) => {
+testMatrix.setupTestSuite(() => {
   test('select _count that is undefined', async () => {
     const result = prisma.link.findMany({
       select: {
@@ -23,7 +23,7 @@ testMatrix.setupTestSuite((_suiteMeta, _clientMeta) => {
       /client/tests/functional/issues/24780-undefined-select-aggregate-args/tests.ts:0:0
 
          XX 
-         XX testMatrix.setupTestSuite((_suiteMeta, _clientMeta) => {
+         XX testMatrix.setupTestSuite(() => {
          XX   test('select _count that is undefined', async () => {
       → XX     const result = prisma.link.findMany({
                  select: {
