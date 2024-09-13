@@ -201,6 +201,13 @@ function addIncludedRelations(selectionSet: JsonSelectionSet, include: Selection
       continue
     }
 
+    if (isCountFieldUndefined(key, value)) {
+      // field and value are unknown, but key is `_count` and it is explicitly undefined
+      // this is a valid case, selectionSet[key] should be true
+      selectionSet[key] = true
+      continue
+    }
+
     // value is an object, field is unknown
     // this can either be user error (in that case, qe will respond with an error)
     // or virtual field not present on datamodel (like `_count`).
@@ -229,6 +236,7 @@ function createExplicitSelection(select: Selection, context: SerializeContext) {
 
   for (const [key, value] of Object.entries(selectWithComputedFields)) {
     const field = context.findField(key)
+
     if (computedFields?.[key] && !field) {
       continue
     }
@@ -244,6 +252,14 @@ function createExplicitSelection(select: Selection, context: SerializeContext) {
       }
       continue
     }
+
+    if (isCountFieldUndefined(key, value)) {
+      // field and value are unknown, but key is `_count` and it is explicitly undefined
+      // this is a valid case, selectionSet[key] should be true
+      selectionSet[key] = true
+      continue
+    }
+
     selectionSet[key] = serializeFieldSelection(value, context.nestSelection(key))
   }
   return selectionSet
@@ -376,6 +392,10 @@ function isRawParameters(value: JsInputValue): value is RawParameters {
 
 function isJSONConvertible(value: JsInputValue): value is JsonConvertible {
   return typeof value === 'object' && value !== null && typeof value['toJSON'] === 'function'
+}
+
+function isCountFieldUndefined(key: string, value: any): boolean {
+  return key === '_count' && value === undefined
 }
 
 type ContextParams = {
