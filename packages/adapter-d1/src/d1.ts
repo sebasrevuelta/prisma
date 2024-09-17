@@ -31,7 +31,7 @@ class D1Queryable<ClientT extends StdClient> implements Queryable {
   readonly provider = 'sqlite'
   readonly adapterName = packageName
 
-  constructor(protected readonly client: ClientT) {}
+  constructor(protected readonly client: ClientT) { }
 
   /**
    * Execute a query given as SQL, interpolating the given parameters.
@@ -115,6 +115,12 @@ class D1Queryable<ClientT extends StdClient> implements Queryable {
 class D1Transaction extends D1Queryable<StdClient> implements Transaction {
   constructor(client: StdClient, readonly options: TransactionOptions) {
     super(client)
+  }
+
+  async begin(): Promise<Result<void>> {
+    debug(`[js::begin]`)
+
+    return ok(undefined)
   }
 
   async commit(): Promise<Result<void>> {

@@ -622,8 +622,8 @@ importers:
         specifier: workspace:*
         version: link:../engines
       '@prisma/engines-version':
-        specifier: 5.20.0-8.c9ff5773c72b821ff6daf2c55dbe3809eae7c2c7
-        version: 5.20.0-8.c9ff5773c72b821ff6daf2c55dbe3809eae7c2c7
+        specifier: 5.20.0-2.integration-nested-transactions-70e4e8eaa9b1ca0ec042fa831bc2c81f668215a7
+        version: 5.20.0-2.integration-nested-transactions-70e4e8eaa9b1ca0ec042fa831bc2c81f668215a7
       '@prisma/fetch-engine':
         specifier: workspace:*
         version: link:../fetch-engine
@@ -649,8 +649,8 @@ importers:
         specifier: workspace:*
         version: link:../pg-worker
       '@prisma/query-engine-wasm':
-        specifier: 5.20.0-8.c9ff5773c72b821ff6daf2c55dbe3809eae7c2c7
-        version: 5.20.0-8.c9ff5773c72b821ff6daf2c55dbe3809eae7c2c7
+        specifier: 5.20.0-2.integration-nested-transactions-70e4e8eaa9b1ca0ec042fa831bc2c81f668215a7
+        version: 5.20.0-2.integration-nested-transactions-70e4e8eaa9b1ca0ec042fa831bc2c81f668215a7
       '@snaplet/copycat':
         specifier: 0.17.3
         version: 0.17.3
@@ -868,8 +868,8 @@ importers:
         specifier: workspace:*
         version: link:../debug
       '@prisma/engines-version':
-        specifier: 5.20.0-8.c9ff5773c72b821ff6daf2c55dbe3809eae7c2c7
-        version: 5.20.0-8.c9ff5773c72b821ff6daf2c55dbe3809eae7c2c7
+        specifier: 5.20.0-2.integration-nested-transactions-70e4e8eaa9b1ca0ec042fa831bc2c81f668215a7
+        version: 5.20.0-2.integration-nested-transactions-70e4e8eaa9b1ca0ec042fa831bc2c81f668215a7
       '@prisma/fetch-engine':
         specifier: workspace:*
         version: link:../fetch-engine
@@ -905,8 +905,8 @@ importers:
         specifier: workspace:*
         version: link:../debug
       '@prisma/engines-version':
-        specifier: 5.20.0-8.c9ff5773c72b821ff6daf2c55dbe3809eae7c2c7
-        version: 5.20.0-8.c9ff5773c72b821ff6daf2c55dbe3809eae7c2c7
+        specifier: 5.20.0-2.integration-nested-transactions-70e4e8eaa9b1ca0ec042fa831bc2c81f668215a7
+        version: 5.20.0-2.integration-nested-transactions-70e4e8eaa9b1ca0ec042fa831bc2c81f668215a7
       '@prisma/get-platform':
         specifier: workspace:*
         version: link:../get-platform
@@ -1097,13 +1097,13 @@ importers:
   packages/instrumentation:
     dependencies:
       '@opentelemetry/api':
-        specifier: ^1.8
+        specifier: ^1.9.0
         version: 1.9.0
       '@opentelemetry/instrumentation':
-        specifier: ^0.49 || ^0.50 || ^0.51 || ^0.52.0 || ^0.53.0
+        specifier: ^0.52.1
         version: 0.52.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/sdk-trace-base':
-        specifier: ^1.22
+        specifier: ^1.26.0
         version: 1.26.0(@opentelemetry/api@1.9.0)
     devDependencies:
       '@prisma/internals':
@@ -1230,8 +1230,8 @@ importers:
         specifier: workspace:*
         version: link:../get-platform
       '@prisma/prisma-schema-wasm':
-        specifier: 5.20.0-8.c9ff5773c72b821ff6daf2c55dbe3809eae7c2c7
-        version: 5.20.0-8.c9ff5773c72b821ff6daf2c55dbe3809eae7c2c7
+        specifier: 5.20.0-2.integration-nested-transactions-70e4e8eaa9b1ca0ec042fa831bc2c81f668215a7
+        version: 5.20.0-2.integration-nested-transactions-70e4e8eaa9b1ca0ec042fa831bc2c81f668215a7
       '@prisma/schema-files-loader':
         specifier: workspace:*
         version: link:../schema-files-loader
@@ -1402,8 +1402,8 @@ importers:
         specifier: workspace:*
         version: link:../debug
       '@prisma/engines-version':
-        specifier: 5.20.0-8.c9ff5773c72b821ff6daf2c55dbe3809eae7c2c7
-        version: 5.20.0-8.c9ff5773c72b821ff6daf2c55dbe3809eae7c2c7
+        specifier: 5.20.0-2.integration-nested-transactions-70e4e8eaa9b1ca0ec042fa831bc2c81f668215a7
+        version: 5.20.0-2.integration-nested-transactions-70e4e8eaa9b1ca0ec042fa831bc2c81f668215a7
       '@prisma/generator-helper':
         specifier: workspace:*
         version: link:../generator-helper
@@ -1557,8 +1557,8 @@ importers:
   packages/schema-files-loader:
     dependencies:
       '@prisma/prisma-schema-wasm':
-        specifier: 5.20.0-8.c9ff5773c72b821ff6daf2c55dbe3809eae7c2c7
-        version: 5.20.0-8.c9ff5773c72b821ff6daf2c55dbe3809eae7c2c7
+        specifier: 5.20.0-2.integration-nested-transactions-70e4e8eaa9b1ca0ec042fa831bc2c81f668215a7
+        version: 5.20.0-2.integration-nested-transactions-70e4e8eaa9b1ca0ec042fa831bc2c81f668215a7
       fs-extra:
         specifier: 11.1.1
         version: 11.1.1
@@ -3787,8 +3787,8 @@ packages:
     resolution: {integrity: sha512-t2XdOfrVgcF7AW791FtdPS27NyNqcE1SpoXgk3HpziousvUMsJi4Q6NL3JyOBpsMOrvk94749o8yyonvX5quPw==}
     engines: {node: '>=16'}
 
-  /@prisma/engines-version@5.20.0-8.c9ff5773c72b821ff6daf2c55dbe3809eae7c2c7:
-    resolution: {integrity: sha512-eYEw5NURBuh5Lcvm1+JnxKVKwgQxhAceA9kTVtl5mfd5R6ajfaMYY3bKOhhMmg0GQqV3QR4W3sycj4E4/f7NWw==}
+  /@prisma/engines-version@5.20.0-2.integration-nested-transactions-70e4e8eaa9b1ca0ec042fa831bc2c81f668215a7:
+    resolution: {integrity: sha512-LVF4Qunw4yQg9T5w7qwc7GkSyezhPDLt95Qq7hd1r71zv4xLN/t4UDuyt7UYp9fkzSjRkIj6d6TlOeYZDLsU/g==}
 
   /@prisma/mini-proxy@0.9.5:
     resolution: {integrity: sha512-0MLaxUjGbZGJGx9fIy1kbAH65hcZHCP6yes8xCTVcWumo64uzAxuvZdf5l1EPCZrDnj+iZNAy0U364oOAN+gXQ==}
@@ -3796,12 +3796,12 @@ packages:
     hasBin: true
     dev: true
 
-  /@prisma/prisma-schema-wasm@5.20.0-8.c9ff5773c72b821ff6daf2c55dbe3809eae7c2c7:
-    resolution: {integrity: sha512-R+x/Iy/8t0zSS1VlxFc/tDYb770DkyAgeVQnYwiGDFihRZURy76VeB8aMVrU5XqXISWoqazlt5zhySkyAnULKg==}
+  /@prisma/prisma-schema-wasm@5.20.0-2.integration-nested-transactions-70e4e8eaa9b1ca0ec042fa831bc2c81f668215a7:
+    resolution: {integrity: sha512-Oq16cAzcy5Q/isLT7jh0GqegOilWvOkZbodRmBWRygx8DuTRvti8T9HB5CJW1Zwy1PVL6OujXNHeesSkbhNYUA==}
     dev: false
 
-  /@prisma/query-engine-wasm@5.20.0-8.c9ff5773c72b821ff6daf2c55dbe3809eae7c2c7:
-    resolution: {integrity: sha512-wMOrgLL0N2rAP/VvPuPEH2l7aAOoaxatbVObhuZjv1VtZO99YQYHLJZhQs7Z5ZtD4xKmH7Z893ivpuwP41hRbg==}
+  /@prisma/query-engine-wasm@5.20.0-2.integration-nested-transactions-70e4e8eaa9b1ca0ec042fa831bc2c81f668215a7:
+    resolution: {integrity: sha512-X/FdNKzGYGruiABIMe4/Tv73QsHzOzRlzGUnmcKQ3oe3+WIuJIPuvRGUe4FgPPXWE20+KvmNipJld2r022hIzA==}
     dev: true
 
   /@prisma/studio-common@0.502.0:
@@ -4996,6 +4996,9 @@ packages:
 
   /ajv-formats@3.0.1:
     resolution: {integrity: sha512-8iUql50EUR+uUcdRQ3HDqa6EVyo3docL8g5WJ3FNcWmu62IbkGUue/pEyLBW8VGKKucTPgqeks4fIU1DA4yowQ==}
+    peerDependenciesMeta:
+      ajv:
+        optional: true
     dependencies:
       ajv: 8.13.0
     dev: true
@@ -7342,7 +7345,6 @@ packages:
 
   /graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
-    dev: true
 
   /graphemer@1.4.0:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
@@ -8619,7 +8621,7 @@ packages:
     dependencies:
       universalify: 2.0.0
     optionalDependencies:
-      graceful-fs: 4.2.10
+      graceful-fs: 4.2.11
 
   /jsonwebtoken@9.0.2:
     resolution: {integrity: sha512-PRp66vJ865SSqOlgqS8hujT5U4AOgMfhrwYIuIhfKaoSCZcirrmASQr8CX7cUg+RMih+hgznrjp99o+W4pJLHQ==}
@@ -10867,6 +10869,9 @@ packages:
   /sqlite3@5.1.2:
     resolution: {integrity: sha512-D0Reg6pRWAFXFUnZKsszCI67tthFD8fGPewRddDCX6w4cYwz3MbvuwRICbL+YQjBAh9zbw+lJ/V9oC8nG5j6eg==}
     requiresBuild: true
+    peerDependenciesMeta:
+      node-gyp:
+        optional: true
     dependencies:
       '@mapbox/node-pre-gyp': 1.0.10
       node-addon-api: 4.3.0
