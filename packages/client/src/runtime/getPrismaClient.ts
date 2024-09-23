@@ -20,7 +20,7 @@ import {
 import { addProperty, createCompositeProxy, removeProperties } from './core/compositeProxy'
 import { BatchTransactionOptions, Engine, EngineConfig, Fetch, Options } from './core/engines'
 import { AccelerateEngineConfig } from './core/engines/accelerate/AccelerateEngine'
-import { WasmLoadingConfig } from './core/engines/common/Engine'
+import { BinaryTargetFileMapLoad, WasmLoadingConfig } from './core/engines/common/Engine'
 import { EngineEvent, LogEmitter } from './core/engines/common/types/Events'
 import type * as Transaction from './core/engines/common/types/Transaction'
 import { getBatchRequestPayload } from './core/engines/common/utils/getBatchRequestPayload'
@@ -302,6 +302,13 @@ export type GetPrismaClientConfig = {
    * Optional wasm loading configuration
    */
   engineWasm?: WasmLoadingConfig
+
+  /**
+   * Loader for mapping between binary target and file on disk.
+   * Function is async, because it needs to load ESM module from CJS
+   * and until node 22 this can be done only via async dynamic `import()`.
+   */
+  loadBinaryTargetFileMap: BinaryTargetFileMapLoad
 }
 
 const TX_ID = Symbol.for('prisma.client.transaction.id')
@@ -470,6 +477,7 @@ export function getPrismaClient(config: GetPrismaClientConfig) {
             timeout: options.transactionOptions?.timeout ?? 5000,
             isolationLevel: options.transactionOptions?.isolationLevel,
           },
+          loadBinaryTargetFileMap: config.loadBinaryTargetFileMap,
           logEmitter,
           isBundled: config.isBundled,
           adapter,
