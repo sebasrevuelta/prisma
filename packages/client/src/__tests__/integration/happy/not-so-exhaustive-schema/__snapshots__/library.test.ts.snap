@@ -2647,7 +2647,7 @@ export namespace Prisma {
       id: number
       createdAt: Date
       title: string
-      content: string | null
+      content?: string | null
       published: boolean
       authorId: number
     }, ExtArgs["result"]["post"]>
@@ -3713,17 +3713,17 @@ export namespace Prisma {
       id: number
       email: string
       int: number
-      optionalInt: number | null
+      optionalInt?: number | null
       float: number
-      optionalFloat: number | null
+      optionalFloat?: number | null
       string: string
-      optionalString: string | null
+      optionalString?: string | null
       json: Prisma.JsonValue
-      optionalJson: Prisma.JsonValue | null
+      optionalJson?: Prisma.JsonValue | null
       enum: $Enums.ABeautifulEnum
-      optionalEnum: $Enums.ABeautifulEnum | null
+      optionalEnum?: $Enums.ABeautifulEnum | null
       boolean: boolean
-      optionalBoolean: boolean | null
+      optionalBoolean?: boolean | null
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -4800,17 +4800,17 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       int: number
-      optionalInt: number | null
+      optionalInt?: number | null
       float: number
-      optionalFloat: number | null
+      optionalFloat?: number | null
       string: string
-      optionalString: string | null
+      optionalString?: string | null
       json: Prisma.JsonValue
-      optionalJson: Prisma.JsonValue | null
+      optionalJson?: Prisma.JsonValue | null
       enum: $Enums.ABeautifulEnum
-      optionalEnum: $Enums.ABeautifulEnum | null
+      optionalEnum?: $Enums.ABeautifulEnum | null
       boolean: boolean
-      optionalBoolean: boolean | null
+      optionalBoolean?: boolean | null
     }, ExtArgs["result"]["m"]>
     composites: {}
   }
@@ -5886,17 +5886,17 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       int: number
-      optionalInt: number | null
+      optionalInt?: number | null
       float: number
-      optionalFloat: number | null
+      optionalFloat?: number | null
       string: string
-      optionalString: string | null
+      optionalString?: string | null
       json: Prisma.JsonValue
-      optionalJson: Prisma.JsonValue | null
+      optionalJson?: Prisma.JsonValue | null
       enum: $Enums.ABeautifulEnum
-      optionalEnum: $Enums.ABeautifulEnum | null
+      optionalEnum?: $Enums.ABeautifulEnum | null
       boolean: boolean
-      optionalBoolean: boolean | null
+      optionalBoolean?: boolean | null
     }, ExtArgs["result"]["n"]>
     composites: {}
   }
@@ -6972,17 +6972,17 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       int: number
-      optionalInt: number | null
+      optionalInt?: number | null
       float: number
-      optionalFloat: number | null
+      optionalFloat?: number | null
       string: string
-      optionalString: string | null
+      optionalString?: string | null
       json: Prisma.JsonValue
-      optionalJson: Prisma.JsonValue | null
+      optionalJson?: Prisma.JsonValue | null
       enum: $Enums.ABeautifulEnum
-      optionalEnum: $Enums.ABeautifulEnum | null
+      optionalEnum?: $Enums.ABeautifulEnum | null
       boolean: boolean
-      optionalBoolean: boolean | null
+      optionalBoolean?: boolean | null
     }, ExtArgs["result"]["oneOptional"]>
     composites: {}
   }
@@ -8072,19 +8072,19 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      oneOptionalId: number | null
+      oneOptionalId?: number | null
       int: number
-      optionalInt: number | null
+      optionalInt?: number | null
       float: number
-      optionalFloat: number | null
+      optionalFloat?: number | null
       string: string
-      optionalString: string | null
+      optionalString?: string | null
       json: Prisma.JsonValue
-      optionalJson: Prisma.JsonValue | null
+      optionalJson?: Prisma.JsonValue | null
       enum: $Enums.ABeautifulEnum
-      optionalEnum: $Enums.ABeautifulEnum | null
+      optionalEnum?: $Enums.ABeautifulEnum | null
       boolean: boolean
-      optionalBoolean: boolean | null
+      optionalBoolean?: boolean | null
     }, ExtArgs["result"]["manyRequired"]>
     composites: {}
   }
@@ -9174,19 +9174,19 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      optionalSide2Id: number | null
+      optionalSide2Id?: number | null
       int: number
-      optionalInt: number | null
+      optionalInt?: number | null
       float: number
-      optionalFloat: number | null
+      optionalFloat?: number | null
       string: string
-      optionalString: string | null
+      optionalString?: string | null
       json: Prisma.JsonValue
-      optionalJson: Prisma.JsonValue | null
+      optionalJson?: Prisma.JsonValue | null
       enum: $Enums.ABeautifulEnum
-      optionalEnum: $Enums.ABeautifulEnum | null
+      optionalEnum?: $Enums.ABeautifulEnum | null
       boolean: boolean
-      optionalBoolean: boolean | null
+      optionalBoolean?: boolean | null
     }, ExtArgs["result"]["optionalSide1"]>
     composites: {}
   }
@@ -10260,17 +10260,17 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       int: number
-      optionalInt: number | null
+      optionalInt?: number | null
       float: number
-      optionalFloat: number | null
+      optionalFloat?: number | null
       string: string
-      optionalString: string | null
+      optionalString?: string | null
       json: Prisma.JsonValue
-      optionalJson: Prisma.JsonValue | null
+      optionalJson?: Prisma.JsonValue | null
       enum: $Enums.ABeautifulEnum
-      optionalEnum: $Enums.ABeautifulEnum | null
+      optionalEnum?: $Enums.ABeautifulEnum | null
       boolean: boolean
-      optionalBoolean: boolean | null
+      optionalBoolean?: boolean | null
     }, ExtArgs["result"]["optionalSide2"]>
     composites: {}
   }
@@ -11307,7 +11307,7 @@ export namespace Prisma {
        */
       id: string
       email: string
-      name: string | null
+      name?: string | null
       /**
        * field comment 2
        */

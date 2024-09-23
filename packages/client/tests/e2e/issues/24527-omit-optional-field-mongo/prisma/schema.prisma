@@ -1,0 +1,21 @@
+generator client {
+  provider        = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = "mongodb://mongo:27017/test_db"
+}
+
+model Account {
+  id String @id @map("_id") @db.ObjectId @default(auto())
+  type SomeType
+}
+
+type Nested {
+  something   String?
+}
+
+type SomeType {
+  nested Nested?
+}
