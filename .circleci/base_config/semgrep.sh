@@ -8,19 +8,31 @@ SEMGREP_REPO_URL="$CIRCLE_REPOSITORY_URL"
 echo 'export SEMGREP_REPO_URL=$CIRCLE_REPOSITORY_URL' >> $BASH_ENV
 REPO_NAME=$(basename -s .git "$SEMGREP_REPO_URL")
 PR_NUMBER=$(echo "$CIRCLE_PULL_REQUEST" | awk -F '/' '{print $NF}' )
-if [ -n "$PR_NUMBER" ]; then 
-    echo 'export SEMGREP_BASELINE_REF = "origin/<< pipeline.parameters.master_branch >>"' >> $BASH_ENV
+if [ -n "$PR_NUMBER" ]; then
+    echo 'export SEMGREP_BASELINE_REF="origin/<< pipeline.parameters.master_branch >>"' >> $BASH_ENV
     echo "Pull Request Number: $PR_NUMBER"
     echo 'export SEMGREP_PR_ID=$PR_NUMBER' >> $BASH_ENV
     git fetch origin "+refs/heads/*:refs/remotes/origin/*"
-    export SEMGREP_REPO_DISPLAY_NAME=$REPO_NAME/$SERVICE_PARAM
-    semgrep ci --baseline-commit=$(git merge-base development HEAD)
-else
-    if [ "$CIRCLE_BRANCH" == "development" ]; then
-        echo "Running Full scan for branch: $CIRCLE_BRANCH and service: $SERVICE_PARAM"
-        export SEMGREP_REPO_DISPLAY_NAME=$REPO_NAME/$SERVICE_PARAM
-        semgrep ci --include=$SERVICE_PARAM/** || true
+    root=$(pwd)
+    # Identify package.json files modified in the PR
+    MODIFIED_PACKAGE_JSON=$(git diff --name-only $(git merge-base development HEAD) | grep 'package.json')
+
+    # Loop through each modified package.json and create a temporary lockfile
+    if [ -n "$MODIFIED_PACKAGE_JSON" ]; then
+        for file in $MODIFIED_PACKAGE_JSON; do
+            # Get the directory of the package.json file
+            dir=$(dirname $file)
+
+            # Install dependencies with pnpm to generate a temporary lockfile
+            cd $dir
+            pnpm install --lockfile-only
+            cd $root
+
+            # Run Semgrep on the generated lockfile and current dir
+            echo 'export SEMGREP_REPO_DISPLAY_NAME=$dir' >> $BASH_ENV
+            semgrep ci --baseline-commit=$(git merge-base development HEAD) --include=$dir
+        done
     else
-        echo "Skipping full scan for branches different to development."
+        echo "No package.json changes found, skipping lockfile check."
     fi
 fi
