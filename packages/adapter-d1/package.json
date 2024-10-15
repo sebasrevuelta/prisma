@@ -1,7 +1,7 @@
 {
   "name": "@prisma/adapter-d1",
   "version": "0.0.0",
-  "description": "Prisma's driver adapter for Cloudflare D1",
+  "description": "Prisma's driver adapter for Cloudflare D1.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
