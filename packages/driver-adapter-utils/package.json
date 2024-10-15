@@ -1,7 +1,7 @@
 {
   "name": "@prisma/driver-adapter-utils",
   "version": "0.0.0",
-  "description": "Internal set of utilities and types for Prisma's driver adapters.",
+  "description": "Internal set of utilities and types for Prisma's driver adapters",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
