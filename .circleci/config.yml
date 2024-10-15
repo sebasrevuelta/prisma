@@ -8,8 +8,6 @@ jobs:
     docker:
       - image: semgrep/semgrep
     parameters:
-      service:
-        type: string
       master_branch:
         type: string
     steps:
