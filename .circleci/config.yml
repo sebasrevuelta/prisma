@@ -20,7 +20,7 @@ jobs:
       - run:
           name: "Semgrep scan"
           command: |
-              export SERVICE_PARAM=<< parameters.service >>
+              ##export SERVICE_PARAM=<< parameters.service >>
               .circleci/base_config/semgrep.sh
 
 workflows:
@@ -28,7 +28,7 @@ workflows:
     jobs:
       - semgrep-scan:
           name: semgrep-scan
-          service: "B"
+          ##service: "B"
           master_branch: "development"
           context:
             - semgrep
