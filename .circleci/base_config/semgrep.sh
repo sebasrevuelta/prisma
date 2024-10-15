@@ -3,8 +3,10 @@ echo 'export SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN' >> $BASH_ENV
 echo 'export SEMGREP_COMMIT=$CIRCLE_SHA1' >> $BASH_ENV
 echo 'export SEMGREP_JOB_URL=$CIRCLE_BUILD_URL' >> $BASH_ENV
 echo "Service parameter value is $SERVICE_PARAM"
-REPO_URL="$CIRCLE_REPOSITORY_URL"
-REPO_NAME=$(basename -s .git "$REPO_URL")
+CIRCLE_REPOSITORY_URL='https://github.com/sebasrevuelta/prisma/'
+SEMGREP_REPO_URL="$CIRCLE_REPOSITORY_URL"
+echo 'export SEMGREP_REPO_URL=$CIRCLE_REPOSITORY_URL' >> $BASH_ENV
+REPO_NAME=$(basename -s .git "$SEMGREP_REPO_URL")
 PR_NUMBER=$(echo "$CIRCLE_PULL_REQUEST" | awk -F '/' '{print $NF}' )
 if [ -n "$PR_NUMBER" ]; then 
     echo 'export SEMGREP_BASELINE_REF = "origin/<< pipeline.parameters.master_branch >>"' >> $BASH_ENV
